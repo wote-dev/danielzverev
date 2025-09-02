@@ -14,6 +14,7 @@ const techStack: TechItem[] = [
   { name: 'Tailwind CSS', category: 'styling', icon: '/Tailwind.png' },
   { name: 'Node.js', category: 'backend', icon: '/node-js.png' },
   { name: 'Swift', category: 'tools', icon: '/swift.png' },
+  { name: 'Cloudflare', category: 'tools', icon: '/Cloudflare.png' },
   { name: 'Supabase', category: 'backend', icon: '/supabase.png' },
   { name: 'Figma', category: 'backend', icon: '/figma.png' },
   { name: 'Vite', category: 'mobile', icon: '/vite.png' },

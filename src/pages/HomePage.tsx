@@ -28,30 +28,8 @@ const HomePage: React.FC = () => {
         <ThemeToggle />
       </div>
 
-      {/* X (Twitter) Button - Top Left */}
-      <a
-        href="https://x.com/wote_dev"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`absolute top-6 left-4 sm:left-6 px-3 sm:px-4 py-2 sm:py-3 rounded-xl font-medium transition-all duration-200 flex items-center gap-2 sm:gap-3 shadow-sm hover:shadow-md ${
-          theme === 'dark'
-            ? 'bg-stone-800 border border-stone-700 text-stone-100 hover:bg-stone-700 hover:border-stone-600'
-            : 'bg-white border border-gray-200 text-gray-900 hover:bg-gray-50 hover:border-gray-300'
-        }`}
-      >
-        <svg
-          className="w-5 h-5"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-        </svg>
-        <span className="text-sm font-semibold">@wote_dev</span>
-      </a>
-      
-      {/* Status Indicator - Bottom Left */}
-      <div className="absolute bottom-6 left-6 flex items-center gap-2">
+      {/* Status Indicator - Top Left */}
+      <div className="absolute top-6 left-4 sm:left-6 flex items-center gap-2">
         <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse shadow-sm"></div>
         <span className={`text-sm font-medium transition-colors duration-300 ${
           theme === 'dark' 
@@ -61,6 +39,8 @@ const HomePage: React.FC = () => {
           Available for work
         </span>
       </div>
+      
+
 
       <div className="text-center">
         <h1 className={`text-6xl font-bold mb-4 transition-colors duration-300 ${
