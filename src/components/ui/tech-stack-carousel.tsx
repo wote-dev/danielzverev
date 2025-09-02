@@ -22,23 +22,23 @@ const techStack: TechItem[] = [
 ];
 
 const categoryColors = {
-  frontend: 'bg-blue-500/20 text-blue-600 border-blue-500/30',
-  backend: 'bg-green-500/20 text-green-600 border-green-500/30',
-  mobile: 'bg-purple-500/20 text-purple-600 border-purple-500/30',
-  tools: 'bg-orange-500/20 text-orange-600 border-orange-500/30',
-  'version-control': 'bg-gray-800/20 text-gray-800 border-gray-800/30',
-  design: 'bg-orange-500/20 text-orange-600 border-orange-500/30',
-  styling: 'bg-cyan-400/20 text-cyan-600 border-cyan-400/30',
+  frontend: 'bg-stone-100/50 text-stone-600 border-stone-200/50',
+  backend: 'bg-stone-100/50 text-stone-600 border-stone-200/50',
+  mobile: 'bg-stone-100/50 text-stone-600 border-stone-200/50',
+  tools: 'bg-stone-100/50 text-stone-600 border-stone-200/50',
+  'version-control': 'bg-stone-100/50 text-stone-600 border-stone-200/50',
+  design: 'bg-stone-100/50 text-stone-600 border-stone-200/50',
+  styling: 'bg-stone-100/50 text-stone-600 border-stone-200/50',
 };
 
 const categoryColorsDark = {
-  frontend: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-  backend: 'bg-green-500/10 text-green-400 border-green-500/20',
-  mobile: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
-  tools: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
-  'version-control': 'bg-gray-200/10 text-gray-200 border-gray-200/20',
-  design: 'bg-orange-500/10 text-orange-400 border-orange-500/20',
-  styling: 'bg-cyan-400/10 text-cyan-400 border-cyan-400/20',
+  frontend: 'bg-stone-900/50 text-stone-400 border-stone-800/50',
+  backend: 'bg-stone-900/50 text-stone-400 border-stone-800/50',
+  mobile: 'bg-stone-900/50 text-stone-400 border-stone-800/50',
+  tools: 'bg-stone-900/50 text-stone-400 border-stone-800/50',
+  'version-control': 'bg-stone-900/50 text-stone-400 border-stone-800/50',
+  design: 'bg-stone-900/50 text-stone-400 border-stone-800/50',
+  styling: 'bg-stone-900/50 text-stone-400 border-stone-800/50',
 };
 
 export function TechStackCarousel() {
@@ -65,7 +65,7 @@ export function TechStackCarousel() {
     <div className="flex items-center justify-center">
       <div
         className={`
-          px-4 py-2 rounded-full border text-sm font-medium flex items-center gap-2
+          px-3 py-1.5 rounded-full border text-xs font-medium flex items-center gap-1.5
           transition-all duration-300 ease-in-out
           ${colors[currentTech.category]}
           ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}
@@ -75,7 +75,7 @@ export function TechStackCarousel() {
           <img 
             src={currentTech.icon} 
             alt={currentTech.name} 
-            className="w-4 h-4 object-contain"
+            className="w-3 h-3 object-contain"
           />
         )}
         {currentTech.name}

@@ -13,60 +13,31 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
   const isDark = theme === "dark"
 
   return (
-    <div
+    <button
       className={cn(
-        "flex w-16 h-8 p-1 rounded-full cursor-pointer transition-all duration-300",
+        "relative w-12 h-6 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2",
         isDark
-          ? "bg-stone-900 border border-stone-700"
-          : "bg-white border border-zinc-200",
+          ? "bg-stone-700 focus:ring-stone-500"
+          : "bg-stone-300 focus:ring-stone-400",
         className
       )}
       onClick={toggleTheme}
-      role="button"
-      tabIndex={0}
+      aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
-      <div className="flex justify-between items-center w-full">
-        <div
-          className={cn(
-            "flex justify-center items-center w-6 h-6 rounded-full transition-transform duration-300",
-            isDark
-              ? "transform translate-x-0 bg-stone-800"
-              : "transform translate-x-8 bg-gray-200"
-          )}
-        >
-          {isDark ? (
-            <Moon
-              className="w-4 h-4 text-white"
-              strokeWidth={1.5}
-            />
-          ) : (
-            <Sun
-              className="w-4 h-4 text-gray-700"
-              strokeWidth={1.5}
-            />
-          )}
-        </div>
-        <div
-          className={cn(
-            "flex justify-center items-center w-6 h-6 rounded-full transition-transform duration-300",
-            isDark
-              ? "bg-transparent"
-              : "transform -translate-x-8"
-          )}
-        >
-          {isDark ? (
-            <Sun
-              className="w-4 h-4 text-gray-500"
-              strokeWidth={1.5}
-            />
-          ) : (
-            <Moon
-              className="w-4 h-4 text-black"
-              strokeWidth={1.5}
-            />
-          )}
-        </div>
+      <div
+        className={cn(
+          "absolute top-0.5 left-0.5 w-5 h-5 rounded-full transition-transform duration-300 flex items-center justify-center",
+          isDark
+            ? "translate-x-6 bg-stone-900"
+            : "translate-x-0 bg-white"
+        )}
+      >
+        {isDark ? (
+          <Moon className="w-3 h-3 text-stone-300" strokeWidth={2} />
+        ) : (
+          <Sun className="w-3 h-3 text-stone-600" strokeWidth={2} />
+        )}
       </div>
-    </div>
+    </button>
   )
 }
