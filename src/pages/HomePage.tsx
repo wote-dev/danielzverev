@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { TechStackCarousel } from '@/components/ui/tech-stack-carousel';
+import { SocialLink } from '@/components/ui/social-link';
 import { useTheme } from '@/contexts/ThemeContext';
 
-const HomePage: React.FC = () => {
+interface HomePageProps {
+  isVisible: boolean;
+}
+
+const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   const { theme } = useTheme();
+  const [animationStage, setAnimationStage] = useState(0);
+
+  useEffect(() => {
+    if (isVisible) {
+      const stages = [1, 2, 3, 4, 5];
+      stages.forEach((stage, index) => {
+        setTimeout(() => {
+          setAnimationStage(stage);
+        }, index * 150);
+      });
+    }
+  }, [isVisible]);
   
   return (
     <div className={`h-full flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
@@ -13,7 +30,9 @@ const HomePage: React.FC = () => {
         : 'bg-stone-50'
     }`}>
       {/* Coordinates - Top Center */}
-      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 sm:top-8 top-24 z-10">
+      <div className={`absolute top-8 left-1/2 transform -translate-x-1/2 sm:top-8 top-24 z-10 transition-all duration-700 ease-out ${
+        animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+      }`}>
         <div className={`px-4 py-2 font-mono text-xs font-medium rounded-full transition-all duration-300 hover:scale-105 cursor-pointer ${
           theme === 'dark'
             ? 'bg-stone-900/60 text-stone-400 border border-stone-800/50 hover:bg-stone-900/80 hover:text-stone-300'
@@ -27,18 +46,16 @@ const HomePage: React.FC = () => {
       </div>
 
       {/* Theme Toggle - Top Right */}
-      <div className="absolute top-8 right-6 z-10">
-        <div className={`p-2 rounded-full transition-all duration-300 ${
-          theme === 'dark'
-            ? 'bg-stone-900/60 border border-stone-800/50 hover:bg-stone-900/80'
-            : 'bg-white/60 border border-stone-200/50 hover:bg-white/80'
-        }`}>
-          <ThemeToggle />
-        </div>
+      <div className={`absolute top-8 right-6 z-10 transition-all duration-700 ease-out delay-75 ${
+        animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+      }`}>
+        <ThemeToggle />
       </div>
 
       {/* Status Indicator - Top Left */}
-      <div className="absolute top-8 left-6 z-10">
+      <div className={`absolute top-8 left-6 z-10 transition-all duration-700 ease-out delay-150 ${
+        animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+      }`}>
         <div className={`px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 ${
           theme === 'dark'
             ? 'bg-stone-900/60 border border-stone-800/50 hover:bg-stone-900/80'
@@ -58,79 +75,67 @@ const HomePage: React.FC = () => {
       </div>
       
       {/* Social Links - Bottom Left */}
-      <div className="absolute bottom-8 left-6 z-10">
+      <div className={`absolute bottom-8 left-6 z-10 transition-all duration-700 ease-out delay-300 ${
+        animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      }`}>
         <div className="flex items-center gap-2">
-          {/* Email */}
-          <a 
-            href="mailto:admin@blackcubesolutions.com" 
-            className={`p-2.5 rounded-full transition-all duration-300 hover:scale-110 ${
-              theme === 'dark'
-                ? 'text-stone-500 hover:text-stone-300 hover:bg-stone-900/60 border border-stone-800/50'
-                : 'text-stone-400 hover:text-stone-600 hover:bg-white/60 border border-stone-200/50'
-            }`}
-            aria-label="Email"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-            </svg>
-          </a>
+          <SocialLink
+            href="mailto:admin@blackcubesolutions.com"
+            label="Email"
+            delay={100}
+            icon={
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+              </svg>
+            }
+          />
           
-          {/* X (Twitter) */}
-          <a 
-            href="https://x.com/wote_dev" 
-            target="_blank" 
+          <SocialLink
+            href="https://x.com/wote_dev"
+            target="_blank"
             rel="noopener noreferrer"
-            className={`p-2.5 rounded-full transition-all duration-300 hover:scale-110 ${
-              theme === 'dark'
-                ? 'text-stone-500 hover:text-stone-300 hover:bg-stone-900/60 border border-stone-800/50'
-                : 'text-stone-400 hover:text-stone-600 hover:bg-white/60 border border-stone-200/50'
-            }`}
-            aria-label="X (Twitter)"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-          </a>
+            label="X (Twitter)"
+            delay={200}
+            icon={
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            }
+          />
           
-          {/* LinkedIn */}
-          <a 
-            href="https://www.linkedin.com/in/daniel-zverev/" 
-            target="_blank" 
+          <SocialLink
+            href="https://www.linkedin.com/in/daniel-zverev/"
+            target="_blank"
             rel="noopener noreferrer"
-            className={`p-2.5 rounded-full transition-all duration-300 hover:scale-110 ${
-              theme === 'dark'
-                ? 'text-stone-500 hover:text-stone-300 hover:bg-stone-900/60 border border-stone-800/50'
-                : 'text-stone-400 hover:text-stone-600 hover:bg-white/60 border border-stone-200/50'
-            }`}
-            aria-label="LinkedIn"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clipRule="evenodd" />
-            </svg>
-          </a>
+            label="LinkedIn"
+            delay={300}
+            icon={
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clipRule="evenodd" />
+              </svg>
+            }
+          />
           
-          {/* Cal.com */}
-          <a 
-            href="https://cal.com/danielzverev" 
-            target="_blank" 
+          <SocialLink
+            href="https://cal.com/danielzverev"
+            target="_blank"
             rel="noopener noreferrer"
-            className={`p-2.5 rounded-full transition-all duration-300 hover:scale-110 ${
-              theme === 'dark'
-                ? 'text-stone-500 hover:text-stone-300 hover:bg-stone-900/60 border border-stone-800/50'
-                : 'text-stone-400 hover:text-stone-600 hover:bg-white/60 border border-stone-200/50'
-            }`}
-            aria-label="Schedule a meeting"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-            </svg>
-          </a>
+            label="Schedule a meeting"
+            delay={400}
+            icon={
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+              </svg>
+            }
+          />
         </div>
       </div>
 
       {/* Projects - Bottom Right */}
-      <div className="absolute bottom-8 right-6 z-10">
+      <div className={`absolute bottom-8 right-6 z-10 transition-all duration-700 ease-out delay-375 ${
+        animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      }`}>
         <a 
           href="https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464" 
           target="_blank" 
@@ -149,8 +154,10 @@ const HomePage: React.FC = () => {
       {/* Central Content */}
       <div className="flex flex-col items-center justify-center min-h-screen px-4 relative z-0">
         <div className="text-center space-y-8 relative z-10">
-          <div className="space-y-4">
-            <h1 className={`text-5xl sm:text-6xl md:text-7xl font-light tracking-tight transition-colors duration-300 ${
+          <div className={`space-y-4 transition-all duration-1000 ease-out delay-450 ${
+            animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <h1 className={`text-5xl sm:text-6xl md:text-7xl font-light tracking-tight transition-all duration-300 ${
               theme === 'dark' 
                 ? 'text-stone-100' 
                 : 'text-stone-900'
@@ -158,21 +165,27 @@ const HomePage: React.FC = () => {
               Daniel Zverev
             </h1>
             
-            <p className={`text-lg sm:text-xl font-light max-w-xl mx-auto leading-relaxed transition-colors duration-300 ${
+            <p className={`text-lg sm:text-xl font-light max-w-xl mx-auto leading-relaxed transition-all duration-300 delay-100 ${
               theme === 'dark' 
                 ? 'text-stone-400' 
                 : 'text-stone-500'
+            } ${
+              animationStage >= 3 ? 'opacity-100' : 'opacity-0'
             }`}>
               Full-stack developer crafting digital experiences
             </p>
           </div>
           
-          <div className="mt-8">
+          <div className={`mt-8 transition-all duration-700 ease-out delay-600 ${
+            animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}>
             <TechStackCarousel />
           </div>
           
           {/* Call to Action */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-8">
+          <div className={`flex flex-col sm:flex-row items-center justify-center gap-3 mt-8 transition-all duration-700 ease-out delay-750 ${
+            animationStage >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}>
             <a 
               href="mailto:admin@blackcubesolutions.com" 
               className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 ${
