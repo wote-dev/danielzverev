@@ -152,7 +152,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
 
       {/* Central Content */}
-      <div className="flex flex-col items-center justify-center min-h-screen px-4 relative z-0">
+      <div className="flex flex-col items-center justify-center min-h-screen px-4 relative z-0 -mt-16">
         <div className="text-center space-y-8 relative z-10">
           {/* Tech Stack Carousel - Above Name */}
           <div className={`mb-8 transition-all duration-700 ease-out delay-300 ${
