@@ -176,15 +176,9 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
             </p>
           </div>
           
-          <div className={`mt-8 transition-all duration-700 ease-out delay-600 ${
-            animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}>
-            <TechStackCarousel />
-          </div>
-          
           {/* Call to Action */}
-          <div className={`flex flex-col sm:flex-row items-center justify-center gap-3 mt-8 transition-all duration-700 ease-out delay-750 ${
-            animationStage >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          <div className={`flex flex-row items-center justify-center gap-3 mt-8 transition-all duration-700 ease-out delay-600 ${
+            animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             <a 
               href="mailto:admin@blackcubesolutions.com" 
@@ -209,6 +203,12 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
             >
               Schedule a Call
             </a>
+          </div>
+          
+          <div className={`mt-8 transition-all duration-700 ease-out delay-750 ${
+            animationStage >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}>
+            <TechStackCarousel />
           </div>
         </div>
       </div>
