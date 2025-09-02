@@ -1,10 +1,13 @@
 import HomePage from './pages/HomePage';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
   return (
-    <div className="w-full h-full">
-      <HomePage />
-    </div>
+    <ThemeProvider>
+      <div className="w-full h-full">
+        <HomePage />
+      </div>
+    </ThemeProvider>
   );
 }
 
