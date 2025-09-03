@@ -50,14 +50,14 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       }`}>
         <div className={`px-4 py-2 font-sans text-xs font-medium rounded-full transition-all duration-300 hover:scale-105 cursor-pointer ${
           theme === 'dark'
-            ? 'bg-stone-900/60 text-stone-400 border border-stone-600 hover:bg-stone-900/80 hover:text-stone-300'
-            : 'bg-white/60 text-stone-500 border border-stone-300 hover:bg-white/80 hover:text-stone-600'
+            ? 'bg-stone-900/40 text-stone-400 embossed-subtle-dark hover:bg-stone-900/60 hover:text-stone-300'
+            : 'bg-stone-50/40 text-stone-500 embossed-subtle-light hover:bg-stone-50/60 hover:text-stone-600'
         }`}>
           <span className="tracking-wide flex items-center gap-1.5">
             <svg className="w-3 h-3" fill="#ef4444" viewBox="0 0 16 16">
               <path d="M8 0a5 5 0 0 0-5 5c0 5 5 10 5 10s5-5 5-10a5 5 0 0 0-5-5zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
             </svg>
-            <span>Melbourne, AU</span>
+            <span className={theme === 'dark' ? 'embossed-text-dark' : 'embossed-text-light'}>Melbourne, AU</span>
           </span>
         </div>
       </div>
@@ -75,15 +75,15 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       }`}>
         <div className={`px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 ${
           theme === 'dark'
-            ? 'bg-stone-900/60 border border-stone-600 hover:bg-stone-900/80'
-            : 'bg-white/60 border border-stone-300 hover:bg-white/80'
+            ? 'bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
+            : 'bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
         }`}>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
             <span className={`text-xs font-medium transition-colors duration-300 ${
               theme === 'dark' 
-                ? 'text-stone-400' 
-                : 'text-stone-500'
+                ? 'text-stone-400 embossed-text-dark' 
+                : 'text-stone-500 embossed-text-light'
             }`}>
               Available
             </span>
@@ -159,8 +159,8 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
           rel="noopener noreferrer"
           className={`flex items-center gap-2 px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 hover:scale-105 ${
             theme === 'dark'
-              ? 'text-stone-400 hover:text-stone-300 hover:bg-stone-900/60 border border-stone-600'
-              : 'text-stone-500 hover:text-stone-600 hover:bg-white/60 border border-stone-300'
+              ? 'text-stone-400 hover:text-stone-300 bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
+              : 'text-stone-500 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
           }`}
         >
           <img src="/simplr.png" alt="Simplr" className="w-4 h-4 rounded" />
@@ -208,8 +208,8 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
               href="mailto:admin@blackcubesolutions.com" 
               className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 ${
                 theme === 'dark'
-                  ? 'bg-stone-100 text-stone-900 hover:bg-white'
-                  : 'bg-stone-900 text-white hover:bg-stone-800'
+                  ? 'bg-stone-100/90 text-stone-900 embossed-subtle-light hover:bg-white'
+                  : 'bg-stone-900/90 text-white embossed-subtle-dark hover:bg-stone-800'
               }`}
             >
               Get In Touch
@@ -219,10 +219,10 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
               href="https://cal.com/danielzverev" 
               target="_blank" 
               rel="noopener noreferrer"
-              className={`px-6 py-3 rounded-full font-medium text-sm border transition-all duration-300 hover:scale-105 ${
+              className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 ${
                 theme === 'dark'
-                  ? 'border-stone-600 text-stone-400 hover:border-stone-500 hover:text-stone-300 hover:bg-stone-900/50'
-                  : 'border-stone-200 text-stone-500 hover:border-stone-300 hover:text-stone-600 hover:bg-white/50'
+                  ? 'text-stone-400 hover:text-stone-300 bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
+                  : 'text-stone-500 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
               }`}
             >
               Schedule a Call

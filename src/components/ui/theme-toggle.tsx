@@ -16,16 +16,16 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     <div className={cn(
       "rounded-full transition-all duration-300 hover:scale-105",
       isDark
-        ? "bg-stone-900/60 border border-stone-600 hover:bg-stone-900/80"
-        : "bg-white/60 border border-stone-300 hover:bg-white/80",
+        ? "bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60"
+        : "bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60",
       className
     )}>
       <button
         className={cn(
           "relative w-12 h-6 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 m-2",
           isDark
-            ? "bg-stone-700 focus:ring-stone-500"
-            : "bg-stone-300 focus:ring-stone-400"
+            ? "bg-stone-800/60 embossed-subtle-dark focus:ring-stone-500"
+            : "bg-stone-200/60 embossed-subtle-light focus:ring-stone-400"
         )}
         onClick={toggleTheme}
         aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
@@ -34,8 +34,8 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
         className={cn(
           "absolute top-0.5 left-0.5 w-5 h-5 rounded-full transition-transform duration-300 flex items-center justify-center",
           isDark
-            ? "translate-x-6 bg-stone-900"
-            : "translate-x-0 bg-white"
+            ? "translate-x-6 bg-stone-900/80 embossed-subtle-dark"
+            : "translate-x-0 bg-white/80 embossed-subtle-light"
         )}
       >
         {isDark ? (
