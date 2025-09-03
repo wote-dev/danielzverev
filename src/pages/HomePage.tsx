@@ -25,12 +25,11 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   
   return (
     <div 
-      className={`w-full h-full flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
+      className={`w-full h-screen min-h-screen flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
         theme === 'dark' 
           ? 'bg-neutral-900' 
           : 'bg-gray-50'
       }`}
-style={{ height: '100vh', minHeight: '100vh' }}
     >
       {/* Coordinates - Top Center */}
       <div className={`absolute top-8 left-1/2 transform -translate-x-1/2 sm:top-8 top-24 z-10 transition-all duration-700 ease-out hidden sm:block ${
