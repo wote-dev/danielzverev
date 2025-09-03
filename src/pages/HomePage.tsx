@@ -149,7 +149,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
           }`}
         >
           <img src="/simplr.png" alt="Simplr" className="w-4 h-4 rounded" />
-          <span>Simplr</span>
+          <span>Simplr (iOS)</span>
         </a>
       </div>
 
