@@ -43,39 +43,15 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
       <div className="flex flex-col items-center space-y-8">
         {/* Animated Logo/Initial */}
         <div className="relative">
-          <div
-            className={`w-16 h-16 rounded-full border-2 transition-all duration-1000 ${
-              theme === 'dark'
-                ? 'border-stone-700 bg-stone-800'
-                : 'border-stone-200 bg-white'
-            }`}
+          <img
+            src="/me.png"
+            alt="Daniel Zverev"
+            className="w-16 h-16 rounded-full object-cover transition-all duration-1000"
             style={{
-              transform: `scale(${0.8 + (progress / 100) * 0.2})`,
+              opacity: Math.min(progress / 50, 1),
+              transform: `translateY(${Math.max(10 - progress / 5, 0)}px) scale(${0.8 + (progress / 100) * 0.2})`,
             }}
-          >
-            <div className="absolute inset-0 flex items-center justify-center">
-              <img
-                src="/me.png"
-                alt="Daniel Zverev"
-                className="w-12 h-12 rounded-full object-cover transition-all duration-1000"
-                style={{
-                  opacity: Math.min(progress / 50, 1),
-                  transform: `translateY(${Math.max(10 - progress / 5, 0)}px)`,
-                }}
-                loading="eager"
-              />
-            </div>
-          </div>
-          
-          {/* Rotating border */}
-          <div
-            className={`absolute inset-0 w-16 h-16 rounded-full border-2 border-transparent transition-all duration-1000 ${
-              theme === 'dark' ? 'border-t-stone-400' : 'border-t-stone-600'
-            }`}
-            style={{
-              transform: `rotate(${progress * 3.6}deg)`,
-              opacity: Math.min(progress / 30, 1),
-            }}
+            loading="eager"
           />
         </div>
 
