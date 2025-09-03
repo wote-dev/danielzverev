@@ -46,7 +46,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   return (
     <div className={`w-full h-full min-h-screen min-h-dvh flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
       theme === 'dark' 
-        ? 'bg-stone-950' 
+        ? 'bg-stone-900' 
         : 'bg-stone-50'
     }`}>
       {/* Coordinates - Top Center */}
