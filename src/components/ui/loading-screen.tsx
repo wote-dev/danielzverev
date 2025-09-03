@@ -9,8 +9,14 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
   const { theme } = useTheme();
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+  const [showInitial, setShowInitial] = useState(false);
 
   useEffect(() => {
+    // Show initial after a brief delay
+    const initialTimer = setTimeout(() => {
+      setShowInitial(true);
+    }, 300);
+
     const timer = setTimeout(() => {
       const interval = setInterval(() => {
         setProgress((prev) => {
@@ -19,93 +25,106 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
             setIsComplete(true);
             setTimeout(() => {
               onLoadingComplete();
-            }, 500);
+            }, 800);
             return 100;
           }
-          return prev + Math.random() * 15 + 5;
+          return prev + Math.random() * 12 + 3;
         });
-      }, 50);
+      }, 60);
 
       return () => clearInterval(interval);
-    }, 200);
+    }, 800);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(initialTimer);
+      clearTimeout(timer);
+    };
   }, [onLoadingComplete]);
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center transition-all duration-700 ${
-        isComplete ? 'opacity-0 pointer-events-none' : 'opacity-100'
+      className={`fixed inset-0 z-50 flex items-center justify-center transition-all duration-1000 ${
+        isComplete ? 'opacity-0 pointer-events-none scale-95' : 'opacity-100 scale-100'
       } ${
         theme === 'dark' ? 'bg-stone-900' : 'bg-stone-50'
       }`}
     >
-      <div className="flex flex-col items-center space-y-8">
-        {/* Animated Logo/Initial */}
+      <div className="flex flex-col items-center space-y-12">
+        {/* Elegant Initial */}
         <div className="relative">
-          <img
-            src="/me.png"
-            alt="Daniel Zverev"
-            className="w-16 h-16 rounded-full object-cover transition-all duration-1000"
+          <div
+            className={`w-20 h-20 rounded-full flex items-center justify-center transition-all duration-1000 ease-out ${
+              showInitial ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-90 translate-y-4'
+            } ${
+              theme === 'dark'
+                ? 'bg-stone-800/50 border border-stone-700/50 shadow-2xl shadow-stone-900/20'
+                : 'bg-stone-100/80 border border-stone-200/60 shadow-2xl shadow-stone-900/10'
+            }`}
             style={{
-              opacity: Math.min(progress / 50, 1),
-              transform: `translateY(${Math.max(10 - progress / 5, 0)}px) scale(${0.8 + (progress / 100) * 0.2})`,
+              backdropFilter: 'blur(20px)',
             }}
-            loading="eager"
+          >
+            <span
+              className={`text-2xl font-light tracking-wider transition-all duration-700 ${
+                theme === 'dark' ? 'text-stone-200' : 'text-stone-700'
+              }`}
+              style={{
+                opacity: showInitial ? 1 : 0,
+                transform: `scale(${showInitial ? 1 : 0.8})`,
+              }}
+            >
+              DZ
+            </span>
+          </div>
+          
+          {/* Subtle glow effect */}
+          <div
+            className={`absolute inset-0 rounded-full transition-all duration-1000 ${
+              theme === 'dark' ? 'bg-stone-400/5' : 'bg-stone-600/5'
+            }`}
+            style={{
+              opacity: showInitial ? 0.6 : 0,
+              transform: `scale(${1.2 + (progress / 100) * 0.1})`,
+              filter: 'blur(8px)',
+            }}
           />
         </div>
 
-        {/* Progress indicator */}
-        <div className="w-48 space-y-3">
-          <div
-            className={`h-0.5 rounded-full overflow-hidden ${
-              theme === 'dark' ? 'bg-stone-800' : 'bg-stone-200'
-            }`}
-          >
+        {/* Minimal Progress Indicator */}
+        <div className="w-64 space-y-6">
+          {/* Elegant progress bar */}
+          <div className="relative">
             <div
-              className={`h-full transition-all duration-300 ease-out ${
+              className={`h-px w-full transition-all duration-500 ${
+                theme === 'dark' ? 'bg-stone-800' : 'bg-stone-200'
+              }`}
+            />
+            <div
+              className={`absolute top-0 left-0 h-px transition-all duration-700 ease-out ${
                 theme === 'dark' ? 'bg-stone-400' : 'bg-stone-600'
               }`}
               style={{
                 width: `${progress}%`,
-                transform: `translateX(${progress < 100 ? '-2px' : '0px'})`,
+                boxShadow: theme === 'dark' 
+                  ? '0 0 8px rgba(168, 162, 158, 0.3)' 
+                  : '0 0 8px rgba(87, 83, 78, 0.2)',
               }}
             />
           </div>
           
-          {/* Loading text */}
-          <div className="flex items-center justify-center space-x-1">
-            {['L', 'o', 'a', 'd', 'i', 'n', 'g'].map((letter, index) => (
-              <span
-                key={index}
-                className={`text-sm font-medium transition-all duration-300 ${
-                  theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
-                }`}
-                style={{
-                  opacity: Math.min(Math.max((progress - index * 10) / 20, 0), 1),
-                  transform: `translateY(${Math.max(5 - (progress - index * 10) / 4, 0)}px)`,
-                }}
-              >
-                {letter}
-              </span>
-            ))}
-            
-            {/* Animated dots */}
-            <div className="flex space-x-1 ml-2">
-              {[0, 1, 2].map((dot) => (
-                <div
-                  key={dot}
-                  className={`w-1 h-1 rounded-full transition-all duration-300 ${
-                    theme === 'dark' ? 'bg-stone-400' : 'bg-stone-500'
-                  }`}
-                  style={{
-                    opacity: progress > 20 ? 1 : 0,
-                    transform: `scale(${1 + Math.sin((progress * 0.1) + (dot * 0.5)) * 0.3})`,
-                    animationDelay: `${dot * 200}ms`,
-                  }}
-                />
-              ))}
-            </div>
+          {/* Refined status text */}
+          <div className="flex items-center justify-center">
+            <span
+              className={`text-xs font-light tracking-widest uppercase transition-all duration-500 ${
+                theme === 'dark' ? 'text-stone-500' : 'text-stone-400'
+              }`}
+              style={{
+                opacity: progress > 10 ? 1 : 0,
+                transform: `translateY(${progress > 10 ? 0 : 8}px)`,
+              }}
+            >
+              Crafting Experience
+            </span>
           </div>
         </div>
       </div>
