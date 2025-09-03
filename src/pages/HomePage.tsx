@@ -3,6 +3,7 @@ import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { TechStackCarousel } from '@/components/ui/tech-stack-carousel';
 import { SocialLink } from '@/components/ui/social-link';
 import { SimplrInline } from '@/components/ui/simplr-inline';
+import { BioModal } from '@/components/ui/bio-modal';
 import { useTheme } from '@/contexts/ThemeContext';
 
 interface HomePageProps {
@@ -13,6 +14,9 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   const { theme } = useTheme();
   const [animationStage, setAnimationStage] = useState(0);
   const [showSimplrPrompt, setShowSimplrPrompt] = useState(false);
+  const [showBioModal, setShowBioModal] = useState(false);
+  const [isHoveringAvatar, setIsHoveringAvatar] = useState(false);
+  const [isHoveringName, setIsHoveringName] = useState(false);
 
   useEffect(() => {
     if (isVisible) {
@@ -176,27 +180,85 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
           }`}>
             {/* Avatar */}
             <div className="flex justify-center mb-3">
-              <div className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 ${
-                theme === 'dark'
-                  ? 'ring-2 ring-stone-700/50 shadow-xl'
-                  : 'ring-2 ring-stone-200/50 shadow-lg'
-              }`}>
-                <img 
-                  src="/me.png" 
-                  alt="Daniel Zverev" 
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
+              <div className="relative">
+                {/* Tooltip */}
+                <div
+                  className={`absolute -top-10 left-1/2 transform -translate-x-1/2 px-2 py-1 rounded text-xs font-medium whitespace-nowrap pointer-events-none transition-all duration-200 z-20 ${
+                    isHoveringAvatar
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-1'
+                  } ${
+                    theme === 'dark'
+                      ? 'bg-stone-800/90 text-stone-200 shadow-lg'
+                      : 'bg-white/90 text-stone-700 shadow-lg'
+                  }`}
+                >
+                  Click to read my bio
+                  {/* Arrow */}
+                  <div
+                    className={`absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-l-transparent border-r-transparent ${
+                      theme === 'dark' ? 'border-t-stone-800/90' : 'border-t-white/90'
+                    }`}
+                  />
+                </div>
+                
+                <button
+                  onClick={() => setShowBioModal(true)}
+                  onMouseEnter={() => setIsHoveringAvatar(true)}
+                  onMouseLeave={() => setIsHoveringAvatar(false)}
+                  className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+                    theme === 'dark'
+                      ? 'ring-2 ring-stone-700/50 shadow-xl focus:ring-stone-500 focus:ring-offset-stone-900'
+                      : 'ring-2 ring-stone-200/50 shadow-lg focus:ring-stone-400 focus:ring-offset-stone-50'
+                  }`}
+                  aria-label="View bio"
+                >
+                  <img 
+                    src="/me.png" 
+                    alt="Daniel Zverev" 
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                  />
+                </button>
               </div>
             </div>
             
-            <h1 className={`text-5xl sm:text-6xl md:text-7xl font-light tracking-tight transition-all duration-300 ${
-              theme === 'dark' 
-                ? 'text-stone-100' 
-                : 'text-stone-900'
-            }`}>
-              Daniel Zverev
-            </h1>
+            <div className="relative">
+              {/* Tooltip */}
+              <div
+                className={`absolute -top-12 left-1/2 transform -translate-x-1/2 px-2 py-1 rounded text-xs font-medium whitespace-nowrap pointer-events-none transition-all duration-200 z-20 ${
+                  isHoveringName
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-1'
+                } ${
+                  theme === 'dark'
+                    ? 'bg-stone-800/90 text-stone-200 shadow-lg'
+                    : 'bg-white/90 text-stone-700 shadow-lg'
+                }`}
+              >
+                Click to read my bio
+                {/* Arrow */}
+                <div
+                  className={`absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-l-transparent border-r-transparent ${
+                    theme === 'dark' ? 'border-t-stone-800/90' : 'border-t-white/90'
+                  }`}
+                />
+              </div>
+              
+              <button
+                onClick={() => setShowBioModal(true)}
+                onMouseEnter={() => setIsHoveringName(true)}
+                onMouseLeave={() => setIsHoveringName(false)}
+                className={`text-5xl sm:text-6xl md:text-7xl font-light tracking-tight transition-all duration-300 hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-2 py-1 ${
+                  theme === 'dark' 
+                    ? 'text-stone-100 hover:text-stone-200 focus:ring-stone-500 focus:ring-offset-stone-900' 
+                    : 'text-stone-900 hover:text-stone-700 focus:ring-stone-400 focus:ring-offset-stone-50'
+                }`}
+                aria-label="View bio"
+              >
+                Daniel Zverev
+              </button>
+            </div>
             
             <p className={`text-lg sm:text-xl font-light max-w-xl mx-auto leading-relaxed transition-all duration-300 delay-100 whitespace-nowrap ${
               theme === 'dark' 
@@ -259,6 +321,12 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
           <SimplrInline onClose={handleCloseSimplrPrompt} />
         </div>
       )}
+      
+      {/* Bio Modal */}
+      <BioModal 
+        isOpen={showBioModal} 
+        onClose={() => setShowBioModal(false)} 
+      />
     </div>
   );
 };
