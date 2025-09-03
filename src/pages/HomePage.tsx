@@ -27,8 +27,8 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
     <div 
       className={`w-full h-full flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
         theme === 'dark' 
-          ? 'bg-stone-900' 
-          : 'bg-stone-50'
+          ? 'bg-neutral-900' 
+          : 'bg-gray-50'
       }`}
       style={{ height: 'var(--full-height, 100vh)', minHeight: 'var(--full-height, 100vh)' }}
     >
