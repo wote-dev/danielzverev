@@ -5,7 +5,7 @@
   --color-primary-foreground: #ffffff;
   --color-secondary: #f1f5f9;
   --color-secondary-foreground: #0f172a;
-  --color-background: #ffffff;
+  --color-background: #fafaf9;
   --color-foreground: #0f172a;
   --color-muted: #f8fafc;
   --color-muted-foreground: #64748b;
@@ -17,7 +17,7 @@
 
 @media (prefers-color-scheme: dark) {
   @theme {
-    --color-background: #0f172a;
+    --color-background: #0c0a09;
     --color-foreground: #f8fafc;
     --color-muted: #1e293b;
     --color-muted-foreground: #94a3b8;
@@ -27,7 +27,7 @@
 }
 
 .dark {
-  --color-background: #0f172a;
+  --color-background: #0c0a09;
   --color-foreground: #f8fafc;
   --color-muted: #1e293b;
   --color-muted-foreground: #94a3b8;
@@ -39,34 +39,32 @@
   box-sizing: border-box;
 }
 
-html,
+html {
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+}
+
 body {
   height: 100%;
   min-height: 100vh;
   min-height: 100dvh;
   margin: 0;
   padding: 0;
-  /* Handle safe areas properly for iPhone */
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-}
-
-body {
   font-family: system-ui, -apple-system, sans-serif;
   background-color: var(--color-background);
   color: var(--color-foreground);
   line-height: 1.5;
   transition: background-color 0.3s ease, color 0.3s ease;
-  /* Prevent overscroll and ensure background covers entire viewport */
+  /* Prevent overscroll and ensure smooth scrolling */
   overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
   /* iPhone Safari specific fixes */
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
-  /* Ensure background extends to safe areas */
-  background-attachment: fixed;
 }
 
 /* Custom animations for micro interactions */
@@ -175,14 +173,4 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   background-color: var(--color-background);
-  /* Ensure root also respects safe areas */
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-  /* Negative margins to counteract body padding for seamless background */
-  margin-top: calc(-1 * env(safe-area-inset-top));
-  margin-bottom: calc(-1 * env(safe-area-inset-bottom));
-  margin-left: calc(-1 * env(safe-area-inset-left));
-  margin-right: calc(-1 * env(safe-area-inset-right));
 }
