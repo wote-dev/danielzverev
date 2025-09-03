@@ -30,7 +30,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
           ? 'bg-neutral-900' 
           : 'bg-gray-50'
       }`}
-      style={{ height: 'var(--full-height, 100vh)', minHeight: 'var(--full-height, 100vh)' }}
+style={{ height: '100vh', minHeight: '100vh' }}
     >
       {/* Coordinates - Top Center */}
       <div className={`absolute top-8 left-1/2 transform -translate-x-1/2 sm:top-8 top-24 z-10 transition-all duration-700 ease-out hidden sm:block ${
