@@ -57,7 +57,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
             <svg className="w-3 h-3" fill="#ef4444" viewBox="0 0 16 16">
               <path d="M8 0a5 5 0 0 0-5 5c0 5 5 10 5 10s5-5 5-10a5 5 0 0 0-5-5zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
             </svg>
-            <span className={theme === 'dark' ? 'embossed-text-dark' : 'embossed-text-light'}>Melbourne, AU</span>
+            <span>Melbourne, AU</span>
           </span>
         </div>
       </div>
@@ -82,8 +82,8 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
             <span className={`text-xs font-medium transition-colors duration-300 ${
               theme === 'dark' 
-                ? 'text-stone-400 embossed-text-dark' 
-                : 'text-stone-500 embossed-text-light'
+                ? 'text-stone-400' 
+                : 'text-stone-500'
             }`}>
               Available
             </span>
