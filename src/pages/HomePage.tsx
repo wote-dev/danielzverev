@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { TechStackCarousel } from '@/components/ui/tech-stack-carousel';
 import { SocialLink } from '@/components/ui/social-link';
+import { SimplrInline } from '@/components/ui/simplr-inline';
 import { useTheme } from '@/contexts/ThemeContext';
 
 interface HomePageProps {
@@ -11,6 +12,7 @@ interface HomePageProps {
 const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   const { theme } = useTheme();
   const [animationStage, setAnimationStage] = useState(0);
+  const [showSimplrPrompt, setShowSimplrPrompt] = useState(false);
 
   useEffect(() => {
     if (isVisible) {
@@ -20,8 +22,21 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
           setAnimationStage(stage);
         }, index * 150);
       });
+      
+      // Show Simplr prompt after all animations complete
+      setTimeout(() => {
+        const hasSeenPrompt = sessionStorage.getItem('simplr-prompt-seen');
+        if (!hasSeenPrompt) {
+          setShowSimplrPrompt(true);
+        }
+      }, 2000);
     }
   }, [isVisible]);
+  
+  const handleCloseSimplrPrompt = () => {
+    setShowSimplrPrompt(false);
+    sessionStorage.setItem('simplr-prompt-seen', 'true');
+  };
   
   return (
     <div className={`h-full flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
@@ -77,7 +92,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
       
       {/* Social Links - Bottom Left */}
-      <div className={`absolute bottom-8 left-6 z-10 transition-all duration-700 ease-out delay-300 ${
+      <div className={`absolute bottom-4 sm:bottom-8 left-6 z-10 transition-all duration-700 ease-out delay-300 ${
         animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}>
         <div className="flex items-center gap-2">
@@ -135,7 +150,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
 
       {/* Projects - Bottom Right */}
-      <div className={`absolute bottom-8 right-6 z-10 transition-all duration-700 ease-out delay-375 ${
+      <div className={`absolute bottom-4 sm:bottom-8 right-6 z-10 transition-all duration-700 ease-out delay-375 ${
         animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}>
         <a 
@@ -215,8 +230,19 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
           </div>
           
 
+          
+
         </div>
       </div>
+      
+      {/* Simplr Prompt - Absolutely positioned */}
+      {showSimplrPrompt && (
+        <div className={`absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20 transition-all duration-700 ease-out delay-800 ${
+          animationStage >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        }`}>
+          <SimplrInline onClose={handleCloseSimplrPrompt} />
+        </div>
+      )}
     </div>
   );
 };
