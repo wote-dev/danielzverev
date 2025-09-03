@@ -42,8 +42,8 @@ export function TechStackCarousel() {
                   : 'opacity-0 translate-y-1'
               } ${
                 theme === 'dark'
-                  ? 'bg-stone-800/80 text-stone-200 border border-stone-700/50'
-                  : 'bg-white/80 text-stone-700 border border-stone-200/50'
+                  ? 'bg-stone-800/80 text-stone-200'
+                  : 'bg-white/80 text-stone-700'
               }`}
             >
               {tech.name}
@@ -63,8 +63,8 @@ export function TechStackCarousel() {
                   : 'scale-100 hover:scale-105'
               } ${
                 theme === 'dark'
-                  ? 'bg-stone-900/40 border border-stone-800/50 hover:bg-stone-900/60 hover:shadow-md'
-                  : 'bg-white/40 border border-stone-200/50 hover:bg-white/60 hover:shadow-md'
+                  ? 'bg-stone-900/40 hover:bg-stone-900/60 hover:shadow-md'
+                  : 'bg-white/40 hover:bg-white/60 hover:shadow-md'
               }`}
             >
               <img
