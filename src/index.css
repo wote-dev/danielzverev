@@ -39,11 +39,18 @@
   box-sizing: border-box;
 }
 
+/* Mobile viewport height fix for Safari */
+:root {
+  --vh: 1vh;
+}
+
 html,
 body {
   height: 100%;
+  height: calc(var(--vh, 1vh) * 100);
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
@@ -52,6 +59,12 @@ body {
   color: var(--color-foreground);
   line-height: 1.5;
   transition: background-color 0.3s ease, color 0.3s ease;
+  /* Prevent bounce scrolling on iOS */
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  /* Handle safe area insets for devices with notches */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* Custom animations for micro interactions */
@@ -121,4 +134,6 @@ body {
 
 #root {
   height: 100%;
+  height: calc(var(--vh, 1vh) * 100);
+  min-height: calc(var(--vh, 1vh) * 100);
 }
