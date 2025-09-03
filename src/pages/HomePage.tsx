@@ -6,6 +6,7 @@ import { SimplrInline } from '@/components/ui/simplr-inline';
 import { BioModal } from '@/components/ui/bio-modal';
 import { useTheme } from '@/contexts/ThemeContext';
 
+
 interface HomePageProps {
   isVisible: boolean;
 }
@@ -43,7 +44,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   };
   
   return (
-    <div className={`h-full flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
+    <div className={`w-full h-full min-h-screen min-h-dvh flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
       theme === 'dark' 
         ? 'bg-stone-900' 
         : 'bg-stone-50'
@@ -306,12 +307,11 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
               Schedule a Call
             </a>
           </div>
-          
-
-          
 
         </div>
       </div>
+      
+
       
       {/* Simplr Prompt - Absolutely positioned */}
       {showSimplrPrompt && (
