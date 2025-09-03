@@ -198,7 +198,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
               Daniel Zverev
             </h1>
             
-            <p className={`text-lg sm:text-xl font-light max-w-xl mx-auto leading-relaxed transition-all duration-300 delay-100 ${
+            <p className={`text-lg sm:text-xl font-light max-w-xl mx-auto leading-relaxed transition-all duration-300 delay-100 whitespace-nowrap ${
               theme === 'dark' 
                 ? 'text-stone-400' 
                 : 'text-stone-500'
