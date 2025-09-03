@@ -35,8 +35,8 @@ export function SocialLink({
     return (
       <div className={`p-2.5 rounded-full border transition-all duration-300 ${
         theme === 'dark'
-          ? 'border-stone-800/50 bg-stone-900/60'
-          : 'border-stone-200/50 bg-white/60'
+          ? 'border-stone-600 bg-stone-900/60'
+          : 'border-stone-300 bg-white/60'
       }`}>
         <SkeletonIcon />
       </div>
@@ -51,8 +51,8 @@ export function SocialLink({
       className={`
         p-2.5 rounded-full transition-all duration-300 transform
         ${theme === 'dark'
-          ? 'text-stone-500 hover:text-stone-300 hover:bg-stone-900/60 border border-stone-800/50'
-          : 'text-stone-400 hover:text-stone-600 hover:bg-white/60 border border-stone-200/50'
+          ? 'text-stone-500 hover:text-stone-300 hover:bg-stone-900/60 border border-stone-600'
+          : 'text-stone-400 hover:text-stone-600 hover:bg-white/60 border border-stone-300'
         }
         ${isHovered ? 'scale-110 shadow-lg' : 'scale-100'}
         hover:scale-110 hover:shadow-lg

@@ -63,8 +63,8 @@ export function TechStackCarousel() {
                   : 'scale-100 hover:scale-105'
               } ${
                 theme === 'dark'
-                  ? 'bg-stone-900/40 border border-stone-800/30 hover:bg-stone-900/60'
-                  : 'bg-white/40 border border-stone-200/30 hover:bg-white/60'
+                  ? 'bg-stone-900/40 hover:bg-stone-900/60'
+                  : 'bg-white/40 hover:bg-white/60'
               }`}
             >
               <img

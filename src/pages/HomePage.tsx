@@ -30,13 +30,13 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
         : 'bg-stone-50'
     }`}>
       {/* Coordinates - Top Center */}
-      <div className={`absolute top-8 left-1/2 transform -translate-x-1/2 sm:top-8 top-24 z-10 transition-all duration-700 ease-out ${
+      <div className={`absolute top-8 left-1/2 transform -translate-x-1/2 sm:top-8 top-24 z-10 transition-all duration-700 ease-out hidden sm:block ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
       }`}>
         <div className={`px-4 py-2 font-sans text-xs font-medium rounded-full transition-all duration-300 hover:scale-105 cursor-pointer ${
           theme === 'dark'
-            ? 'bg-stone-900/60 text-stone-400 border border-stone-800/50 hover:bg-stone-900/80 hover:text-stone-300'
-            : 'bg-white/60 text-stone-500 border border-stone-200/50 hover:bg-white/80 hover:text-stone-600'
+            ? 'bg-stone-900/60 text-stone-400 border border-stone-600 hover:bg-stone-900/80 hover:text-stone-300'
+            : 'bg-white/60 text-stone-500 border border-stone-300 hover:bg-white/80 hover:text-stone-600'
         }`}>
           <span className="tracking-wide flex items-center gap-1.5">
             <svg className="w-3 h-3" fill="#ef4444" viewBox="0 0 16 16">
@@ -144,8 +144,8 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
           rel="noopener noreferrer"
           className={`flex items-center gap-2 px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 hover:scale-105 ${
             theme === 'dark'
-              ? 'text-stone-400 hover:text-stone-300 hover:bg-stone-900/60 border border-stone-800/50'
-              : 'text-stone-500 hover:text-stone-600 hover:bg-white/60 border border-stone-200/50'
+              ? 'text-stone-400 hover:text-stone-300 hover:bg-stone-900/60 border border-stone-600'
+              : 'text-stone-500 hover:text-stone-600 hover:bg-white/60 border border-stone-300'
           }`}
         >
           <img src="/simplr.png" alt="Simplr" className="w-4 h-4 rounded" />
@@ -206,7 +206,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
               rel="noopener noreferrer"
               className={`px-6 py-3 rounded-full font-medium text-sm border transition-all duration-300 hover:scale-105 ${
                 theme === 'dark'
-                  ? 'border-stone-800 text-stone-400 hover:border-stone-700 hover:text-stone-300 hover:bg-stone-900/50'
+                  ? 'border-stone-600 text-stone-400 hover:border-stone-500 hover:text-stone-300 hover:bg-stone-900/50'
                   : 'border-stone-200 text-stone-500 hover:border-stone-300 hover:text-stone-600 hover:bg-white/50'
               }`}
             >
