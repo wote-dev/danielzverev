@@ -12,7 +12,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="w-full min-h-screen">
+      <div className="w-full h-full">
         {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
         <HomePage isVisible={!isLoading} />
       </div>

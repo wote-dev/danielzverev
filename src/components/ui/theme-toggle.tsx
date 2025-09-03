@@ -16,8 +16,8 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     <div className={cn(
       "rounded-full transition-all duration-300 hover:scale-105",
       isDark
-        ? "bg-stone-900/60 border border-stone-800/50 hover:bg-stone-900/80"
-        : "bg-white/60 border border-stone-200/50 hover:bg-white/80",
+        ? "bg-stone-900/60 border border-stone-600 hover:bg-stone-900/80"
+        : "bg-white/60 border border-stone-300 hover:bg-white/80",
       className
     )}>
       <button

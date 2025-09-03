@@ -24,7 +24,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   }, [isVisible]);
   
   return (
-    <div className={`min-h-screen flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
+    <div className={`h-full flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
       theme === 'dark' 
         ? 'bg-stone-900' 
         : 'bg-stone-50'
@@ -60,8 +60,8 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       }`}>
         <div className={`px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 ${
           theme === 'dark'
-            ? 'bg-stone-900/60 border border-stone-800/50 hover:bg-stone-900/80'
-            : 'bg-white/60 border border-stone-200/50 hover:bg-white/80'
+            ? 'bg-stone-900/60 border border-stone-600 hover:bg-stone-900/80'
+            : 'bg-white/60 border border-stone-300 hover:bg-white/80'
         }`}>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
@@ -154,7 +154,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
 
       {/* Central Content */}
-      <div className="flex flex-col items-center justify-center px-4 relative z-0">
+      <div className="flex flex-col items-center justify-center min-h-screen px-4 relative z-0 -mt-16">
         <div className="text-center space-y-8 relative z-10">
           <div className={`space-y-4 transition-all duration-1000 ease-out delay-450 ${
             animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
