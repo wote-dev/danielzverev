@@ -42,8 +42,12 @@
 html,
 body {
   height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   padding: 0;
+  /* Ensure background extends to safe areas on mobile */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 body {
@@ -52,6 +56,9 @@ body {
   color: var(--color-foreground);
   line-height: 1.5;
   transition: background-color 0.3s ease, color 0.3s ease;
+  /* Prevent overscroll and ensure background covers entire viewport */
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Custom animations for micro interactions */
@@ -164,4 +171,9 @@ body {
 
 #root {
   height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  /* Ensure root covers safe areas */
+  margin: calc(-1 * env(safe-area-inset-top)) calc(-1 * env(safe-area-inset-right)) calc(-1 * env(safe-area-inset-bottom)) calc(-1 * env(safe-area-inset-left));
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
