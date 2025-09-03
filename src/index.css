@@ -39,37 +39,19 @@
   box-sizing: border-box;
 }
 
-html {
-  height: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  margin: 0;
-  padding: 0;
-  background-color: var(--color-background) !important;
-  /* Safari mobile specific fixes */
-  -webkit-background-size: cover;
-  background-attachment: fixed;
-}
-
+html,
 body {
   height: 100%;
   min-height: 100vh;
   min-height: 100dvh;
   margin: 0;
   padding: 0;
-  background-color: var(--color-background) !important;
-  /* Handle safe areas properly */
-  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom) 0;
-  /* Prevent any blue background on Safari mobile */
-  -webkit-background-size: cover;
-  background-attachment: fixed;
-  position: relative;
-  overflow-x: hidden;
+  /* Remove conflicting safe-area padding */
 }
 
 body {
   font-family: system-ui, -apple-system, sans-serif;
-  background-color: var(--color-background) !important;
+  background-color: var(--color-background);
   color: var(--color-foreground);
   line-height: 1.5;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -79,10 +61,6 @@ body {
   /* iPhone Safari specific fixes */
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
-  /* Force background to cover everything on Safari mobile */
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
 }
 
 /* Custom animations for micro interactions */
@@ -190,41 +168,7 @@ body {
   height: 100%;
   min-height: 100vh;
   min-height: 100dvh;
-  /* Force background color on root element */
-  background-color: var(--color-background) !important;
-  position: relative;
-  z-index: 1;
-}
-
-/* Safari mobile specific overrides */
-@supports (-webkit-touch-callout: none) {
-  html, body, #root {
-    background-color: var(--color-background) !important;
-    background: var(--color-background) !important;
-  }
-  
-  body {
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-  }
-  
-  /* Nuclear option: force background on everything */
-  *, *::before, *::after {
-    background-color: inherit;
-  }
-  
-  /* Specifically target Safari's viewport areas */
-  @media screen and (-webkit-min-device-pixel-ratio: 0) {
-    html {
-      background: var(--color-background) !important;
-      background-color: var(--color-background) !important;
-    }
-    
-    body {
-      background: var(--color-background) !important;
-      background-color: var(--color-background) !important;
-      -webkit-background-size: 100% 100% !important;
-      background-size: 100% 100% !important;
-    }
-  }
+  /* Proper safe area handling for iPhone Safari */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
 }

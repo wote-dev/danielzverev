@@ -44,11 +44,11 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   };
   
   return (
-    <div className={`fixed inset-0 w-full h-full min-h-screen min-h-dvh flex items-center justify-center overflow-hidden transition-colors duration-300 ${
+    <div className={`w-full h-full min-h-screen min-h-dvh flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
       theme === 'dark' 
         ? 'bg-stone-900' 
         : 'bg-stone-50'
-    }`} style={{ backgroundColor: theme === 'dark' ? '#1c1917' : '#fafaf9' }}>
+    }`}>
       {/* Coordinates - Top Center */}
       <div className={`absolute top-8 left-1/2 transform -translate-x-1/2 sm:top-8 top-24 z-10 transition-all duration-700 ease-out hidden sm:block ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
