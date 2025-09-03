@@ -25,12 +25,12 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   
   return (
     <div 
-      className={`h-full min-h-screen flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
+      className={`w-full h-full flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
         theme === 'dark' 
           ? 'bg-stone-900' 
           : 'bg-stone-50'
       }`}
-      style={{ height: 'calc(var(--vh, 1vh) * 100)', minHeight: 'calc(var(--vh, 1vh) * 100)' }}
+      style={{ height: 'var(--full-height, 100vh)', minHeight: 'var(--full-height, 100vh)' }}
     >
       {/* Coordinates - Top Center */}
       <div className={`absolute top-8 left-1/2 transform -translate-x-1/2 sm:top-8 top-24 z-10 transition-all duration-700 ease-out hidden sm:block ${
@@ -158,8 +158,8 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
 
       {/* Central Content */}
       <div 
-        className="flex flex-col items-center justify-center px-4 relative z-0 -mt-8 sm:-mt-16"
-        style={{ minHeight: 'calc(var(--vh, 1vh) * 100)' }}
+        className="flex flex-col items-center justify-center px-4 relative z-0 w-full"
+        style={{ minHeight: 'var(--full-height, 100vh)' }}
       >
         <div className="text-center space-y-8 relative z-10">
           <div className={`space-y-4 transition-all duration-1000 ease-out delay-450 ${

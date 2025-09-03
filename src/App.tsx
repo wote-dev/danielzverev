@@ -12,7 +12,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="w-full h-full min-h-screen" style={{ height: 'calc(var(--vh, 1vh) * 100)', minHeight: 'calc(var(--vh, 1vh) * 100)' }}>
+      <div className="w-full h-full" style={{ height: 'var(--full-height, 100vh)', minHeight: 'var(--full-height, 100vh)' }}>
         {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
         <HomePage isVisible={!isLoading} />
       </div>
