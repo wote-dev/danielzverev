@@ -54,17 +54,16 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
             }}
           >
             <div className="absolute inset-0 flex items-center justify-center">
-              <span
-                className={`text-xl font-light transition-all duration-1000 ${
-                  theme === 'dark' ? 'text-stone-100' : 'text-stone-900'
-                }`}
+              <img
+                src="/me.png"
+                alt="Daniel Zverev"
+                className="w-12 h-12 rounded-full object-cover transition-all duration-1000"
                 style={{
                   opacity: Math.min(progress / 50, 1),
                   transform: `translateY(${Math.max(10 - progress / 5, 0)}px)`,
                 }}
-              >
-                DZ
-              </span>
+                loading="eager"
+              />
             </div>
           </div>
           
