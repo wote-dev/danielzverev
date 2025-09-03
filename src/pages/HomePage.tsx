@@ -33,13 +33,15 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       <div className={`absolute top-8 left-1/2 transform -translate-x-1/2 sm:top-8 top-24 z-10 transition-all duration-700 ease-out ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
       }`}>
-        <div className={`px-4 py-2 font-mono text-xs font-medium rounded-full transition-all duration-300 hover:scale-105 cursor-pointer ${
+        <div className={`px-4 py-2 font-sans text-xs font-medium rounded-full transition-all duration-300 hover:scale-105 cursor-pointer ${
           theme === 'dark'
             ? 'bg-stone-900/60 text-stone-400 border border-stone-800/50 hover:bg-stone-900/80 hover:text-stone-300'
             : 'bg-white/60 text-stone-500 border border-stone-200/50 hover:bg-white/80 hover:text-stone-600'
         }`}>
           <span className="tracking-wide flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+            <svg className="w-3 h-3" fill="#ef4444" viewBox="0 0 16 16">
+              <path d="M8 0a5 5 0 0 0-5 5c0 5 5 10 5 10s5-5 5-10a5 5 0 0 0-5-5zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+            </svg>
             <span>Melbourne, AU</span>
           </span>
         </div>
@@ -154,13 +156,6 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       {/* Central Content */}
       <div className="flex flex-col items-center justify-center min-h-screen px-4 relative z-0 -mt-16">
         <div className="text-center space-y-8 relative z-10">
-          {/* Tech Stack Carousel - Above Name */}
-          <div className={`mb-8 transition-all duration-700 ease-out delay-300 ${
-            animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}>
-            <TechStackCarousel />
-          </div>
-          
           <div className={`space-y-4 transition-all duration-1000 ease-out delay-450 ${
             animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
@@ -183,10 +178,17 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
             </p>
           </div>
           
-          {/* Call to Action */}
-          <div className={`flex flex-row items-center justify-center gap-3 mt-8 transition-all duration-700 ease-out delay-600 ${
+          {/* Tech Stack Carousel - Below Subtitle{/* Tech Stack */}
+          <div className={`-mt-6 transition-all duration-700 ease-out delay-600 ${
             animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
+            <TechStackCarousel />
+          </div>
+          
+          {/* Call to Action */}
+        <div className={`flex flex-row items-center justify-center gap-3 -mt-4 transition-all duration-700 ease-out delay-700 ${
+          animationStage >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        }`}>
             <a 
               href="mailto:admin@blackcubesolutions.com" 
               className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 ${
