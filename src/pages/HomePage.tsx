@@ -92,7 +92,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
       
       {/* Social Links - Bottom Left */}
-      <div className={`absolute bottom-4 sm:bottom-8 left-6 z-10 transition-all duration-700 ease-out delay-300 ${
+      <div className={`absolute bottom-8 left-6 z-10 transition-all duration-700 ease-out delay-300 ${
         animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}>
         <div className="flex items-center gap-2">
@@ -150,7 +150,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
 
       {/* Projects - Bottom Right */}
-      <div className={`absolute bottom-4 sm:bottom-8 right-6 z-10 transition-all duration-700 ease-out delay-375 ${
+      <div className={`absolute bottom-8 right-6 z-10 transition-all duration-700 ease-out delay-375 ${
         animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}>
         <a 
