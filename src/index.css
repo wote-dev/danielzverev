@@ -46,7 +46,11 @@ body {
   min-height: 100dvh;
   margin: 0;
   padding: 0;
-  /* Remove conflicting safe-area padding */
+  /* Handle safe areas properly for iPhone */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 body {
@@ -61,6 +65,8 @@ body {
   /* iPhone Safari specific fixes */
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
+  /* Ensure background extends to safe areas */
+  background-attachment: fixed;
 }
 
 /* Custom animations for micro interactions */
@@ -119,44 +125,36 @@ body {
 
 /* Embossed/Leather-burnt effect utilities */
 .embossed-light {
-  box-shadow: 
-    inset 2px 2px 4px rgba(0, 0, 0, 0.15),
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.15),
     inset -2px -2px 4px rgba(255, 255, 255, 0.9);
-  text-shadow: 
-    1.5px 1.5px 2px rgba(255, 255, 255, 0.9),
+  text-shadow: 1.5px 1.5px 2px rgba(255, 255, 255, 0.9),
     -1.5px -1.5px 2px rgba(0, 0, 0, 0.15);
 }
 
 .embossed-dark {
-  box-shadow: 
-    inset 2px 2px 4px rgba(0, 0, 0, 0.6),
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.6),
     inset -2px -2px 4px rgba(255, 255, 255, 0.08);
-  text-shadow: 
-    1.5px 1.5px 2px rgba(0, 0, 0, 0.8),
+  text-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.8),
     -1.5px -1.5px 2px rgba(255, 255, 255, 0.15);
 }
 
 .embossed-subtle-light {
-  box-shadow: 
-    inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.12),
+  box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.12),
     inset -1.5px -1.5px 3px rgba(255, 255, 255, 0.8);
 }
 
 .embossed-subtle-dark {
-  box-shadow: 
-    inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.5),
+  box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.5),
     inset -1.5px -1.5px 3px rgba(255, 255, 255, 0.06);
 }
 
 .embossed-text-light {
-  text-shadow: 
-    1px 1px 2px rgba(255, 255, 255, 0.95),
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.95),
     -1px -1px 2px rgba(0, 0, 0, 0.12);
 }
 
 .embossed-text-dark {
-  text-shadow: 
-    1px 1px 2px rgba(0, 0, 0, 0.7),
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7),
     -1px -1px 2px rgba(255, 255, 255, 0.12);
 }
 
@@ -176,6 +174,15 @@ body {
   height: 100%;
   min-height: 100vh;
   min-height: 100dvh;
-  /* Proper safe area handling for iPhone Safari */
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background-color: var(--color-background);
+  /* Ensure root also respects safe areas */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  /* Negative margins to counteract body padding for seamless background */
+  margin-top: calc(-1 * env(safe-area-inset-top));
+  margin-bottom: calc(-1 * env(safe-area-inset-bottom));
+  margin-left: calc(-1 * env(safe-area-inset-left));
+  margin-right: calc(-1 * env(safe-area-inset-right));
 }
