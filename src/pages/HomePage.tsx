@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { TechStackCarousel } from '@/components/ui/tech-stack-carousel';
 import { SocialLink } from '@/components/ui/social-link';
-import { SimplrInline } from '@/components/ui/simplr-inline';
+
 import { BioModal } from '@/components/ui/bio-modal';
 import { useTheme } from '@/contexts/ThemeContext';
 
@@ -14,7 +14,7 @@ interface HomePageProps {
 const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   const { theme } = useTheme();
   const [animationStage, setAnimationStage] = useState(0);
-  const [showSimplrPrompt, setShowSimplrPrompt] = useState(false);
+
   const [showBioModal, setShowBioModal] = useState(false);
   const [isHoveringAvatar, setIsHoveringAvatar] = useState(false);
   const [isHoveringName, setIsHoveringName] = useState(false);
@@ -28,20 +28,11 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
         }, index * 150);
       });
       
-      // Show Simplr prompt after all animations complete
-      setTimeout(() => {
-        const hasSeenPrompt = sessionStorage.getItem('simplr-prompt-seen');
-        if (!hasSeenPrompt) {
-          setShowSimplrPrompt(true);
-        }
-      }, 2000);
+
     }
   }, [isVisible]);
   
-  const handleCloseSimplrPrompt = () => {
-    setShowSimplrPrompt(false);
-    sessionStorage.setItem('simplr-prompt-seen', 'true');
-  };
+
   
   return (
     <div className={`w-full h-full min-h-screen min-h-dvh flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
@@ -154,24 +145,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
         </div>
       </div>
 
-      {/* Projects - Bottom Right */}
-      <div className={`absolute bottom-8 right-6 z-10 transition-all duration-700 ease-out delay-375 ${
-        animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`}>
-        <a 
-          href="https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className={`flex items-center gap-2 px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 hover:scale-105 ${
-            theme === 'dark'
-              ? 'text-stone-400 hover:text-stone-300 bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
-              : 'text-stone-500 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
-          }`}
-        >
-          <img src="/simplr.png" alt="Simplr" className="w-4 h-4 rounded" />
-          <span>Simplr (iOS)</span>
-        </a>
-      </div>
+
 
       {/* Central Content */}
       <div className="flex flex-col items-center justify-center min-h-screen px-4 relative z-0 -mt-16">
@@ -313,14 +287,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       
 
       
-      {/* Simplr Prompt - Absolutely positioned */}
-      {showSimplrPrompt && (
-        <div className={`absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20 transition-all duration-700 ease-out delay-800 ${
-          animationStage >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-        }`}>
-          <SimplrInline onClose={handleCloseSimplrPrompt} />
-        </div>
-      )}
+
       
       {/* Bio Modal */}
       <BioModal 
