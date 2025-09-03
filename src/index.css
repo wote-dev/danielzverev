@@ -46,10 +46,8 @@ body {
   min-height: 100dvh;
   margin: 0;
   padding: 0;
+  background-color: var(--color-background);
   /* Remove conflicting safe-area padding */
-  /* Prevent Safari blue overscroll background */
-  background-color: var(--color-background) !important;
-  overflow-x: hidden;
 }
 
 body {
@@ -64,8 +62,6 @@ body {
   /* iPhone Safari specific fixes */
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
-  /* Prevent Safari blue overscroll background */
-  background-color: var(--color-background) !important;
 }
 
 /* Custom animations for micro interactions */
@@ -173,4 +169,7 @@ body {
   height: 100%;
   min-height: 100vh;
   min-height: 100dvh;
+  /* Proper safe area handling for iPhone Safari */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
