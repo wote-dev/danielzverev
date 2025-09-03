@@ -154,7 +154,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
 
       {/* Central Content */}
-      <div className="flex flex-col items-center justify-center min-h-screen px-4 relative z-0 -mt-16">
+      <div className="flex flex-col items-center justify-center px-4 relative z-0">
         <div className="text-center space-y-8 relative z-10">
           <div className={`space-y-4 transition-all duration-1000 ease-out delay-450 ${
             animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
