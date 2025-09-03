@@ -171,9 +171,25 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       {/* Central Content */}
       <div className="flex flex-col items-center justify-center min-h-screen px-4 relative z-0 -mt-16">
         <div className="text-center space-y-8 relative z-10">
-          <div className={`space-y-4 transition-all duration-1000 ease-out delay-450 ${
+          <div className={`space-y-3 transition-all duration-1000 ease-out delay-450 ${
             animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
+            {/* Avatar */}
+            <div className="flex justify-center mb-3">
+              <div className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 ${
+                theme === 'dark'
+                  ? 'ring-2 ring-stone-700/50 shadow-xl'
+                  : 'ring-2 ring-stone-200/50 shadow-lg'
+              }`}>
+                <img 
+                  src="/me.png" 
+                  alt="Daniel Zverev" 
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
+            </div>
+            
             <h1 className={`text-5xl sm:text-6xl md:text-7xl font-light tracking-tight transition-all duration-300 ${
               theme === 'dark' 
                 ? 'text-stone-100' 
