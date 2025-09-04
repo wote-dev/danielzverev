@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useTheme } from '@/contexts/ThemeContext';
 
 interface InteractiveSubtitleProps {
@@ -7,7 +6,6 @@ interface InteractiveSubtitleProps {
 
 function InteractiveSubtitle({ animationStage }: InteractiveSubtitleProps) {
   const { theme } = useTheme();
-  const [hoveredWord, setHoveredWord] = useState<string | null>(null);
 
   const bigImages = [
     '/cece.png',
@@ -20,13 +18,9 @@ function InteractiveSubtitle({ animationStage }: InteractiveSubtitleProps) {
   ];
 
   const renderWordWithImages = (word: string, images: string[]) => {
-    const isHovered = hoveredWord === word;
-    
     return (
       <span 
         className="relative inline-block group"
-        onMouseEnter={() => setHoveredWord(word)}
-        onMouseLeave={() => setHoveredWord(null)}
       >
         <span className={`font-bold transition-all duration-300 cursor-pointer ${
           theme === 'dark' 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTheme } from '../../src/contexts/ThemeContext';
 
 interface GridBackgroundProps {
