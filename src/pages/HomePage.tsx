@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { TechStackCarousel } from '@/components/ui/tech-stack-carousel';
 import { SocialLink } from '@/components/ui/social-link';
-
+import DarkVeil from '@/components/DarkVeil';
 import { BioModal } from '@/components/ui/bio-modal';
 import { useTheme } from '@/contexts/ThemeContext';
 
@@ -35,11 +35,25 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
 
   
   return (
-    <div className={`w-full h-full min-h-screen min-h-dvh flex items-center justify-center overflow-hidden relative transition-colors duration-300 ${
+    <div className={`w-full h-full min-h-screen min-h-dvh flex items-center justify-center overflow-hidden relative transition-colors duration-500 ease-in-out ${
       theme === 'dark' 
         ? 'bg-stone-900' 
         : 'bg-stone-50'
     }`}>
+      {/* DarkVeil Background - Always mounted for smooth transitions */}
+      <div className={`fixed inset-0 w-screen h-screen z-0 transition-opacity duration-500 ease-in-out ${
+        theme === 'dark' ? 'opacity-100' : 'opacity-0'
+      }`}>
+        <DarkVeil 
+          hueShift={222}
+          noiseIntensity={0.02}
+          scanlineIntensity={0}
+          speed={0.3}
+          scanlineFrequency={0}
+          warpAmount={0.1}
+          resolutionScale={1}
+        />
+      </div>
       {/* Coordinates - Top Center */}
       <div className={`absolute top-8 left-1/2 transform -translate-x-1/2 sm:top-8 top-24 z-10 transition-all duration-700 ease-out hidden sm:block ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
@@ -259,7 +273,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
             } ${
               animationStage >= 3 ? 'opacity-100' : 'opacity-0'
             }`}>
-              Full-stack developer crafting digital experiences
+              Making ideas happen on screens, big and small.
             </p>
           </div>
           

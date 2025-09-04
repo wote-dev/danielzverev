@@ -61,10 +61,6 @@ export function TechStackCarousel() {
                 hoveredIndex === index
                   ? 'scale-110 shadow-md'
                   : 'scale-100 hover:scale-105'
-              } ${
-                theme === 'dark'
-                  ? 'bg-stone-900/40 hover:bg-stone-900/60 hover:shadow-md'
-                  : 'bg-white/40 hover:bg-white/60 hover:shadow-md'
               }`}
             >
               <img
