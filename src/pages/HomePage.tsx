@@ -3,6 +3,7 @@ import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { TechStackCarousel } from '@/components/ui/tech-stack-carousel';
 import { SocialLink } from '@/components/ui/social-link';
 import DarkVeil from '@/components/DarkVeil';
+import GridBackground from '../../@/components/GridBackground';
 import { BioModal } from '@/components/ui/bio-modal';
 import { useTheme } from '@/contexts/ThemeContext';
 
@@ -52,6 +53,16 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
           scanlineFrequency={0}
           warpAmount={0.1}
           resolutionScale={1}
+        />
+      </div>
+      
+      {/* Grid Background for Light Theme */}
+      <div className={`fixed inset-0 w-screen h-screen z-0 transition-opacity duration-500 ease-in-out ${
+        theme === 'light' ? 'opacity-100' : 'opacity-0'
+      }`}>
+        <GridBackground 
+          gridSize={24}
+          opacity={0.6}
         />
       </div>
       {/* Coordinates - Top Center */}
