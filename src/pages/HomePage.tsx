@@ -145,7 +145,24 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
         </div>
       </div>
 
-
+      {/* Projects - Bottom Right */}
+      <div className={`absolute bottom-8 right-6 z-10 transition-all duration-700 ease-out delay-375 ${
+        animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      }`}>
+        <a 
+          href="https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={`flex items-center gap-2 px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 hover:scale-105 ${
+            theme === 'dark'
+              ? 'text-stone-400 hover:text-stone-300 bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
+              : 'text-stone-500 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
+          }`}
+        >
+          <img src="/simplr.png" alt="Simplr" className="w-4 h-4 rounded" />
+          <span>Simplr (iOS)</span>
+        </a>
+      </div>
 
       {/* Central Content */}
       <div className="flex flex-col items-center justify-center min-h-screen px-4 relative z-0 -mt-16">
