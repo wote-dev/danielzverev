@@ -35,7 +35,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
 
   
   return (
-    <div className={`w-full h-full min-h-screen min-h-dvh flex items-center justify-center overflow-hidden relative transition-colors duration-500 ease-in-out ${
+    <div className={`w-full h-full min-h-screen min-h-dvh flex items-center justify-center overflow-hidden fixed inset-0 transition-colors duration-500 ease-in-out ${
       theme === 'dark' 
         ? 'bg-stone-900' 
         : 'bg-stone-50'
@@ -55,7 +55,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
         />
       </div>
       {/* Coordinates - Top Center */}
-      <div className={`absolute top-8 left-1/2 transform -translate-x-1/2 sm:top-8 top-24 z-10 transition-all duration-700 ease-out hidden sm:block ${
+      <div className={`absolute top-8 left-1/2 transform -translate-x-1/2 z-10 transition-all duration-700 ease-out hidden sm:block ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
       }`}>
         <div className={`px-4 py-2 font-sans text-xs font-medium rounded-full transition-all duration-300 hover:scale-105 cursor-pointer ${
@@ -73,14 +73,14 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
 
       {/* Theme Toggle - Top Right */}
-      <div className={`absolute top-8 right-6 z-10 transition-all duration-700 ease-out delay-75 ${
+      <div className={`absolute top-8 sm:top-8 right-6 z-10 transition-all duration-700 ease-out delay-75 ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
       }`}>
         <ThemeToggle />
       </div>
 
       {/* Status Indicator - Top Left */}
-      <div className={`absolute top-8 left-6 z-10 transition-all duration-700 ease-out delay-150 ${
+      <div className={`absolute top-8 sm:top-8 left-6 z-10 transition-all duration-700 ease-out delay-150 ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
       }`}>
         <div className={`px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 ${
@@ -102,7 +102,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
       
       {/* Social Links - Bottom Left */}
-      <div className={`absolute bottom-8 left-6 z-10 transition-all duration-700 ease-out delay-300 ${
+      <div className={`absolute bottom-8 sm:bottom-8 left-6 z-10 transition-all duration-700 ease-out delay-300 ${
         animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}>
         <div className="flex items-center gap-2">
@@ -160,7 +160,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
 
       {/* Projects - Bottom Right */}
-      <div className={`absolute bottom-8 right-6 z-10 transition-all duration-700 ease-out delay-375 ${
+      <div className={`absolute bottom-8 sm:bottom-8 right-6 z-10 transition-all duration-700 ease-out delay-375 ${
         animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}>
         <a 
@@ -179,7 +179,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
 
       {/* Central Content */}
-      <div className="flex flex-col items-center justify-center min-h-screen px-4 relative z-0 -mt-16">
+      <div className="flex flex-col items-center justify-center h-full px-4 relative z-0 -mt-16 pt-16 pb-16 sm:pt-0 sm:pb-0">
         <div className="text-center space-y-8 relative z-10">
           <div className={`space-y-3 transition-all duration-1000 ease-out delay-450 ${
             animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
