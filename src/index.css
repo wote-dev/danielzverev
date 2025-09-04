@@ -46,10 +46,9 @@ body {
   min-height: 100dvh;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Prevent scrolling */
-  position: fixed; /* Lock the viewport */
+  overflow: hidden;
   width: 100%;
-  /* Remove conflicting safe-area padding */
+  position: relative;
 }
 
 body {
@@ -64,7 +63,13 @@ body {
   /* iPhone Safari specific fixes */
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
-  touch-action: none; /* Disable touch scrolling */
+  touch-action: manipulation;
+  /* Ensure full coverage without blue areas */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* Custom animations for micro interactions */
@@ -173,7 +178,12 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   overflow: hidden;
-  /* Proper safe area handling for iPhone Safari */
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
-    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  /* Remove safe-area padding to prevent blue areas */
+  padding: 0;
+  /* Ensure full coverage */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
