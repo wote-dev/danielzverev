@@ -5,6 +5,7 @@ import { SocialLink } from '@/components/ui/social-link';
 import DarkVeil from '@/components/DarkVeil';
 import GridBackground from '../../@/components/GridBackground';
 import { BioModal } from '@/components/ui/bio-modal';
+import { InteractiveSubtitle } from '@/components/ui/interactive-subtitle';
 import { useTheme } from '@/contexts/ThemeContext';
 
 
@@ -277,15 +278,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
               </button>
             </div>
             
-            <p className={`text-lg sm:text-xl font-light max-w-xl mx-auto leading-relaxed transition-all duration-300 delay-100 whitespace-nowrap ${
-              theme === 'dark' 
-                ? 'text-stone-400' 
-                : 'text-stone-500'
-            } ${
-              animationStage >= 3 ? 'opacity-100' : 'opacity-0'
-            }`}>
-              Making ideas happen on screens, big and small.
-            </p>
+            <InteractiveSubtitle animationStage={animationStage} />
           </div>
           
           {/* Tech Stack Carousel - Below Subtitle{/* Tech Stack */}
