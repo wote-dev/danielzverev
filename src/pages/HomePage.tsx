@@ -142,11 +142,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
           href="https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464" 
           target="_blank" 
           rel="noopener noreferrer"
-          className={`flex items-center gap-2 px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 hover:scale-105 ${
-            theme === 'dark'
-              ? 'text-stone-400 hover:text-stone-300 bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
-              : 'text-stone-500 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
-          }`}
+          className="flex items-center gap-2 px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 hover:scale-105 text-stone-500 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60"
         >
           <img src="/simplr.png" alt="Simplr" className="w-4 h-4 rounded" />
           <span>Simplr (iOS)</span>
@@ -164,22 +160,16 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
               <div className="relative">
                 {/* Tooltip */}
                 <div
-                  className={`absolute -top-10 left-1/2 transform -translate-x-1/2 px-2 py-1 rounded text-xs font-medium whitespace-nowrap pointer-events-none transition-all duration-200 z-20 ${
+                  className={`absolute -top-10 left-1/2 transform -translate-x-1/2 px-2 py-1 rounded text-xs font-medium whitespace-nowrap pointer-events-none transition-all duration-200 z-20 bg-white/90 text-stone-700 shadow-lg ${
                     isHoveringAvatar
                       ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-1'
-                  } ${
-                    theme === 'dark'
-                      ? 'bg-stone-800/90 text-stone-200 shadow-lg'
-                      : 'bg-white/90 text-stone-700 shadow-lg'
                   }`}
                 >
                   Click to read my bio
                   {/* Arrow */}
                   <div
-                    className={`absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-l-transparent border-r-transparent ${
-                      theme === 'dark' ? 'border-t-stone-800/90' : 'border-t-white/90'
-                    }`}
+                    className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-l-transparent border-r-transparent border-t-white/90"
                   />
                 </div>
                 
@@ -187,11 +177,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
                   onClick={() => setShowBioModal(true)}
                   onMouseEnter={() => setIsHoveringAvatar(true)}
                   onMouseLeave={() => setIsHoveringAvatar(false)}
-                  className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-                    theme === 'dark'
-                      ? 'ring-2 ring-stone-700/50 shadow-xl focus:ring-stone-500 focus:ring-offset-stone-900'
-                      : 'ring-2 ring-stone-200/50 shadow-lg focus:ring-stone-400 focus:ring-offset-stone-50'
-                  }`}
+                  className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 ring-2 ring-stone-200/50 shadow-lg focus:ring-stone-400 focus:ring-offset-stone-50"
                   aria-label="View bio"
                 >
                   <img 
@@ -207,22 +193,16 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
             <div className="relative">
               {/* Tooltip */}
               <div
-                className={`absolute -top-12 left-1/2 transform -translate-x-1/2 px-2 py-1 rounded text-xs font-medium whitespace-nowrap pointer-events-none transition-all duration-200 z-20 ${
+                className={`absolute -top-12 left-1/2 transform -translate-x-1/2 px-2 py-1 rounded text-xs font-medium whitespace-nowrap pointer-events-none transition-all duration-200 z-20 bg-white/90 text-stone-700 shadow-lg ${
                   isHoveringName
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-1'
-                } ${
-                  theme === 'dark'
-                    ? 'bg-stone-800/90 text-stone-200 shadow-lg'
-                    : 'bg-white/90 text-stone-700 shadow-lg'
                 }`}
               >
                 Click to read my bio
                 {/* Arrow */}
                 <div
-                  className={`absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-l-transparent border-r-transparent ${
-                    theme === 'dark' ? 'border-t-stone-800/90' : 'border-t-white/90'
-                  }`}
+                  className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-l-transparent border-r-transparent border-t-white/90"
                 />
               </div>
               
@@ -230,11 +210,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
                 onClick={() => setShowBioModal(true)}
                 onMouseEnter={() => setIsHoveringName(true)}
                 onMouseLeave={() => setIsHoveringName(false)}
-                className={`text-5xl sm:text-6xl md:text-7xl font-light tracking-tight transition-all duration-300 hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-2 py-1 ${
-                  theme === 'dark' 
-                    ? 'text-stone-100 hover:text-stone-200 focus:ring-stone-500 focus:ring-offset-stone-900' 
-                    : 'text-stone-900 hover:text-stone-700 focus:ring-stone-400 focus:ring-offset-stone-50'
-                }`}
+                className="text-5xl sm:text-6xl md:text-7xl font-light tracking-tight transition-all duration-300 hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-2 py-1 text-stone-900 hover:text-stone-700 focus:ring-stone-400 focus:ring-offset-stone-50"
                 aria-label="View bio"
               >
                 Daniel Zverev
@@ -257,11 +233,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
         }`}>
             <a 
               href="mailto:admin@blackcubesolutions.com" 
-              className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 ${
-                theme === 'dark'
-                  ? 'bg-stone-100/90 text-stone-900 embossed-subtle-light hover:bg-white'
-                  : 'bg-stone-900/90 text-white embossed-subtle-dark hover:bg-stone-800'
-              }`}
+              className="px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 bg-stone-900/90 text-white embossed-subtle-dark hover:bg-stone-800"
             >
               Get In Touch
             </a>
@@ -270,11 +242,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
               href="https://cal.com/danielzverev" 
               target="_blank" 
               rel="noopener noreferrer"
-              className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 ${
-                theme === 'dark'
-                  ? 'text-stone-400 hover:text-stone-300 bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
-                  : 'text-stone-500 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
-              }`}
+              className="px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 text-stone-500 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60"
             >
               Schedule a Call
             </a>
