@@ -26,42 +26,42 @@ export interface BentoProps {
 
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
-const DEFAULT_GLOW_COLOR = '120, 113, 108';
+const DEFAULT_GLOW_COLOR = '132, 0, 255';
 const MOBILE_BREAKPOINT = 768;
 
 const cardData: BentoCardProps[] = [
   {
-    color: '#1c1917',
+    color: '#060010',
     title: 'Analytics',
     description: 'Track user behavior',
     label: 'Insights'
   },
   {
-    color: '#1c1917',
+    color: '#060010',
     title: 'Dashboard',
     description: 'Centralized data view',
     label: 'Overview'
   },
   {
-    color: '#1c1917',
+    color: '#060010',
     title: 'Collaboration',
     description: 'Work together seamlessly',
     label: 'Teamwork'
   },
   {
-    color: '#1c1917',
+    color: '#060010',
     title: 'Automation',
     description: 'Streamline workflows',
     label: 'Efficiency'
   },
   {
-    color: '#1c1917',
+    color: '#060010',
     title: 'Integration',
     description: 'Connect favorite tools',
     label: 'Connectivity'
   },
   {
-    color: '#1c1917',
+    color: '#060010',
     title: 'Security',
     description: 'Enterprise-grade protection',
     label: 'Protection'
@@ -542,12 +542,12 @@ const MagicBento: React.FC<BentoProps> = ({
             --glow-intensity: 0;
             --glow-radius: 200px;
             --glow-color: ${glowColor};
-            --border-color: #44403c;
-            --background-dark: #1c1917;
+            --border-color: #392e4e;
+            --background-dark: #060010;
             --white: hsl(0, 0%, 100%);
-            --purple-primary: rgba(120, 113, 108, 1);
-            --purple-glow: rgba(120, 113, 108, 0.2);
-            --purple-border: rgba(120, 113, 108, 0.8);
+            --purple-primary: rgba(132, 0, 255, 1);
+            --purple-glow: rgba(132, 0, 255, 0.2);
+            --purple-border: rgba(132, 0, 255, 0.8);
           }
           
           .card-responsive {

@@ -3,17 +3,17 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: #78716c;
+  --color-primary: #3b82f6;
   --color-primary-foreground: #ffffff;
   --color-secondary: #f5f5f4;
   --color-secondary-foreground: #1c1917;
-  --color-background: #ffffff;
+  --color-background: #fafaf9;
   --color-foreground: #1c1917;
-  --color-muted: #fafaf9;
+  --color-muted: #f5f5f4;
   --color-muted-foreground: #78716c;
   --color-border: #e7e5e4;
   --color-input: #ffffff;
-  --color-ring: #78716c;
+  --color-ring: #3b82f6;
   --radius: 0.5rem;
 }
 
@@ -26,15 +26,6 @@
     --color-border: #44403c;
     --color-input: #292524;
   }
-}
-
-.light {
-  --color-background: #ffffff;
-  --color-foreground: #1c1917;
-  --color-muted: #fafaf9;
-  --color-muted-foreground: #78716c;
-  --color-border: #e7e5e4;
-  --color-input: #ffffff;
 }
 
 .dark {
@@ -87,6 +78,7 @@ body {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   /* Ensure background extends beyond viewport */
+  background-attachment: fixed;
 }
 
 /* Custom animations for micro interactions */
@@ -190,23 +182,29 @@ body {
 }
 
 #root {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   width: 100vw;
   height: 100vh;
   height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
   padding: 0;
   margin: 0;
+  /* Ensure full viewport coverage including safe areas */
+  position: relative;
   background-color: var(--color-background);
-  /* Ensure coverage of safe areas */
+  /* Extend background into safe areas */
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
+  /* Compensate for the padding by using calc */
+  height: calc(100vh + env(safe-area-inset-top) + env(safe-area-inset-bottom));
+  height: calc(100dvh + env(safe-area-inset-top) + env(safe-area-inset-bottom));
+  width: calc(100vw + env(safe-area-inset-left) + env(safe-area-inset-right));
+  /* Position to cover safe areas */
+  margin-top: calc(-1 * env(safe-area-inset-top));
+  margin-left: calc(-1 * env(safe-area-inset-left));
 }
 
 @theme inline {

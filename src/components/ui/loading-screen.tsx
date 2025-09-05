@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from '@/contexts/ThemeContext';
-import DarkVeil from '@/components/DarkVeil';
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
@@ -50,20 +49,7 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
         theme === 'dark' ? 'bg-stone-900' : 'bg-stone-50'
       }`}
     >
-      {/* DarkVeil Background - Always mounted for smooth transitions */}
-      <div className={`fixed inset-0 w-screen h-screen z-0 transition-opacity duration-500 ease-in-out ${
-        theme === 'dark' ? 'opacity-100' : 'opacity-0'
-      }`}>
-        <DarkVeil 
-          hueShift={200}
-          noiseIntensity={0.02}
-          scanlineIntensity={0}
-          speed={0.3}
-          scanlineFrequency={0}
-          warpAmount={0.1}
-          resolutionScale={1}
-        />
-      </div>
+
       <div className="flex flex-col items-center space-y-12 relative z-10">
         {/* Elegant Initial */}
         <div className="relative">
