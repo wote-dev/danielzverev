@@ -35,11 +35,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
 
   
   return (
-    <div className={`w-full min-h-dvh flex items-center justify-center overflow-y-auto fixed inset-0 transition-colors duration-500 ease-in-out ${
-      theme === 'dark' 
-        ? 'bg-stone-900' 
-        : 'bg-stone-50'
-    }`}>
+    <div className="w-full min-h-dvh flex items-center justify-center overflow-y-auto fixed inset-0 transition-colors duration-500 ease-in-out bg-stone-50">
       {/* Content wrapper - background bleeds to edges, content uses safe areas */}
       <div className="w-full h-full relative flex items-center justify-center">
 
@@ -49,11 +45,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       <div className={`absolute left-1/2 transform -translate-x-1/2 z-10 transition-all duration-700 ease-out hidden sm:block ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
       }`} style={{top: `calc(2rem + env(safe-area-inset-top))`}}>
-        <div className={`px-4 py-2 font-sans text-xs font-medium rounded-full transition-all duration-300 hover:scale-105 cursor-pointer ${
-          theme === 'dark'
-            ? 'bg-stone-900/40 text-stone-400 embossed-subtle-dark hover:bg-stone-900/60 hover:text-stone-300'
-            : 'bg-stone-50/40 text-stone-500 embossed-subtle-light hover:bg-stone-50/60 hover:text-stone-600'
-        }`}>
+        <div className="px-4 py-2 font-sans text-xs font-medium rounded-full transition-all duration-300 hover:scale-105 cursor-pointer bg-stone-50/40 text-stone-500 embossed-subtle-light hover:bg-stone-50/60 hover:text-stone-600">
           <span className="tracking-wide flex items-center gap-1.5">
             <svg className="w-3 h-3 fill-red-500" viewBox="0 0 16 16">
               <path d="M8 0a5 5 0 0 0-5 5c0 5 5 10 5 10s5-5 5-10a5 5 0 0 0-5-5zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
@@ -74,18 +66,10 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       <div className={`absolute z-10 transition-all duration-700 ease-out delay-150 ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
       }`} style={{top: `calc(2rem + env(safe-area-inset-top))`, left: `calc(1.5rem + env(safe-area-inset-left))`}}>
-        <div className={`px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 ${
-          theme === 'dark'
-            ? 'bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
-            : 'bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
-        }`}>
+        <div className="px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-            <span className={`text-xs font-medium transition-colors duration-300 ${
-              theme === 'dark' 
-                ? 'text-stone-400' 
-                : 'text-stone-500'
-            }`}>
+            <span className="text-xs font-medium transition-colors duration-300 text-stone-500">
               Available
             </span>
           </div>

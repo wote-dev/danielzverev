@@ -11,52 +11,28 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
-    // Check if there's a saved preference
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    if (savedTheme) {
-      return savedTheme;
-    }
-    
-    // Otherwise, use system preference
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    
+    // Force light theme for now
     return 'light';
   });
 
   useEffect(() => {
-    // Apply theme to document
+    // Always remove dark class and keep light theme
     const root = document.documentElement;
+    root.classList.remove('dark');
     
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    
-    // Save preference
-    localStorage.setItem('theme', theme);
+    // Save preference (always light for now)
+    localStorage.setItem('theme', 'light');
   }, [theme]);
 
   useEffect(() => {
-    // Listen for system theme changes
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    const handleChange = (e: MediaQueryListEvent) => {
-      // Only update if no saved preference exists
-      if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
-    };
-    
-    mediaQuery.addEventListener('change', handleChange);
-    
-    return () => mediaQuery.removeEventListener('change', handleChange);
+    // Disable system theme changes - always stay light
+    // Keep this effect for future when dark theme is re-enabled
   }, []);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    // Keep toggle functional but force light theme for now
+    // setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    setTheme('light');
   };
 
   return (
