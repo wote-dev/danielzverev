@@ -65,17 +65,15 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
-  position: relative;
 }
 
-body::before {
+html::before {
   content: '';
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh; /* Fallback for browsers that do not support dvh */
-  height: 100dvh;
+  right: 0;
+  bottom: 0;
   background-image: 
     radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--grid-color) calc(var(--grid-opacity) * 100%), transparent) 1px, transparent 0);
   background-size: var(--grid-size) var(--grid-size);
