@@ -64,6 +64,12 @@ body {
   touch-action: manipulation;
 }
 
+@media (hover: none) and (pointer: coarse) {
+  html, body {
+    overflow: hidden;
+  }
+}
+
 #root {
   height: 100%;
   width: 100%;
