@@ -64,13 +64,10 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  /* Ensure body fills entire viewport */
+  /* Ensure body fills entire viewport including safe areas */
   min-height: 100vh;
   min-height: 100dvh;
   position: relative;
-}
-
-body {
   font-family: system-ui, -apple-system, sans-serif;
   background-color: var(--color-background);
   color: var(--color-foreground);
@@ -83,8 +80,18 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
-  /* Ensure background extends beyond viewport */
+  /* Ensure background extends to cover safe areas */
   background-attachment: fixed;
+  /* Extend background to cover safe areas */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  /* Negative margins to extend background */
+  margin-top: calc(-1 * env(safe-area-inset-top));
+  margin-bottom: calc(-1 * env(safe-area-inset-bottom));
+  margin-left: calc(-1 * env(safe-area-inset-left));
+  margin-right: calc(-1 * env(safe-area-inset-right));
 }
 
 /* Custom animations for micro interactions */
@@ -188,21 +195,14 @@ body {
 }
 
 #root {
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  min-height: 100vh;
-  min-height: 100dvh;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
   overflow: hidden;
   padding: 0;
   margin: 0;
   position: relative;
-  background-color: var(--color-background);
-  /* Proper safe area handling for iOS Safari */
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
+  background-color: transparent;
 }
 
 @theme inline {
