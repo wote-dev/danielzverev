@@ -154,7 +154,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 ? 'bg-stone-800/40 text-stone-400 embossed-subtle-dark'
                 : 'bg-white/40 text-stone-600 embossed-subtle-light'
             }`}>
-              <svg className="w-3 h-3" fill="#ef4444" viewBox="0 0 16 16">
+              <svg className="w-3 h-3 fill-red-500" viewBox="0 0 16 16">
                 <path d="M8 0a5 5 0 0 0-5 5c0 5 5 10 5 10s5-5 5-10a5 5 0 0 0-5-5zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
               </svg>
               <span>Melbourne, Australia</span>
