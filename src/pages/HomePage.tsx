@@ -37,7 +37,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
 
   
   return (
-    <div className={`w-full h-full min-h-dvh flex items-center justify-center overflow-hidden fixed inset-0 transition-colors duration-500 ease-in-out ${
+    <div className={`w-full min-h-dvh flex items-center justify-center transition-colors duration-500 ease-in-out ${
       theme === 'dark' 
         ? 'bg-stone-900' 
         : 'bg-stone-50'
