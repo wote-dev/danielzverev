@@ -52,6 +52,8 @@ html {
   /* Use safe viewport units for Safari iOS */
   min-height: 100vh;
   min-height: 100svh;
+  /* Remove any default background */
+  background: transparent;
 }
 
 body {
@@ -73,10 +75,11 @@ body {
 
 body {
   font-family: system-ui, -apple-system, sans-serif;
-  background-color: var(--color-background);
+  /* Remove background color - let thematic backgrounds handle it */
+  background: transparent;
   color: var(--color-foreground);
   line-height: 1.5;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
   /* Prevent overscroll and ensure background covers entire viewport */
   overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
@@ -84,9 +87,6 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
-  /* Ensure background covers full viewport including safe areas */
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
 }
 
 /* Custom animations for micro interactions */

@@ -37,7 +37,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
 
   
   return (
-    <div className={`w-full h-full min-h-screen min-h-dvh flex items-center justify-center overflow-hidden fixed inset-0 transition-colors duration-500 ease-in-out ${
+    <div className={`w-full h-full min-h-screen min-h-svh flex items-center justify-center overflow-hidden fixed inset-0 ${
       theme === 'dark' 
         ? 'bg-stone-900' 
         : 'bg-stone-50'
@@ -174,7 +174,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       {/* Projects - Bottom Right */}
       <div className={`absolute right-6 z-10 transition-all duration-700 ease-out delay-375 ${
         animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`} style={{ bottom: `calc(2rem + env(safe-area-inset-bottom))` }}>
+      }`} style={{ bottom: `calc(4rem + env(safe-area-inset-bottom))` }}>
         <a 
           href="https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464" 
           target="_blank" 
@@ -191,7 +191,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
 
       {/* Central Content */}
-      <div className="flex flex-col items-center justify-center h-full px-4 relative z-0" style={{ paddingTop: `calc(4rem + env(safe-area-inset-top))`, paddingBottom: `calc(4rem + env(safe-area-inset-bottom))` }}>
+      <div className="flex flex-col items-center justify-center h-full px-4 relative z-0" style={{ paddingTop: `calc(2rem + env(safe-area-inset-top))`, paddingBottom: `calc(6rem + env(safe-area-inset-bottom))` }}>
         <div className="text-center space-y-8 relative z-10">
           <div className={`space-y-3 transition-all duration-1000 ease-out delay-450 ${
             animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
