@@ -43,9 +43,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
         : 'bg-stone-50'
     }`} style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
       {/* DarkVeil Background - Always mounted for smooth transitions */}
-      <div className={`fixed inset-0 w-dvw h-dvh z-0 transition-opacity duration-500 ease-in-out ${
-        theme === 'dark' ? 'opacity-100' : 'opacity-0'
-      }`}>
+      <div className={`fixed inset-0 w-lvw h-lvh z-0 transition-opacity duration-500 ease-in-out ${theme === 'dark' ? 'opacity-100' : 'opacity-0'}`}>
         <DarkVeil 
           hueShift={222}
           noiseIntensity={0.02}
@@ -58,9 +56,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
       
       {/* Grid Background for Light Theme */}
-      <div className={`fixed inset-0 w-dvw h-dvh z-0 transition-opacity duration-500 ease-in-out ${
-        theme === 'light' ? 'opacity-100' : 'opacity-0'
-      }`}>
+      <div className={`fixed inset-0 w-lvw h-lvh z-0 transition-opacity duration-500 ease-in-out ${theme === 'light' ? 'opacity-100' : 'opacity-0'}`}>
         <GridBackground 
           gridSize={24}
           opacity={0.6}

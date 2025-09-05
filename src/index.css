@@ -7,7 +7,7 @@
   --color-primary-foreground: #ffffff;
   --color-secondary: #f1f5f9;
   --color-secondary-foreground: #0f172a;
-  --color-background: #ffffff;
+  --color-background: #fafaf9; /* stone-50 to match page */
   --color-foreground: #0f172a;
   --color-muted: #f8fafc;
   --color-muted-foreground: #64748b;
@@ -76,6 +76,19 @@ body {
   /* Ensure background extends beyond viewport */
   /* Avoid iOS Safari painting glitches with fixed backgrounds */
   /* background-attachment: fixed; */
+  position: relative;
+}
+
+/* Paint behind iOS Safari bars to avoid blue gaps */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100lvw;
+  height: 100lvh;
+  background: var(--color-background);
+  z-index: -1; /* behind everything */
+  pointer-events: none;
 }
 
 /* Custom animations for micro interactions */
