@@ -67,19 +67,7 @@ body {
   touch-action: manipulation;
 }
 
-html::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--grid-color) calc(var(--grid-opacity) * 100%), transparent) 1px, transparent 0);
-  background-size: var(--grid-size) var(--grid-size);
-  z-index: -1;
-  pointer-events: none;
-}
+
 
 @media (hover: none) and (pointer: coarse) {
   html,
