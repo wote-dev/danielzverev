@@ -55,7 +55,7 @@ function InteractiveSubtitle({ animationStage }: InteractiveSubtitleProps) {
   };
 
   return (
-    <div className={`text-lg sm:text-xl font-light max-w-xl mx-auto leading-relaxed transition-all duration-300 delay-100 ${
+    <div className={`text-base sm:text-lg font-light max-w-sm sm:max-w-md mx-auto leading-snug transition-all duration-300 delay-100 ${
       theme === 'dark' 
         ? 'text-stone-400' 
         : 'text-stone-500'
