@@ -46,9 +46,11 @@ html {
   width: 100%;
   margin: 0;
   padding: 0;
-  /* Ensure html extends to full viewport including unsafe areas */
+  /* Force html to cover entire viewport including unsafe areas */
   min-height: 100vh;
   min-height: 100dvh;
+  position: relative;
+  overflow-x: hidden;
 }
 
 body {
@@ -56,14 +58,17 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  /* Allow body to extend into unsafe areas for background */
+  /* Critical: Force body to extend into unsafe areas */
   min-height: 100vh;
   min-height: 100dvh;
-  /* Ensure background extends to edges on iOS */
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Ensure no padding interferes with edge-to-edge background */
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 #root {

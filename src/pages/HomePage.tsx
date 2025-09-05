@@ -40,15 +40,15 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
         ? 'bg-stone-900' 
         : 'bg-stone-50'
     }`}>
-      {/* Content wrapper with safe area padding */}
-      <div className="w-full h-full pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)] relative flex items-center justify-center">
+      {/* Content wrapper - background bleeds to edges, content uses safe areas */}
+      <div className="w-full h-full relative flex items-center justify-center">
 
       
 
       {/* Coordinates - Top Center */}
-      <div className={`absolute top-8 left-1/2 transform -translate-x-1/2 z-10 transition-all duration-700 ease-out hidden sm:block ${
+      <div className={`absolute left-1/2 transform -translate-x-1/2 z-10 transition-all duration-700 ease-out hidden sm:block ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-      }`}>
+      }`} style={{top: `calc(2rem + env(safe-area-inset-top))`}}>
         <div className={`px-4 py-2 font-sans text-xs font-medium rounded-full transition-all duration-300 hover:scale-105 cursor-pointer ${
           theme === 'dark'
             ? 'bg-stone-900/40 text-stone-400 embossed-subtle-dark hover:bg-stone-900/60 hover:text-stone-300'
@@ -64,16 +64,16 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
 
       {/* Theme Toggle - Top Right */}
-      <div className={`absolute top-8 sm:top-8 right-6 z-10 transition-all duration-700 ease-out delay-75 ${
+      <div className={`absolute z-10 transition-all duration-700 ease-out delay-75 ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-      }`}>
+      }`} style={{top: `calc(2rem + env(safe-area-inset-top))`, right: `calc(1.5rem + env(safe-area-inset-right))`}}>
         <ThemeToggle />
       </div>
 
       {/* Status Indicator - Top Left */}
-      <div className={`absolute top-8 sm:top-8 left-6 z-10 transition-all duration-700 ease-out delay-150 ${
+      <div className={`absolute z-10 transition-all duration-700 ease-out delay-150 ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-      }`}>
+      }`} style={{top: `calc(2rem + env(safe-area-inset-top))`, left: `calc(1.5rem + env(safe-area-inset-left))`}}>
         <div className={`px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 ${
           theme === 'dark'
             ? 'bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
@@ -93,9 +93,9 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
       
       {/* Social Links - Bottom Left */}
-      <div className={`absolute bottom-8 sm:bottom-8 left-6 z-10 transition-all duration-700 ease-out delay-300 ${
+      <div className={`absolute z-10 transition-all duration-700 ease-out delay-300 ${
         animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`}>
+      }`} style={{bottom: `calc(2rem + env(safe-area-inset-bottom))`, left: `calc(1.5rem + env(safe-area-inset-left))`}}>
         <div className="flex items-center gap-2">
           <SocialLink
             href="mailto:admin@blackcubesolutions.com"
@@ -151,9 +151,9 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
 
       {/* Projects - Bottom Right */}
-      <div className={`absolute bottom-8 sm:bottom-8 right-6 z-10 transition-all duration-700 ease-out delay-375 ${
+      <div className={`absolute z-10 transition-all duration-700 ease-out delay-375 ${
         animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`}>
+      }`} style={{bottom: `calc(2rem + env(safe-area-inset-bottom))`, right: `calc(1.5rem + env(safe-area-inset-right))`}}>
         <a 
           href="https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464" 
           target="_blank" 
