@@ -46,10 +46,6 @@ html {
   position: relative;
   overflow-x: hidden;
   background-color: var(--color-background);
-  background-image: 
-    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--grid-color) calc(var(--grid-opacity) * 100%), transparent) 1px, transparent 0);
-  background-size: var(--grid-size) var(--grid-size);
-  background-attachment: fixed;
   color: var(--color-foreground);
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
@@ -69,6 +65,22 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; /* Fallback for browsers that do not support dvh */
+  height: 100dvh;
+  background-image: 
+    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--grid-color) calc(var(--grid-opacity) * 100%), transparent) 1px, transparent 0);
+  background-size: var(--grid-size) var(--grid-size);
+  z-index: -1;
+  pointer-events: none;
 }
 
 @media (hover: none) and (pointer: coarse) {
