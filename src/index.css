@@ -15,9 +15,6 @@
   --color-input: #ffffff;
   --color-ring: #78716c;
   --radius: 0.5rem;
-  --grid-color: #d6d3d1;
-  --grid-size: 24px;
-  --grid-opacity: 0.6;
 }
 
 .dark {
@@ -27,8 +24,6 @@
   --color-muted-foreground: #a8a29e;
   --color-border: #44403c;
   --color-input: #292524;
-  --grid-color: #44403c;
-  --grid-opacity: 0.4;
 }
 
 * {
@@ -66,8 +61,6 @@ body {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
-
-
 
 @media (hover: none) and (pointer: coarse) {
   html,
