@@ -35,11 +35,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
 
   
   return (
-    <div className={`w-full min-h-dvh flex items-center justify-center overflow-y-auto fixed inset-0 transition-colors duration-500 ease-in-out ${
-      theme === 'dark' 
-        ? 'bg-stone-900' 
-        : 'bg-stone-50'
-    }`}>
+    <div className={`w-full min-h-dvh flex items-center justify-center overflow-y-auto fixed inset-0 transition-colors duration-500 ease-in-out`}>
       {/* Content wrapper - background bleeds to edges, content uses safe areas */}
       <div className="w-full h-full relative flex items-center justify-center">
 

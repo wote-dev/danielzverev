@@ -28,11 +28,14 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Apply theme to document
     const root = document.documentElement;
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
     
     if (theme === 'dark') {
       root.classList.add('dark');
+      themeColorMeta?.setAttribute('content', '#1c1917');
     } else {
       root.classList.remove('dark');
+      themeColorMeta?.setAttribute('content', '#fafaf9');
     }
     
     // Save preference
