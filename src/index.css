@@ -41,27 +41,11 @@
   box-sizing: border-box;
 }
 
-html {
+html, body, #root {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  /* Force full height on mobile Safari */
-  height: 100vh;
-  height: 100dvh;
-}
-
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  /* Ensure body fills entire viewport */
-  min-height: 100vh;
-  min-height: 100dvh;
-  position: relative;
 }
 
 body {
@@ -70,15 +54,11 @@ body {
   color: var(--color-foreground);
   line-height: 1.5;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-  /* Prevent overscroll and ensure background covers entire viewport */
   overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
-  /* iPhone Safari specific fixes */
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
-  /* Ensure background extends beyond viewport */
-  background-attachment: fixed;
 }
 
 /* Custom animations for micro interactions */
@@ -170,42 +150,7 @@ body {
     -1px -1px 2px rgba(255, 255, 255, 0.12);
 }
 
-/* Reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
 
-#root {
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  min-height: 100vh;
-  min-height: 100dvh;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
-  /* Ensure full viewport coverage including safe areas */
-  position: relative;
-  background-color: var(--color-background);
-  /* Extend background into safe areas */
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-  /* Compensate for the padding by using calc */
-  height: calc(100vh + env(safe-area-inset-top) + env(safe-area-inset-bottom));
-  height: calc(100dvh + env(safe-area-inset-top) + env(safe-area-inset-bottom));
-  width: calc(100vw + env(safe-area-inset-left) + env(safe-area-inset-right));
-  /* Position to cover safe areas */
-  margin-top: calc(-1 * env(safe-area-inset-top));
-  margin-left: calc(-1 * env(safe-area-inset-left));
-}
 
 @theme inline {
   --animate-ripple: ripple var(--duration, 2s) ease calc(var(--i, 0) * 0.2s)

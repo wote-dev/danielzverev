@@ -35,11 +35,11 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
 
   
   return (
-    <div className={`w-full h-full min-h-screen min-h-dvh flex items-center justify-center overflow-hidden fixed inset-0 transition-colors duration-500 ease-in-out ${
+    <div className={`w-full min-h-dvh flex items-center justify-center overflow-y-auto fixed inset-0 transition-colors duration-500 ease-in-out ${
       theme === 'dark' 
         ? 'bg-stone-900' 
         : 'bg-stone-50'
-    }`}>
+    } pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]`}>
 
       
 
