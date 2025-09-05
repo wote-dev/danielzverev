@@ -37,6 +37,17 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     
     // Save preference
     localStorage.setItem('theme', theme);
+
+    // Update Safari/Chrome UI bar color to match page background
+    const color = theme === 'dark' ? '#0f172a' : '#fafaf9'; // stone-900 vs stone-50
+    // Remove existing theme-color metas to avoid conflicts
+    const metas = document.querySelectorAll('meta[name="theme-color"]');
+    metas.forEach((m) => m.parentElement?.removeChild(m));
+    // Create a single theme-color meta reflecting current theme
+    const meta = document.createElement('meta');
+    meta.setAttribute('name', 'theme-color');
+    meta.setAttribute('content', color);
+    document.head.appendChild(meta);
   }, [theme]);
 
   useEffect(() => {

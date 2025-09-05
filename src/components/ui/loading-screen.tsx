@@ -51,7 +51,7 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
       }`}
     >
       {/* DarkVeil Background - Always mounted for smooth transitions */}
-      <div className={`fixed inset-0 w-screen h-screen z-0 transition-opacity duration-500 ease-in-out ${
+      <div className={`fixed inset-0 w-dvw h-dvh z-0 transition-opacity duration-500 ease-in-out ${
         theme === 'dark' ? 'opacity-100' : 'opacity-0'
       }`}>
         <DarkVeil 

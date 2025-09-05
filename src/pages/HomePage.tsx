@@ -37,13 +37,13 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
 
   
   return (
-    <div className={`w-full h-full min-h-screen min-h-dvh flex items-center justify-center overflow-hidden fixed inset-0 transition-colors duration-500 ease-in-out pb-safe ${
+    <div className={`w-full h-full min-h-dvh flex items-center justify-center overflow-hidden fixed inset-0 transition-colors duration-500 ease-in-out ${
       theme === 'dark' 
         ? 'bg-stone-900' 
         : 'bg-stone-50'
-    }`}>
+    }`} style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
       {/* DarkVeil Background - Always mounted for smooth transitions */}
-      <div className={`fixed inset-0 w-screen h-screen z-0 transition-opacity duration-500 ease-in-out ${
+      <div className={`fixed inset-0 w-dvw h-dvh z-0 transition-opacity duration-500 ease-in-out ${
         theme === 'dark' ? 'opacity-100' : 'opacity-0'
       }`}>
         <DarkVeil 
@@ -58,7 +58,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
       
       {/* Grid Background for Light Theme */}
-      <div className={`fixed inset-0 w-screen h-screen z-0 transition-opacity duration-500 ease-in-out ${
+      <div className={`fixed inset-0 w-dvw h-dvh z-0 transition-opacity duration-500 ease-in-out ${
         theme === 'light' ? 'opacity-100' : 'opacity-0'
       }`}>
         <GridBackground 
@@ -114,9 +114,12 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
       
       {/* Social Links - Bottom Left */}
-      <div className={`absolute bottom-8 sm:bottom-8 left-6 z-10 transition-all duration-700 ease-out delay-300 mb-safe ${
-        animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`}>
+      <div
+        className={`absolute sm:bottom-8 left-6 z-10 transition-all duration-700 ease-out delay-300 ${
+          animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        }`}
+        style={{ bottom: 'calc(env(safe-area-inset-bottom) + 2rem)' }}
+      >
         <div className="flex items-center gap-2">
           <SocialLink
             href="mailto:admin@blackcubesolutions.com"
@@ -172,9 +175,12 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
 
       {/* Projects - Bottom Right */}
-      <div className={`absolute bottom-8 sm:bottom-8 right-6 z-10 transition-all duration-700 ease-out delay-375 mb-safe ${
-        animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`}>
+      <div
+        className={`absolute sm:bottom-8 right-6 z-10 transition-all duration-700 ease-out delay-375 ${
+          animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        }`}
+        style={{ bottom: 'calc(env(safe-area-inset-bottom) + 2rem)' }}
+      >
         <a 
           href="https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464" 
           target="_blank" 
@@ -191,7 +197,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       </div>
 
       {/* Central Content */}
-      <div className="flex flex-col items-center justify-center h-full px-4 relative z-0 -mt-16 pt-16 pb-safe sm:pt-0 sm:pb-safe">
+      <div className="flex flex-col items-center justify-center h-full px-4 relative z-0 -mt-16 pt-16 pb-16 sm:pt-0 sm:pb-0">
         <div className="text-center space-y-8 relative z-10">
           <div className={`space-y-3 transition-all duration-1000 ease-out delay-450 ${
             animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'

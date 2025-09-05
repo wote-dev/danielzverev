@@ -15,12 +15,6 @@
   --color-input: #ffffff;
   --color-ring: #3b82f6;
   --radius: 0.5rem;
-  
-  /* Safe area utilities */
-  --spacing-safe-top: env(safe-area-inset-top);
-  --spacing-safe-bottom: env(safe-area-inset-bottom);
-  --spacing-safe-left: env(safe-area-inset-left);
-  --spacing-safe-right: env(safe-area-inset-right);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -52,7 +46,9 @@ html {
   width: 100%;
   margin: 0;
   padding: 0;
+  /* Fill safe areas with our background color and use dynamic viewport */
   background-color: var(--color-background);
+  min-height: 100dvh;
 }
 
 body {
@@ -60,14 +56,27 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
+  /* Ensure body fills the visual viewport height */
+  min-height: 100dvh;
+  position: relative;
+}
+
+body {
   font-family: system-ui, -apple-system, sans-serif;
   background-color: var(--color-background);
   color: var(--color-foreground);
   line-height: 1.5;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  /* Prevent overscroll and ensure background covers entire viewport */
   overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  /* iPhone Safari specific fixes */
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  /* Ensure background extends beyond viewport */
+  /* Avoid iOS Safari painting glitches with fixed backgrounds */
+  /* background-attachment: fixed; */
 }
 
 /* Custom animations for micro interactions */
@@ -171,14 +180,18 @@ body {
 }
 
 #root {
-  width: 100vw;
-  height: 100vh;
-  min-height: 100vh;
+  width: 100%;
+  min-height: 100dvh;
   overflow: hidden;
   padding: 0;
   margin: 0;
   position: relative;
   background-color: var(--color-background);
+  /* Extend background into safe areas */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 @theme inline {
@@ -193,39 +206,6 @@ body {
       transform: translate(-50%, -50%) scale(0.9);
     }
   }
-}
-
-/* Safe area utilities */
-.pt-safe {
-  padding-top: env(safe-area-inset-top);
-}
-
-.pb-safe {
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-.pl-safe {
-  padding-left: env(safe-area-inset-left);
-}
-
-.pr-safe {
-  padding-right: env(safe-area-inset-right);
-}
-
-.mt-safe {
-  margin-top: env(safe-area-inset-top);
-}
-
-.mb-safe {
-  margin-bottom: env(safe-area-inset-bottom);
-}
-
-.ml-safe {
-  margin-left: env(safe-area-inset-left);
-}
-
-.mr-safe {
-  margin-right: env(safe-area-inset-right);
 }
 
 @layer base {
