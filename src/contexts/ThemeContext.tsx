@@ -29,15 +29,18 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const fallback = theme === 'dark' ? '#0f172a' : '#fafaf9';
     const color = bg || fallback;
 
-    // Create or update a dedicated dynamic meta placed at the end of <head>
-    let meta = document.querySelector('meta#theme-color-dynamic') as HTMLMetaElement | null;
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.setAttribute('name', 'theme-color');
-      meta.setAttribute('id', 'theme-color-dynamic');
-      document.head.appendChild(meta);
-    }
+    // Remove ALL existing theme-color meta tags to avoid Safari pinning an earlier value
+    document.querySelectorAll('meta[name="theme-color"]').forEach((el) => el.parentElement?.removeChild(el));
+
+    // Create a single authoritative theme-color meta
+    const meta = document.createElement('meta');
+    meta.setAttribute('name', 'theme-color');
     meta.setAttribute('content', color);
+    document.head.appendChild(meta);
+
+    // Also set the root/background color inline to help Safari pick correct tint during transitions
+    root.style.backgroundColor = color;
+    document.body.style.backgroundColor = color;
   }, [theme]);
 
   useEffect(() => {

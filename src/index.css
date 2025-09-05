@@ -48,6 +48,7 @@ html {
   padding: 0;
   background-color: var(--color-background);
   min-height: 100dvh;
+  color-scheme: light dark;
 }
 
 body {
@@ -66,20 +67,16 @@ body {
   color: var(--color-foreground);
   line-height: 1.5;
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-  /* Prevent overscroll and ensure background covers entire viewport */
   overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
-  /* iPhone Safari specific fixes */
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
-  /* Ensure background extends beyond viewport */
-  /* Avoid iOS Safari painting glitches with fixed backgrounds */
-  /* background-attachment: fixed; */
   position: relative;
 }
 
 /* Paint behind iOS Safari bars to avoid blue gaps */
+/* Use an inline background color and ensure it matches the meta theme-color at all times */
 body::before {
   content: "";
   position: fixed;
@@ -87,108 +84,8 @@ body::before {
   width: 100lvw;
   height: 100lvh;
   background: var(--color-background);
-  z-index: -1; /* behind everything */
+  z-index: 0;
   pointer-events: none;
-}
-
-/* Custom animations for micro interactions */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200px 0;
-  }
-  100% {
-    background-position: calc(200px + 100%) 0;
-  }
-}
-
-/* Smooth focus transitions */
-*:focus {
-  outline: none;
-}
-
-*:focus-visible {
-  outline: 2px solid var(--color-ring);
-  outline-offset: 2px;
-  transition: outline 0.2s ease;
-}
-
-/* Embossed/Leather-burnt effect utilities */
-.embossed-light {
-  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.9);
-  text-shadow: 1.5px 1.5px 2px rgba(255, 255, 255, 0.9),
-    -1.5px -1.5px 2px rgba(0, 0, 0, 0.15);
-}
-
-.embossed-dark {
-  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.6),
-    inset -2px -2px 4px rgba(255, 255, 255, 0.08);
-  text-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.8),
-    -1.5px -1.5px 2px rgba(255, 255, 255, 0.15);
-}
-
-.embossed-subtle-light {
-  box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.12),
-    inset -1.5px -1.5px 3px rgba(255, 255, 255, 0.8);
-}
-
-.embossed-subtle-dark {
-  box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.5),
-    inset -1.5px -1.5px 3px rgba(255, 255, 255, 0.06);
-}
-
-.embossed-text-light {
-  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.95),
-    -1px -1px 2px rgba(0, 0, 0, 0.12);
-}
-
-.embossed-text-dark {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7),
-    -1px -1px 2px rgba(255, 255, 255, 0.12);
-}
-
-/* Reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }
 
 #root {
@@ -198,6 +95,7 @@ body::before {
   padding: 0;
   margin: 0;
   position: relative;
+  z-index: 1;
   background-color: var(--color-background);
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
@@ -210,20 +108,12 @@ body::before {
     infinite;
   @keyframes ripple {
     0%,
-    100% {
-      transform: translate(-50%, -50%) scale(1);
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(0.9);
-    }
+    100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(0.9); }
   }
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+  * { @apply border-border outline-ring/50; }
+  body { @apply bg-background text-foreground; }
 }
