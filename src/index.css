@@ -17,8 +17,6 @@
   --radius: 0.5rem;
 }
 
-
-
 .dark {
   --color-background: #1c1917;
   --color-foreground: #fafaf9;
@@ -65,7 +63,8 @@ body {
 }
 
 @media (hover: none) and (pointer: coarse) {
-  html, body {
+  html,
+  body {
     overflow: hidden;
   }
 }
@@ -221,7 +220,6 @@ body {
     @apply border-border outline-ring/50;
   }
   body {
-
   }
 }
 
