@@ -28,6 +28,15 @@
   }
 }
 
+.light {
+  --color-background: #ffffff;
+  --color-foreground: #1c1917;
+  --color-muted: #fafaf9;
+  --color-muted-foreground: #78716c;
+  --color-border: #e7e5e4;
+  --color-input: #ffffff;
+}
+
 .dark {
   --color-background: #1c1917;
   --color-foreground: #fafaf9;

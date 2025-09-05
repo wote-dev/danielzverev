@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { TechStackCarousel } from '@/components/ui/tech-stack-carousel';
 import { SocialLink } from '@/components/ui/social-link';
-import DarkVeil from '@/components/DarkVeil';
-import GridBackground from '../../@/components/GridBackground';
+
 import { BioModal } from '@/components/ui/bio-modal';
 import { InteractiveSubtitle } from '@/components/ui/interactive-subtitle';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -37,35 +36,8 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
 
   
   return (
-    <div className={`w-full h-full min-h-screen min-h-dvh flex items-center justify-center overflow-hidden fixed inset-0 transition-colors duration-500 ease-in-out ${
-      theme === 'dark' 
-        ? 'bg-stone-900' 
-        : 'bg-stone-50'
-    }`}>
-      {/* DarkVeil Background - Always mounted for smooth transitions */}
-      <div className={`fixed inset-0 w-screen h-screen z-0 transition-opacity duration-500 ease-in-out ${
-        theme === 'dark' ? 'opacity-100' : 'opacity-0'
-      }`}>
-        <DarkVeil 
-          hueShift={222}
-          noiseIntensity={0.02}
-          scanlineIntensity={0}
-          speed={0.3}
-          scanlineFrequency={0}
-          warpAmount={0.1}
-          resolutionScale={1}
-        />
-      </div>
-      
-      {/* Grid Background for Light Theme */}
-      <div className={`fixed inset-0 w-screen h-screen z-0 transition-opacity duration-500 ease-in-out ${
-        theme === 'light' ? 'opacity-100' : 'opacity-0'
-      }`}>
-        <GridBackground 
-          gridSize={24}
-          opacity={0.6}
-        />
-      </div>
+    <div className="w-full h-full min-h-screen min-h-dvh flex items-center justify-center overflow-hidden fixed inset-0">
+
       {/* Coordinates - Top Center */}
       <div className={`absolute top-8 left-1/2 transform -translate-x-1/2 z-10 transition-all duration-700 ease-out hidden sm:block ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
