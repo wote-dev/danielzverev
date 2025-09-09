@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useTheme } from '@/contexts/ThemeContext';
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
 }
 
 export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
+  const { theme } = useTheme();
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [showInitial, setShowInitial] = useState(false);
@@ -43,7 +45,9 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
     <div
       className={`fixed inset-0 z-50 flex items-center justify-center transition-all duration-1000 ${
         isComplete ? 'opacity-0 pointer-events-none scale-95' : 'opacity-100 scale-100'
-      } bg-stone-900`}
+      } ${
+        theme === 'dark' ? 'bg-stone-900' : 'bg-stone-50'
+      }`}
     >
 
       <div className="flex flex-col items-center space-y-12 relative z-10">
@@ -52,13 +56,19 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
           <div
             className={`w-20 h-20 rounded-full flex items-center justify-center transition-all duration-1000 ease-out ${
               showInitial ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-90 translate-y-4'
-            } bg-stone-800/50 border border-stone-700/50 shadow-2xl shadow-stone-900/20`}
+            } ${
+              theme === 'dark'
+                ? 'bg-stone-800/50 border border-stone-700/50 shadow-2xl shadow-stone-900/20'
+                : 'bg-stone-100/80 border border-stone-200/60 shadow-2xl shadow-stone-900/10'
+            }`}
             style={{
               backdropFilter: 'blur(20px)',
             }}
           >
             <span
-              className="text-2xl font-light tracking-wider transition-all duration-700 text-stone-200"
+              className={`text-2xl font-light tracking-wider transition-all duration-700 ${
+                theme === 'dark' ? 'text-stone-200' : 'text-stone-700'
+              }`}
               style={{
                 opacity: showInitial ? 1 : 0,
                 transform: `scale(${showInitial ? 1 : 0.8})`,
@@ -70,7 +80,9 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
           
           {/* Subtle glow effect */}
           <div
-            className="absolute inset-0 rounded-full transition-all duration-1000 bg-stone-400/5"
+            className={`absolute inset-0 rounded-full transition-all duration-1000 ${
+              theme === 'dark' ? 'bg-stone-400/5' : 'bg-stone-600/5'
+            }`}
             style={{
               opacity: showInitial ? 0.6 : 0,
               transform: `scale(${1.2 + (progress / 100) * 0.1})`,
@@ -84,13 +96,19 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
           {/* Elegant progress bar */}
           <div className="relative">
             <div
-              className="h-px w-full transition-all duration-500 bg-stone-800"
+              className={`h-px w-full transition-all duration-500 ${
+                theme === 'dark' ? 'bg-stone-800' : 'bg-stone-200'
+              }`}
             />
             <div
-              className="absolute top-0 left-0 h-px transition-all duration-700 ease-out bg-stone-400"
+              className={`absolute top-0 left-0 h-px transition-all duration-700 ease-out ${
+                theme === 'dark' ? 'bg-stone-400' : 'bg-stone-600'
+              }`}
               style={{
                 width: `${progress}%`,
-                boxShadow: '0 0 8px rgba(168, 162, 158, 0.3)',
+                boxShadow: theme === 'dark' 
+                  ? '0 0 8px rgba(168, 162, 158, 0.3)' 
+                  : '0 0 8px rgba(87, 83, 78, 0.2)',
               }}
             />
           </div>
@@ -98,7 +116,9 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
           {/* Refined status text */}
           <div className="flex items-center justify-center">
             <span
-              className="text-xs font-light tracking-widest uppercase transition-all duration-500 text-stone-500"
+              className={`text-xs font-light tracking-widest uppercase transition-all duration-500 ${
+                theme === 'dark' ? 'text-stone-500' : 'text-stone-400'
+              }`}
               style={{
                 opacity: progress > 10 ? 1 : 0,
                 transform: `translateY(${progress > 10 ? 0 : 8}px)`,

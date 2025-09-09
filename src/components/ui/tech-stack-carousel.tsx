@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTheme } from '@/contexts/ThemeContext';
 
 interface TechItem {
   name: string;
@@ -20,6 +21,7 @@ const techStack: TechItem[] = [
 ];
 
 export function TechStackCarousel() {
+  const { theme } = useTheme();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
@@ -38,12 +40,18 @@ export function TechStackCarousel() {
                 hoveredIndex === index
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-1'
-              } bg-stone-800/80 text-stone-200`}
+              } ${
+                theme === 'dark'
+                  ? 'bg-stone-800/80 text-stone-200'
+                  : 'bg-white/80 text-stone-700'
+              }`}
             >
               {tech.name}
               {/* Arrow */}
               <div
-                className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[3px] border-r-[3px] border-t-[3px] border-l-transparent border-r-transparent border-t-stone-800"
+                className={`absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[3px] border-r-[3px] border-t-[3px] border-l-transparent border-r-transparent ${
+                  theme === 'dark' ? 'border-t-stone-800' : 'border-t-white'
+                }`}
               />
             </div>
             
