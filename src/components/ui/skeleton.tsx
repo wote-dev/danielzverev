@@ -1,5 +1,3 @@
-import { useTheme } from '@/contexts/ThemeContext';
-
 interface SkeletonProps {
   className?: string;
   variant?: 'default' | 'circular' | 'rectangular';
@@ -15,13 +13,7 @@ export function Skeleton({
   height,
   animate = true 
 }: SkeletonProps) {
-  const { theme } = useTheme();
-  
-  const baseClasses = `${
-    theme === 'dark' 
-      ? 'bg-stone-700/50' 
-      : 'bg-stone-200/50'
-  } ${animate ? 'animate-pulse' : ''}`;
+  const baseClasses = `bg-stone-700/50 ${animate ? 'animate-pulse' : ''}`;
   
   const variantClasses = {
     default: 'rounded',

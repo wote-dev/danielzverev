@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTheme } from '@/contexts/ThemeContext';
 import Silk from '../../@/components/Silk';
 
 interface SilkBackgroundProps {
@@ -7,16 +6,28 @@ interface SilkBackgroundProps {
 }
 
 const SilkBackground: React.FC<SilkBackgroundProps> = ({ className = '' }) => {
-  const { theme } = useTheme();
-
-  // Define colors for light and dark themes
-  const lightThemeColor = '#e7e5e4'; // stone-200
   const darkThemeColor = '#44403c'; // stone-600
 
   return (
-    <div className={`fixed inset-0 w-full h-full ${className}`} style={{ zIndex: -1 }}>
+    <div 
+      className={`fixed w-full ${className}`} 
+      style={{ 
+        zIndex: -1,
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        height: '100vh',
+        minHeight: '100vh',
+        // Extend beyond safe areas on iOS Safari
+        paddingTop: 'env(safe-area-inset-top, 0px)',
+        paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+        marginTop: 'calc(-1 * env(safe-area-inset-top, 0px))',
+        marginBottom: 'calc(-1 * env(safe-area-inset-bottom, 0px))'
+      }}
+    >
       <Silk
-        color={theme === 'dark' ? darkThemeColor : lightThemeColor}
+        color={darkThemeColor}
         speed={3}
         scale={2}
         noiseIntensity={0.8}

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useTheme } from '@/contexts/ThemeContext';
 
 interface BioModalProps {
   isOpen: boolean;
@@ -7,7 +6,6 @@ interface BioModalProps {
 }
 
 export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
-  const { theme } = useTheme();
   const [isVisible, setIsVisible] = useState(false);
   const [animationStage, setAnimationStage] = useState(0);
 
@@ -72,11 +70,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
           isVisible 
             ? 'opacity-100' 
             : 'opacity-0'
-        } ${
-          theme === 'dark'
-            ? 'bg-stone-900/85 backdrop-blur-md'
-            : 'bg-stone-50/85 backdrop-blur-md'
-        }`}
+        } bg-stone-900/85 backdrop-blur-md`}
       />
       
       {/* Modal Content */}
@@ -88,11 +82,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
         }`}
       >
         <div 
-          className={`relative w-full rounded-3xl p-8 transition-all duration-400 ${
-            theme === 'dark'
-              ? 'bg-stone-900/95 embossed-subtle-dark backdrop-blur-lg border border-stone-700/30'
-              : 'bg-stone-50/95 embossed-subtle-light backdrop-blur-lg border border-stone-200/30'
-          }`}
+          className="relative w-full rounded-3xl p-8 transition-all duration-400 bg-stone-900/95 embossed-subtle-dark backdrop-blur-lg border border-stone-700/30"
         >
           {/* Close Button */}
           <button
@@ -100,11 +90,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
               e.stopPropagation();
               handleClose();
             }}
-            className={`absolute top-6 right-6 p-2.5 rounded-full transition-all duration-300 hover:scale-110 focus:scale-110 group z-50 pointer-events-auto ${
-              theme === 'dark'
-                ? 'text-stone-400 hover:text-stone-200 embossed-subtle-dark hover:bg-stone-800/40'
-                : 'text-stone-500 hover:text-stone-700 embossed-subtle-light hover:bg-white/40'
-            }`}
+            className="absolute top-6 right-6 p-2.5 rounded-full transition-all duration-300 hover:scale-110 focus:scale-110 group z-50 pointer-events-auto text-stone-400 hover:text-stone-200 embossed-subtle-dark hover:bg-stone-800/40"
             aria-label="Close"
             type="button"
           >
@@ -119,11 +105,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
           }`}>
             {/* Enhanced Avatar */}
             <div className="flex justify-center mb-6">
-              <div className={`relative w-24 h-24 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 ${
-                theme === 'dark'
-                  ? 'ring-3 ring-stone-600/40 shadow-2xl embossed-subtle-dark'
-                  : 'ring-3 ring-stone-300/40 shadow-xl embossed-subtle-light'
-              }`}>
+              <div className="relative w-24 h-24 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 ring-3 ring-stone-600/40 shadow-2xl embossed-subtle-dark">
                 <img 
                   src="/me.png" 
                   alt="Daniel Zverev" 
@@ -131,29 +113,17 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                   loading="eager"
                 />
                 {/* Subtle overlay for depth */}
-                <div className={`absolute inset-0 rounded-full ${
-                  theme === 'dark'
-                    ? 'bg-gradient-to-br from-transparent via-transparent to-stone-900/20'
-                    : 'bg-gradient-to-br from-transparent via-transparent to-stone-900/10'
-                }`} />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-transparent via-transparent to-stone-900/20" />
               </div>
             </div>
 
             {/* Name with enhanced typography */}
-            <h2 className={`text-3xl font-light tracking-wide mb-2 transition-all duration-300 ${
-              theme === 'dark' 
-                ? 'text-stone-100 embossed-text-dark' 
-                : 'text-stone-900 embossed-text-light'
-            }`}>
+            <h2 className="text-3xl font-light tracking-wide mb-2 transition-all duration-300 text-stone-100 embossed-text-dark">
               Daniel Zverev
             </h2>
             
             {/* Location badge */}
-            <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
-              theme === 'dark'
-                ? 'bg-stone-800/40 text-stone-400 embossed-subtle-dark'
-                : 'bg-white/40 text-stone-600 embossed-subtle-light'
-            }`}>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 bg-stone-800/40 text-stone-400 embossed-subtle-dark">
               <svg className="w-3 h-3 fill-red-500" viewBox="0 0 16 16">
                 <path d="M8 0a5 5 0 0 0-5 5c0 5 5 10 5 10s5-5 5-10a5 5 0 0 0-5-5zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
               </svg>
@@ -165,24 +135,16 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
           <div className={`space-y-5 transition-all duration-500 ease-out delay-200 ${
             animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
-            <div className={`text-base leading-relaxed ${
-              theme === 'dark' 
-                ? 'text-stone-300' 
-                : 'text-stone-600'
-            }`}>
+            <div className="text-base leading-relaxed text-stone-300">
               <p className="mb-4">
                 Full-stack developer with a passion for creating elegant, user-focused digital experiences. 
                 I specialise in modern web technologies and mobile app development, always striving for 
-                <span className={`font-medium ${
-                  theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
-                }`}> clean design and intuitive interfaces</span>.
+                <span className="font-medium text-stone-200"> clean design and intuitive interfaces</span>.
               </p>
               
               <p className="mb-4">
                 Currently building 
-                <span className={`inline-flex items-center gap-1.5 font-semibold ${
-                  theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
-                }`}>
+                <span className="inline-flex items-center gap-1.5 font-semibold text-stone-200">
                   <img src="/simplr.png" alt="Simplr" className="w-4 h-4 rounded" />
                   Simplr
                 </span>, 
@@ -200,21 +162,13 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
           {/* Action Section */}
           <div className={`mt-8 pt-6 border-t transition-all duration-500 ease-out delay-400 ${
             animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          } ${
-            theme === 'dark'
-              ? 'border-stone-700/50'
-              : 'border-stone-200/50'
-          }`}>
+          } border-stone-700/50`}>
             <div className="flex items-center justify-center gap-4">
               <a 
                 href="https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 focus:scale-105 ${
-                  theme === 'dark'
-                    ? 'text-stone-300 hover:text-stone-100 embossed-subtle-dark hover:bg-stone-800/40'
-                    : 'text-stone-600 hover:text-stone-800 embossed-subtle-light hover:bg-white/60'
-                }`}
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 focus:scale-105 text-stone-300 hover:text-stone-100 embossed-subtle-dark hover:bg-stone-800/40"
               >
                 <img src="/simplr.png" alt="Simplr" className="w-4 h-4 rounded" />
                 <span>View Simplr</span>

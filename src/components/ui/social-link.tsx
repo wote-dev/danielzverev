@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useTheme } from '@/contexts/ThemeContext';
 import { SkeletonIcon } from './skeleton';
 
 interface SocialLinkProps {
@@ -19,7 +18,6 @@ export function SocialLink({
   rel,
   delay = 0 
 }: SocialLinkProps) {
-  const { theme } = useTheme();
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -33,11 +31,7 @@ export function SocialLink({
 
   if (!isLoaded) {
     return (
-      <div className={`p-2.5 rounded-full transition-all duration-300 ${
-        theme === 'dark'
-          ? 'bg-stone-900/40 embossed-subtle-dark'
-          : 'bg-stone-50/40 embossed-subtle-light'
-      }`}>
+      <div className="p-2.5 rounded-full transition-all duration-300 bg-stone-900/40 embossed-subtle-dark">
         <SkeletonIcon />
       </div>
     );
@@ -50,14 +44,11 @@ export function SocialLink({
       rel={rel}
       className={`
         p-2.5 rounded-full transition-all duration-300 transform
-        ${theme === 'dark'
-          ? 'text-stone-500 hover:text-stone-300 bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
-          : 'text-stone-400 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
-        }
+        text-stone-500 hover:text-stone-300 bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60
         ${isHovered ? 'scale-110' : 'scale-100'}
         hover:scale-110
         focus:outline-none focus:ring-2 focus:ring-offset-2
-        ${theme === 'dark' ? 'focus:ring-stone-500' : 'focus:ring-stone-400'}
+        focus:ring-stone-500
       `}
       aria-label={label}
       onMouseEnter={() => setIsHovered(true)}

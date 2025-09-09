@@ -1,11 +1,8 @@
-import { useTheme } from '@/contexts/ThemeContext';
-
 interface InteractiveSubtitleProps {
   animationStage: number;
 }
 
 function InteractiveSubtitle({ animationStage }: InteractiveSubtitleProps) {
-  const { theme } = useTheme();
 
   const bigImages = [
     '/cece.png',
@@ -22,11 +19,7 @@ function InteractiveSubtitle({ animationStage }: InteractiveSubtitleProps) {
       <span 
         className="relative inline-block group"
       >
-        <span className={`font-bold transition-all duration-300 cursor-pointer ${
-          theme === 'dark' 
-            ? 'text-stone-200 group-hover:text-stone-100' 
-            : 'text-stone-700 group-hover:text-stone-900'
-        }`}>
+        <span className="font-bold transition-all duration-300 cursor-pointer text-stone-200 group-hover:text-stone-100">
           {word}
         </span>
         
@@ -55,11 +48,7 @@ function InteractiveSubtitle({ animationStage }: InteractiveSubtitleProps) {
   };
 
   return (
-    <div className={`text-base sm:text-lg font-light max-w-sm sm:max-w-md mx-auto leading-snug transition-all duration-300 delay-100 ${
-      theme === 'dark' 
-        ? 'text-stone-400' 
-        : 'text-stone-500'
-    } ${
+    <div className={`text-base sm:text-lg font-light max-w-sm sm:max-md mx-auto leading-snug transition-all duration-300 delay-100 text-stone-400 ${
       animationStage >= 3 ? 'opacity-100' : 'opacity-0'
     }`}>
       Making ideas happen on screens, {renderWordWithImages('big', bigImages)} and {renderWordWithImages('small', smallImages)}.
