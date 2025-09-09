@@ -64,11 +64,13 @@ body {
 
 /* SF Display Pro Font */
 .font-sf-display {
-  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui,
+    sans-serif;
 }
 
 .font-sf-display-medium {
-  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui,
+    sans-serif;
   font-weight: 500;
 }
 

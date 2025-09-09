@@ -5,6 +5,7 @@ import { SocialLink } from '@/components/ui/social-link';
 import { BioModal } from '@/components/ui/bio-modal';
 import { InteractiveSubtitle } from '@/components/ui/interactive-subtitle';
 import { useTheme } from '@/contexts/ThemeContext';
+import SilkBackground from '@/components/SilkBackground';
 
 
 interface HomePageProps {
@@ -36,6 +37,9 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   
   return (
     <div className={`w-full min-h-dvh flex items-center justify-center overflow-y-auto fixed inset-0`}>
+      {/* Silk Background */}
+      <SilkBackground />
+      
       {/* Content wrapper - background bleeds to edges, content uses safe areas */}
       <div className="w-full h-full relative flex items-center justify-center">
 
