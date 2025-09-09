@@ -12,7 +12,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="w-full h-full min-h-screen min-h-dvh full-viewport">
+      <div className="w-full h-full min-h-screen min-h-dvh full-viewport bg-stone-900">
         {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
         <HomePage isVisible={!isLoading} />
       </div>
