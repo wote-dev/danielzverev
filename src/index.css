@@ -40,7 +40,7 @@ html {
   min-height: 100dvh;
   position: relative;
   overflow-x: hidden;
-  background-color: var(--color-background);
+  background-color: #1c1917; /* Force dark background */
   color: var(--color-foreground);
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
@@ -50,9 +50,10 @@ body {
   width: 100%;
   margin: 0 !important;
   padding: 0 !important;
-  /* Critical: Force body to extend into unsafe areas */
+  /* Critical: Force body to extend beyond safe areas */
   min-height: 100vh;
   min-height: 100dvh;
+  background-color: #1c1917 !important; /* Force dark background to eliminate gaps */
   font-family: system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   overscroll-behavior: none;
@@ -60,6 +61,11 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  /* Extend beyond safe areas */
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  margin-top: calc(-1 * env(safe-area-inset-top, 0px));
+  margin-bottom: calc(-1 * env(safe-area-inset-bottom, 0px));
 }
 
 /* SF Display Pro Font */

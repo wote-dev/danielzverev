@@ -33,12 +33,20 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
 
   
   return (
-    <div className={`w-full min-h-dvh flex items-center justify-center overflow-y-auto fixed inset-0`}>
+    <div className={`w-full h-full min-h-dvh flex items-center justify-center overflow-y-auto fixed inset-0`} style={{
+      width: '100vw',
+      height: '100dvh',
+      minHeight: '100dvh'
+    }}>
       {/* Silk Background */}
       <SilkBackground />
       
       {/* Content wrapper - background bleeds to edges, content uses safe areas */}
-      <div className="w-full h-full relative flex items-center justify-center">
+      <div className="w-full h-full relative flex items-center justify-center" style={{
+        width: '100vw',
+        height: '100dvh',
+        minHeight: '100dvh'
+      }}>
 
       
 
