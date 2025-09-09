@@ -10,8 +10,10 @@ const SilkBackground: React.FC<SilkBackgroundProps> = ({ className = '' }) => {
 
   return (
     <div 
-      className={`absolute inset-0 w-full h-full ${className}`}
-      style={{ zIndex: -1 }}
+      className={`fixed inset-0 w-screen h-screen ${className}`}
+      style={{ 
+        zIndex: -1,
+      }}
     >
       <Silk
         color={darkThemeColor}

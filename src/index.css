@@ -40,6 +40,7 @@ html {
   min-height: 100dvh;
   position: relative;
   overflow-x: hidden;
+  background-color: #1c1917; /* Force dark background */
   color: var(--color-foreground);
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
@@ -52,6 +53,7 @@ body {
   /* Critical: Force body to extend beyond safe areas */
   min-height: 100vh;
   min-height: 100dvh;
+  background-color: #1c1917 !important; /* Force dark background to eliminate gaps */
   font-family: system-ui, -apple-system, sans-serif;
   line-height: 1.5;
   overscroll-behavior: none;
