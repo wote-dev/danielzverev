@@ -62,6 +62,16 @@ body {
   touch-action: manipulation;
 }
 
+/* SF Display Pro Font */
+.font-sf-display {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+.font-sf-display-medium {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-weight: 500;
+}
+
 @media (hover: none) and (pointer: coarse) {
   html,
   body {

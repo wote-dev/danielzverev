@@ -242,7 +242,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
                 onClick={() => setShowBioModal(true)}
                 onMouseEnter={() => setIsHoveringName(true)}
                 onMouseLeave={() => setIsHoveringName(false)}
-                className={`text-5xl sm:text-6xl md:text-7xl font-light tracking-tight transition-all duration-300 hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-2 py-1 ${
+                className={`text-5xl sm:text-6xl md:text-7xl font-sf-display-medium tracking-tight transition-all duration-300 hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-2 py-1 ${
                   theme === 'dark' 
                     ? 'text-stone-100 hover:text-stone-200 focus:ring-stone-500 focus:ring-offset-stone-900' 
                     : 'text-stone-900 hover:text-stone-700 focus:ring-stone-400 focus:ring-offset-stone-50'
