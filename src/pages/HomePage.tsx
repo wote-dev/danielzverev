@@ -19,6 +19,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   const [showBioModal, setShowBioModal] = useState(false);
   const [isHoveringAvatar, setIsHoveringAvatar] = useState(false);
   const [isHoveringName, setIsHoveringName] = useState(false);
+  const [showNudge, setShowNudge] = useState(false);
 
   // Projects data for the universal display
   const projects = [
@@ -58,7 +59,19 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
     }
   }, [isVisible]);
   
+  useEffect(() => {
+    if (isVisible) {
+      const nudgeTimer = setTimeout(() => {
+        setShowNudge(true);
+      }, 3000); // Show nudge after 3 seconds
 
+      return () => clearTimeout(nudgeTimer);
+    }
+  }, [isVisible]);
+
+  const handleInteraction = () => {
+    setShowNudge(false);
+  };
   
   return (
     <div className={`w-full min-h-dvh flex items-center justify-center overflow-y-auto fixed inset-0`}>
@@ -192,7 +205,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
                 {/* Tooltip */}
                 <div
                   className={`absolute -top-10 left-1/2 transform -translate-x-1/2 px-2 py-1 rounded text-xs font-medium whitespace-nowrap pointer-events-none transition-all duration-200 z-20 ${
-                    isHoveringAvatar
+                    isHoveringAvatar || showNudge
                       ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-1'
                   } ${
@@ -211,8 +224,14 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
                 </div>
                 
                 <button
-                  onClick={() => setShowBioModal(true)}
-                  onMouseEnter={() => setIsHoveringAvatar(true)}
+                  onClick={() => {
+                    setShowBioModal(true);
+                    handleInteraction();
+                  }}
+                  onMouseEnter={() => {
+                    setIsHoveringAvatar(true);
+                    handleInteraction();
+                  }}
                   onMouseLeave={() => setIsHoveringAvatar(false)}
                   className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 ${
                     theme === 'dark'
@@ -254,7 +273,10 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
               </div>
               
               <button
-                onClick={() => setShowBioModal(true)}
+                onClick={() => {
+                  setShowBioModal(true);
+                  handleInteraction();
+                }}
                 onMouseEnter={() => setIsHoveringName(true)}
                 onMouseLeave={() => setIsHoveringName(false)}
                 className={`text-5xl sm:text-6xl md:text-7xl font-sf-display-medium tracking-tight transition-all duration-300 hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-2 py-1 ${
