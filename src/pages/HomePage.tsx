@@ -5,6 +5,7 @@ import { SocialLink } from '@/components/ui/social-link';
 import { BioModal } from '@/components/ui/bio-modal';
 import { InteractiveSubtitle } from '@/components/ui/interactive-subtitle';
 import { useTheme } from '@/contexts/ThemeContext';
+import Folder from '@/components/Folder';
 
 
 interface HomePageProps {
@@ -18,6 +19,54 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   const [showBioModal, setShowBioModal] = useState(false);
   const [isHoveringAvatar, setIsHoveringAvatar] = useState(false);
   const [isHoveringName, setIsHoveringName] = useState(false);
+
+  // Projects data for the folder component
+  const projects = [
+    {
+      name: "Simplr",
+      description: "Minimal iOS To-Do App",
+      url: "https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464",
+      icon: "/simplr.png",
+      color: "#5227FF"
+    },
+    {
+      name: "Portfolio",
+      description: "Cece Natalie",
+      url: "https://cece-natalie.com",
+      icon: "/me.png",
+      color: "#10B981"
+    },
+    {
+      name: "Simplr Web",
+      description: "Web App",
+      url: "https://web.simplr-app.com",
+      icon: "/simplr.png",
+      color: "#6366F1"
+    }
+  ];
+
+  const projectItems = projects.map((project, index) => (
+    <div
+      key={index}
+      className="w-full h-full flex flex-col items-center justify-center p-2 cursor-pointer hover:scale-105 transition-transform duration-200"
+      onClick={() => {
+        if (project.url !== "#") {
+          window.open(project.url, "_blank", "noopener,noreferrer");
+        }
+      }}
+    >
+      <img 
+        src={project.icon} 
+        alt={project.name} 
+        className="w-6 h-6 rounded mb-1" 
+      />
+      <span className={`text-xs font-medium text-center leading-tight ${
+        theme === 'dark' ? 'text-stone-300' : 'text-stone-700'
+      }`}>
+        {project.name}
+      </span>
+    </div>
+  ));
 
   useEffect(() => {
     if (isVisible) {
@@ -146,23 +195,16 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
         </div>
       </div>
 
-      {/* Projects - Bottom Right */}
+      {/* Projects Folder - Bottom Right */}
       <div className={`absolute z-10 transition-all duration-700 ease-out delay-375 ${
         animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`} style={{bottom: `calc(2rem + env(safe-area-inset-bottom))`, right: `calc(1.5rem + env(safe-area-inset-right))`}}>
-        <a 
-          href="https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className={`flex items-center gap-2 px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 hover:scale-105 ${
-            theme === 'dark'
-              ? 'text-stone-400 hover:text-stone-300 bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
-              : 'text-stone-500 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
-          }`}
-        >
-          <img src="/simplr.png" alt="Simplr" className="w-4 h-4 rounded" />
-          <span>Simplr (iOS)</span>
-        </a>
+      }`} style={{bottom: `calc(2rem + env(safe-area-inset-bottom))`, right: `calc(3rem + env(safe-area-inset-right))`}}>
+        <Folder
+          color={theme === 'dark' ? '#78716C' : '#A8A29E'}
+          size={0.8}
+          items={projectItems}
+          className="cursor-pointer"
+        />
       </div>
 
       {/* Central Content */}
