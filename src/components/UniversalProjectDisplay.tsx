@@ -148,14 +148,11 @@ const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ proje
                 }`}
               >
                 {/* Project Icon */}
-                <div
-                  className="w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
-                  style={{ backgroundColor: project.color + '20' }}
-                >
+                <div className="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden">
                   <img
                     src={project.icon}
                     alt={project.name}
-                    className="w-6 h-6 object-contain"
+                    className="w-8 h-8 object-contain rounded-full"
                     loading="lazy"
                   />
                 </div>
