@@ -33,7 +33,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       name: "Portfolio",
       description: "Cece Natalie",
       url: "https://cece-natalie.com",
-      icon: "/me.png",
+      icon: "https://cece-natalie.com/favicon.ico",
       color: "#10B981"
     },
     {
