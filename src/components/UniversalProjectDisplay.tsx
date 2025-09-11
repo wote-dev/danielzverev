@@ -17,19 +17,8 @@ interface UniversalProjectDisplayProps {
 const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ projects, className = '' }) => {
   const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   // Close menu when clicking outside
   useEffect(() => {
