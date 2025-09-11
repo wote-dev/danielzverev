@@ -21,7 +21,6 @@ export function SocialLink({
 }: SocialLinkProps) {
   const { theme } = useTheme();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -54,20 +53,13 @@ export function SocialLink({
           ? 'text-stone-500 hover:text-stone-300 bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
           : 'text-stone-400 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
         }
-        ${isHovered ? 'scale-110' : 'scale-100'}
         hover:scale-110
         focus:outline-none focus:ring-2 focus:ring-offset-2
         ${theme === 'dark' ? 'focus:ring-stone-500' : 'focus:ring-stone-400'}
       `}
       aria-label={label}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
-      <div className={`transition-all duration-200 ${
-        isHovered ? 'scale-110' : 'scale-100'
-      }`}>
-        {icon}
-      </div>
+      {icon}
     </a>
   );
 }

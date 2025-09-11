@@ -5,7 +5,7 @@ import { SocialLink } from '@/components/ui/social-link';
 import { BioModal } from '@/components/ui/bio-modal';
 import { InteractiveSubtitle } from '@/components/ui/interactive-subtitle';
 import { useTheme } from '@/contexts/ThemeContext';
-import Folder from '@/components/Folder';
+import UniversalProjectDisplay from '@/components/UniversalProjectDisplay';
 
 
 interface HomePageProps {
@@ -20,7 +20,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   const [isHoveringAvatar, setIsHoveringAvatar] = useState(false);
   const [isHoveringName, setIsHoveringName] = useState(false);
 
-  // Projects data for the folder component
+  // Projects data for the universal display
   const projects = [
     {
       name: "Simplr (iOS)",
@@ -31,7 +31,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
     },
     {
       name: "Cece Natalie",
-      description: "Cece Natalie",
+      description: "UMG Artist Website",
       url: "https://cece-natalie.com",
       icon: "https://www.google.com/s2/favicons?domain=cece-natalie.com&sz=64",
       color: "#10B981"
@@ -44,29 +44,6 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       color: "#6366F1"
     }
   ];
-
-  const projectItems = projects.map((project, index) => (
-    <div
-      key={index}
-      className="w-full h-full flex flex-col items-center justify-center p-2 cursor-pointer hover:scale-105 transition-transform duration-200"
-      onClick={() => {
-        if (project.url !== "#") {
-          window.open(project.url, "_blank", "noopener,noreferrer");
-        }
-      }}
-    >
-      <img 
-        src={project.icon} 
-        alt={project.name} 
-        className="w-6 h-6 rounded mb-1" 
-      />
-      <span className={`text-xs font-medium text-center leading-tight ${
-        theme === 'dark' ? 'text-stone-300' : 'text-stone-700'
-      }`}>
-        {project.name}
-      </span>
-    </div>
-  ));
 
   useEffect(() => {
     if (isVisible) {
@@ -111,7 +88,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       {/* Theme Toggle - Top Right */}
       <div className={`absolute z-10 transition-all duration-700 ease-out delay-75 ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-      }`} style={{top: `calc(2rem + env(safe-area-inset-top))`, right: `calc(1.5rem + env(safe-area-inset-right))`}}>
+      }`} style={{top: `calc(2rem + env(safe-area-inset-top))`, right: `calc(1.2rem + env(safe-area-inset-right))`}}>
         <ThemeToggle />
       </div>
 
@@ -137,78 +114,69 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
         </div>
       </div>
       
-      {/* Social Links - Bottom Left */}
+      {/* Social Links and Projects - Bottom */}
       <div className={`absolute z-10 transition-all duration-700 ease-out delay-300 ${
         animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`} style={{bottom: `calc(2rem + env(safe-area-inset-bottom))`, left: `calc(1.5rem + env(safe-area-inset-left))`}}>
-        <div className="flex items-center gap-2">
-          <SocialLink
-            href="mailto:admin@blackcubesolutions.com"
-            label="Email"
-            delay={100}
-            icon={
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-              </svg>
-            }
-          />
+      }`} style={{bottom: `calc(2rem + env(safe-area-inset-bottom))`, left: `calc(1.5rem + env(safe-area-inset-left))`, right: `calc(1.5rem + env(safe-area-inset-right))`}}>
+        <div className="flex items-center justify-between w-full">
+          <div className="flex items-center gap-2">
+            <SocialLink
+              href="mailto:admin@blackcubesolutions.com"
+              label="Email"
+              delay={100}
+              icon={
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
+              }
+            />
+            
+            <SocialLink
+              href="https://x.com/wote_dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              label="X (Twitter)"
+              delay={200}
+              icon={
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              }
+            />
+            
+            <SocialLink
+              href="https://www.linkedin.com/in/daniel-zverev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              label="LinkedIn"
+              delay={300}
+              icon={
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clipRule="evenodd" />
+                </svg>
+              }
+            />
+            
+            <SocialLink
+              href="https://cal.com/danielzverev"
+              target="_blank"
+              rel="noopener noreferrer"
+              label="Schedule a meeting"
+              delay={400}
+              icon={
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                </svg>
+              }
+            />
+          </div>
           
-          <SocialLink
-            href="https://x.com/wote_dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            label="X (Twitter)"
-            delay={200}
-            icon={
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            }
-          />
-          
-          <SocialLink
-            href="https://www.linkedin.com/in/daniel-zverev/"
-            target="_blank"
-            rel="noopener noreferrer"
-            label="LinkedIn"
-            delay={300}
-            icon={
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clipRule="evenodd" />
-              </svg>
-            }
-          />
-          
-          <SocialLink
-            href="https://cal.com/danielzverev"
-            target="_blank"
-            rel="noopener noreferrer"
-            label="Schedule a meeting"
-            delay={400}
-            icon={
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-              </svg>
-            }
-          />
-        </div>
-      </div>
-
-      {/* Projects Folder - Bottom Right */}
-      <div className={`absolute z-10 transition-all duration-700 ease-out delay-375 ${
-        animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`} style={{
-        bottom: `calc(1rem + env(safe-area-inset-bottom))`, 
-        right: `calc(1rem + env(safe-area-inset-right))`
-      }}>
-        <div className="scale-50 sm:scale-75 md:scale-100">
-          <Folder
-            color={theme === 'dark' ? '#78716C' : '#A8A29E'}
-            size={0.8}
-            items={projectItems}
-            className="cursor-pointer"
-          />
+          <div className={`transition-all duration-700 ease-out delay-375 ${
+            animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}>
+            <UniversalProjectDisplay projects={projects} />
+          </div>
         </div>
       </div>
 

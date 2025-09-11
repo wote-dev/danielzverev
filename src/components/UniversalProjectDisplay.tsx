@@ -1,0 +1,217 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { useTheme } from '@/contexts/ThemeContext';
+
+interface Project {
+  name: string;
+  description: string;
+  url: string;
+  icon: string;
+  color: string;
+}
+
+interface UniversalProjectDisplayProps {
+  projects: Project[];
+  className?: string;
+}
+
+const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ projects, className = '' }) => {
+  const { theme } = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current && 
+        !menuRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isOpen]);
+
+  const handleProjectClick = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+    setIsOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className={`relative z-50 ${className}`}>
+      {/* Floating Action Button */}
+      <button
+        ref={buttonRef}
+        onClick={toggleMenu}
+        className={`relative w-9 h-9 rounded-full transition-all duration-300 ease-out hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent ${
+          theme === 'dark'
+            ? 'bg-stone-900/40 backdrop-blur-sm border border-stone-700/50 text-stone-500 hover:text-stone-300 hover:bg-stone-900/60 focus:ring-stone-500 embossed-subtle-dark'
+            : 'bg-stone-50/40 backdrop-blur-sm border border-stone-200/50 text-stone-400 hover:text-stone-600 hover:bg-stone-50/60 focus:ring-stone-400 embossed-subtle-light'
+        } ${
+          isOpen ? 'scale-110' : ''
+        }`}
+        aria-label="View projects"
+        aria-expanded={isOpen}
+      >
+        {/* Folder Icon */}
+        <svg
+          className="w-5 h-5 mx-auto"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-5l-2-2H5a2 2 0 00-2 2z"
+          />
+        </svg>
+
+        {/* Notification Badge */}
+        {projects.length > 0 && (
+          <span className={`absolute -top-1 -right-1 w-4 h-4 text-xs rounded-full flex items-center justify-center font-medium ${
+            theme === 'dark'
+              ? 'bg-stone-100/90 text-stone-900'
+              : 'bg-stone-900/90 text-white'
+          }`}>
+            {projects.length}
+          </span>
+        )}
+      </button>
+
+      {/* Project Menu */}
+      <div
+        ref={menuRef}
+        className={`absolute bottom-full right-0 mb-3 transition-all duration-300 ease-out ${
+          isOpen
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 translate-y-2 pointer-events-none'
+        }`}
+      >
+        <div
+          className={`min-w-[280px] max-w-sm rounded-2xl shadow-2xl overflow-hidden border ${
+            theme === 'dark'
+              ? 'bg-stone-900/95 backdrop-blur-sm border-stone-700/50'
+              : 'bg-white/95 backdrop-blur-sm border-stone-200/50'
+          }`}
+        >
+          {/* Menu Header */}
+          <div
+            className={`px-4 py-3 border-b ${
+              theme === 'dark' ? 'border-stone-700/50' : 'border-stone-200/50'
+            }`}
+          >
+            <h3
+              className={`text-sm font-medium ${
+                theme === 'dark' ? 'text-stone-200' : 'text-stone-700'
+              }`}
+            >
+              My Projects
+            </h3>
+            <p
+              className={`text-xs ${
+                theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+              }`}
+            >
+              Click to explore
+            </p>
+          </div>
+
+          {/* Project List */}
+          <div className="py-2">
+            {projects.map((project, index) => (
+              <button
+                key={index}
+                onClick={() => handleProjectClick(project.url)}
+                className={`w-full px-4 py-3 flex items-center space-x-3 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${
+                  theme === 'dark'
+                    ? 'hover:bg-stone-900/60'
+                    : 'hover:bg-stone-50/60'
+                } ${
+                  index !== projects.length - 1
+                    ? theme === 'dark'
+                      ? 'border-b border-stone-700/30'
+                      : 'border-b border-stone-200/30'
+                    : ''
+                }`}
+              >
+                {/* Project Icon */}
+                <div
+                  className="w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center overflow-hidden"
+                  style={{ backgroundColor: project.color + '20' }}
+                >
+                  <img
+                    src={project.icon}
+                    alt={project.name}
+                    className="w-6 h-6 object-contain"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Project Info */}
+                <div className="flex-1 text-left">
+                  <h4
+                    className={`text-sm font-medium ${
+                      theme === 'dark' ? 'text-stone-100' : 'text-stone-800'
+                    }`}
+                  >
+                    {project.name}
+                  </h4>
+                  <p
+                    className={`text-xs ${
+                      theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+                    }`}
+                  >
+                    {project.description}
+                  </p>
+                </div>
+
+                {/* External Link Icon */}
+                <svg
+                  className={`w-4 h-4 flex-shrink-0 ${
+                    theme === 'dark' ? 'text-stone-400' : 'text-stone-400'
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default UniversalProjectDisplay;
