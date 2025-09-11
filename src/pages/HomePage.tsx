@@ -23,21 +23,21 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   // Projects data for the folder component
   const projects = [
     {
-      name: "Simplr",
+      name: "Simplr (iOS)",
       description: "Minimal iOS To-Do App",
       url: "https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464",
       icon: "/simplr.png",
       color: "#5227FF"
     },
     {
-      name: "Portfolio",
+      name: "Cece Natalie",
       description: "Cece Natalie",
       url: "https://cece-natalie.com",
-      icon: "https://cece-natalie.com/favicon.ico",
+      icon: "https://www.google.com/s2/favicons?domain=cece-natalie.com&sz=64",
       color: "#10B981"
     },
     {
-      name: "Simplr Web",
+      name: "Simplr (Web)",
       description: "Web App",
       url: "https://web.simplr-app.com",
       icon: "/simplr.png",
@@ -198,13 +198,18 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       {/* Projects Folder - Bottom Right */}
       <div className={`absolute z-10 transition-all duration-700 ease-out delay-375 ${
         animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-      }`} style={{bottom: `calc(2rem + env(safe-area-inset-bottom))`, right: `calc(3rem + env(safe-area-inset-right))`}}>
-        <Folder
-          color={theme === 'dark' ? '#78716C' : '#A8A29E'}
-          size={0.8}
-          items={projectItems}
-          className="cursor-pointer"
-        />
+      }`} style={{
+        bottom: `calc(1rem + env(safe-area-inset-bottom))`, 
+        right: `calc(1rem + env(safe-area-inset-right))`
+      }}>
+        <div className="scale-50 sm:scale-75 md:scale-100">
+          <Folder
+            color={theme === 'dark' ? '#78716C' : '#A8A29E'}
+            size={0.8}
+            items={projectItems}
+            className="cursor-pointer"
+          />
+        </div>
       </div>
 
       {/* Central Content */}
