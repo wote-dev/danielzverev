@@ -63,7 +63,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto"
       onClick={handleBackdropClick}
     >
       {/* Enhanced Backdrop */}
@@ -81,14 +81,14 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
       
       {/* Modal Content */}
       <div 
-        className={`relative w-full max-w-lg mx-auto transition-all duration-600 ease-out ${
+        className={`relative w-full max-w-md mx-auto my-auto transition-all duration-600 ease-out ${
           isVisible 
             ? 'opacity-100 translate-y-0 scale-100' 
             : 'opacity-0 translate-y-8 scale-95'
         }`}
       >
         <div 
-          className={`relative w-full rounded-3xl p-8 transition-all duration-400 ${
+          className={`relative w-full rounded-3xl p-6 transition-all duration-400 max-h-[90vh] overflow-y-auto ${
             theme === 'dark'
               ? 'bg-stone-900/95 embossed-subtle-dark backdrop-blur-lg border border-stone-700/30'
               : 'bg-stone-50/95 embossed-subtle-light backdrop-blur-lg border border-stone-200/30'
@@ -114,12 +114,12 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
           </button>
 
           {/* Header Section */}
-          <div className={`text-center mb-8 transition-all duration-500 ease-out ${
+          <div className={`text-center mb-6 transition-all duration-500 ease-out ${
             animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             {/* Enhanced Avatar */}
-            <div className="flex justify-center mb-6">
-              <div className={`relative w-24 h-24 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 ${
+            <div className="flex justify-center mb-4">
+              <div className={`relative w-20 h-20 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 ${
                 theme === 'dark'
                   ? 'ring-3 ring-stone-600/40 shadow-2xl embossed-subtle-dark'
                   : 'ring-3 ring-stone-300/40 shadow-xl embossed-subtle-light'
@@ -162,7 +162,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* Bio Content with enhanced styling */}
-          <div className={`space-y-5 transition-all duration-500 ease-out delay-200 ${
+          <div className={`space-y-4 transition-all duration-500 ease-out delay-200 ${
             animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             <div className={`text-base leading-relaxed ${
@@ -171,34 +171,31 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 : 'text-stone-600'
             }`}>
               <p className="mb-4">
-                Full-stack developer with a passion for creating elegant, user-focused digital experiences. 
-                I specialise in modern web technologies and mobile app development, always striving for 
+                Hey! I'm a full-stack developer driven by a simple idea: technology should make life easier, not more complicated. I specialise in modern web and mobile development, with a focus on 
                 <span className={`font-medium ${
                   theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
-                }`}> clean design and intuitive interfaces</span>.
+                }`}>clean design and intuitive interfaces</span>.
               </p>
               
               <p className="mb-4">
-                Currently building
+                Currently, I'm building{' '}
                 <span className={`inline-flex items-center gap-1.5 font-semibold ${
                   theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
                 }`}>
                   <img src="/simplr.png" alt="Simplr" className="w-4 h-4 rounded" />
                   Simplr
                 </span>, 
-                a minimal to-do app for iOS that helps users focus on what matters most. 
-                I believe in the power of purposeful technology that enhances rather than complicates our lives.
+                a task manager that helps people organise their day with clarity and focus. What began as a minimal iOS app is expanding into Simplr Web, laying the foundation for a cross-platform productivity suite. Positioned to evolve into enterprise-level software, Simplr reflects my vision to build seamless tools that scale from individuals to teams solving problems with clarity rather than clutter.
               </p>
               
               <p>
-                When I'm not coding, you'll find me exploring Melbourne's coffee scene, 
-                experimenting with new technologies, or working on side projects that solve real-world problems.
+                Outside of coding, you'll usually find me exploring Melbourne's coffee scene, experimenting with new technologies, or working on side projects that tackle real-world challenges.
               </p>
             </div>
           </div>
 
           {/* Action Section */}
-          <div className={`mt-8 pt-6 border-t transition-all duration-500 ease-out delay-400 ${
+          <div className={`mt-6 pt-4 border-t transition-all duration-500 ease-out delay-400 ${
             animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           } ${
             theme === 'dark'
