@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface FolderProps {
   color?: string;
@@ -36,6 +36,33 @@ const Folder: React.FC<FolderProps> = ({ color = '#5227FF', size = 1, items = []
   const [paperOffsets, setPaperOffsets] = useState<{ x: number; y: number }[]>(
     Array.from({ length: maxItems }, () => ({ x: 0, y: 0 }))
   );
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Close dropdown when clicking outside (mobile only)
+  useEffect(() => {
+    if (!isMobile || !open) return;
+    
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest('[data-folder-dropdown]')) {
+        setOpen(false);
+      }
+    };
+    
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobile, open]);
 
   const folderBackColor = darkenColor(color, 0.08);
   const paper1 = 'var(--color-muted)';
@@ -82,12 +109,68 @@ const Folder: React.FC<FolderProps> = ({ color = '#5227FF', size = 1, items = []
   const scaleStyle = { transform: `scale(${size})` };
 
   const getOpenTransform = (index: number) => {
+    // Desktop positions only (mobile uses dropdown)
     if (index === 0) return 'translate(-120%, -70%) rotate(-15deg)';
     if (index === 1) return 'translate(10%, -70%) rotate(15deg)';
     if (index === 2) return 'translate(-50%, -100%) rotate(5deg)';
     return '';
   };
 
+  // Mobile dropdown menu
+  if (isMobile) {
+    return (
+      <div className={className}>
+        <div className="relative" data-folder-dropdown>
+          {/* Mobile folder button */}
+          <button
+            onClick={handleClick}
+            className={`flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 hover:scale-105 ${
+              open 
+                ? 'bg-stone-900/60 embossed-subtle-dark scale-110' 
+                : 'bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
+            } ${open ? 'dark:bg-stone-50/60 dark:embossed-subtle-light' : 'dark:bg-stone-50/40 dark:embossed-subtle-light dark:hover:bg-stone-50/60'}`}
+          >
+            <svg 
+              className={`w-5 h-5 transition-colors duration-300 ${
+                open 
+                  ? 'text-stone-300 dark:text-stone-600' 
+                  : 'text-stone-400 dark:text-stone-500'
+              }`}
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-5l-2-2H5a2 2 0 00-2 2z" 
+              />
+            </svg>
+          </button>
+          
+          {/* Mobile dropdown menu */}
+          {open && (
+            <div className="absolute bottom-full right-0 mb-3 bg-stone-50/40 dark:bg-stone-900/40 embossed-subtle-light dark:embossed-subtle-dark rounded-2xl backdrop-blur-sm overflow-hidden min-w-[220px] z-50 border border-stone-200/20 dark:border-stone-700/20">
+              {papers.map((item, i) => {
+                if (!item) return null;
+                return (
+                  <div
+                    key={i}
+                    className="p-4 hover:bg-stone-100/60 dark:hover:bg-stone-800/60 transition-all duration-300 hover:scale-[1.02] border-b border-stone-200/30 dark:border-stone-700/30 last:border-b-0 cursor-pointer"
+                  >
+                    {item}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
+  // Desktop folder animation (existing code)
   return (
     <div style={scaleStyle} className={className}>
       <div
@@ -110,6 +193,7 @@ const Folder: React.FC<FolderProps> = ({ color = '#5227FF', size = 1, items = []
           ></span>
           {papers.map((item, i) => {
             let sizeClasses = '';
+            // Default desktop sizes
             if (i === 0) sizeClasses = open ? 'w-[70%] h-[80%]' : 'w-[70%] h-[80%]';
             if (i === 1) sizeClasses = open ? 'w-[80%] h-[80%]' : 'w-[80%] h-[70%]';
             if (i === 2) sizeClasses = open ? 'w-[90%] h-[80%]' : 'w-[90%] h-[60%]';
