@@ -2,6 +2,7 @@ import { useState } from 'react';
 import HomePage from './pages/HomePage';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { LoadingScreen } from './components/ui/loading-screen';
+import { GridBackground } from './components/GridBackground';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,7 +13,8 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="w-full h-full min-h-screen min-h-dvh full-viewport">
+      <div className="w-full h-full min-h-screen min-h-dvh full-viewport relative">
+        <GridBackground />
         {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
         <HomePage isVisible={!isLoading} />
       </div>

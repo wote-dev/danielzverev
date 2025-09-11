@@ -233,7 +233,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
                 {/* Arrow */}
                 <div
                   className={`absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-l-transparent border-r-transparent ${
-                    theme === 'dark' ? 'border-t-stone-800/90' : 'border-t-white/90'
+                      theme === 'dark' ? 'border-t-stone-800/90' : 'border-t-white/90'
                   }`}
                 />
               </div>

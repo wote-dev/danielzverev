@@ -179,7 +179,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
               </p>
               
               <p className="mb-4">
-                Currently building 
+                Currently building
                 <span className={`inline-flex items-center gap-1.5 font-semibold ${
                   theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
                 }`}>
