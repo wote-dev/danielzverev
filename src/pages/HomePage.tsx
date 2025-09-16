@@ -34,14 +34,14 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       name: "Cece Natalie",
       description: "UMG Artist Website",
       url: "https://cece-natalie.com",
-      icon: "https://www.google.com/s2/favicons?domain=cece-natalie.com&sz=64",
+      icon: "/circle.png",
       color: "#10B981"
     },
     {
-      name: "Simplr (Web)",
+      name: "Spaces Beta (Web)",
       description: "Web App",
       url: "https://web.simplr-app.com",
-      icon: "/simplr.png",
+      icon: "/favicon-spaces.png",
       color: "#6366F1"
     }
   ];
