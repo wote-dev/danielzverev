@@ -174,7 +174,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 Hey! I'm a full-stack developer driven by a simple idea: technology should make life easier, not more complicated. I specialise in modern web and mobile development, with a focus on 
                 <span className={`font-medium ${
                   theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
-                }`}>clean design and intuitive interfaces</span>.
+                }`}> clean design and intuitive interfaces</span>.
               </p>
               
               <p className="mb-4">
@@ -182,10 +182,9 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 <span className={`inline-flex items-center gap-1.5 font-semibold ${
                   theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
                 }`}>
-                  <img src="/simplr.png" alt="Simplr" className="w-4 h-4 rounded" />
-                  Simplr
-                </span>, 
-                a task manager that helps people organise their day with clarity and focus. What began as a minimal iOS app is expanding into Simplr Web, laying the foundation for a cross-platform productivity suite. Positioned to evolve into enterprise-level software, Simplr reflects my vision to build seamless tools that scale from individuals to teams solving problems with clarity rather than clutter.
+                  <img src="/favicon-spaces.png" alt="Spaces" className="w-4 h-4 rounded" />
+                  Spaces
+                </span>. I am available for hire for contractual work or on a project. I'm open to opportunities from innovative clients and larger firms alike.
               </p>
               
               <p>
@@ -202,24 +201,6 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
               ? 'border-stone-700/50'
               : 'border-stone-200/50'
           }`}>
-            <div className="flex items-center justify-center gap-4">
-              <a 
-                href="https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 focus:scale-105 ${
-                  theme === 'dark'
-                    ? 'text-stone-300 hover:text-stone-100 embossed-subtle-dark hover:bg-stone-800/40'
-                    : 'text-stone-600 hover:text-stone-800 embossed-subtle-light hover:bg-white/60'
-                }`}
-              >
-                <img src="/simplr.png" alt="Simplr" className="w-4 h-4 rounded" />
-                <span>View Simplr</span>
-                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </div>
           </div>
         </div>
       </div>
