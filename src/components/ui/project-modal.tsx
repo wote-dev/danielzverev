@@ -84,17 +84,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
   };
 
   const getStatusColor = (status: string) => {
+    const { theme } = useTheme();
+    const baseClasses = theme === 'dark' ? 'embossed-subtle-dark' : 'embossed-subtle-light';
+    
     switch (status) {
       case 'Live':
-        return 'bg-green-500/20 text-green-600 border-green-500/30';
+        return `bg-green-500/20 text-green-600 border-green-500/30 ${baseClasses}`;
       case 'Beta':
-        return 'bg-blue-500/20 text-blue-600 border-blue-500/30';
+        return `bg-blue-500/20 text-blue-600 border-blue-500/30 ${baseClasses}`;
       case 'In Development':
-        return 'bg-yellow-500/20 text-yellow-600 border-yellow-500/30';
+        return `bg-yellow-500/20 text-yellow-600 border-yellow-500/30 ${baseClasses}`;
       case 'Completed':
-        return 'bg-purple-500/20 text-purple-600 border-purple-500/30';
+        return `bg-purple-500/20 text-purple-600 border-purple-500/30 ${baseClasses}`;
       default:
-        return 'bg-stone-500/20 text-stone-600 border-stone-500/30';
+        return `bg-stone-500/20 text-stone-600 border-stone-500/30 ${baseClasses}`;
     }
   };
 
@@ -177,11 +180,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
           }`}>
             {/* Project Icon */}
             <div className="flex justify-center mb-6">
-              <div className={`relative w-24 h-24 rounded-2xl overflow-hidden transition-all duration-300 hover:scale-105 ${
-                theme === 'dark'
-                  ? 'ring-3 ring-stone-600/40 shadow-2xl embossed-subtle-dark'
-                  : 'ring-3 ring-stone-300/40 shadow-xl embossed-subtle-light'
-              }`}>
+              <div className="relative w-24 h-24 overflow-hidden transition-all duration-300 hover:scale-105">
                 <img 
                   src={project.icon} 
                   alt={project.name} 
@@ -198,10 +197,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
 
             {/* Project Name & Status */}
             <div className="flex items-center justify-center gap-4 mb-4">
-              <h2 className={`text-4xl font-light tracking-wide transition-all duration-300 ${
+              <h2 className={`text-4xl font-sf-display-medium tracking-tight transition-all duration-300 ${
                 theme === 'dark' 
-                  ? 'text-stone-100 embossed-text-dark' 
-                  : 'text-stone-900 embossed-text-light'
+                  ? 'text-stone-100' 
+                  : 'text-stone-900'
               }`}>
                 {project.name}
               </h2>
@@ -239,7 +238,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             }`}>
               Tech Stack
             </h3>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 justify-center">
               {project.techStack.map((tech, index) => (
                 <div
                   key={index}

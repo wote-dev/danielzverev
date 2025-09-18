@@ -29,16 +29,14 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       name: "Simplr (iOS)",
       description: "Minimal iOS To-Do App",
       url: "https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464",
-      icon: "/simplr.png",
+      icon: "/simplr-round.png",
       color: "#5227FF",
       status: "Live" as const,
-      timeline: "3 months",
+      timeline: "1 month",
       techStack: [
         { name: "Swift", icon: "/swift.png" },
         { name: "SwiftUI", icon: "/swift.png" },
-        { name: "Core Data", icon: "/swift.png" },
-        { name: "CloudKit", icon: "/swift.png" },
-        { name: "Figma", icon: "/figma.png" }
+        { name: "CloudKit", icon: "/swift.png" }
       ],
       caseStudy: {
         challenge: "The to-do app market is oversaturated with complex, feature-heavy applications that overwhelm users. Most apps prioritize functionality over user experience, leading to abandoned workflows and decreased productivity.",
@@ -69,21 +67,18 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       status: "Live" as const,
       timeline: "2 months",
       techStack: [
-        { name: "React", icon: "/react.png" },
-        { name: "TypeScript", icon: "/typescript.png" },
-        { name: "Tailwind CSS", icon: "/Tailwind.png" },
-        { name: "Vite", icon: "/vite.png" },
-        { name: "Cloudflare", icon: "/Cloudflare.png" },
-        { name: "Figma", icon: "/figma.png" }
+        { name: "HTML", icon: "/html-5.png" },
+        { name: "CSS", icon: "/css.png" },
+        { name: "JavaScript", icon: "/js-svg.svg" }
       ],
       caseStudy: {
-        challenge: "Universal Music Group needed a sophisticated artist website for Cece Natalie that would showcase her music while maintaining the premium brand standards expected of a major label artist. The site needed to handle high traffic spikes during releases.",
-        solution: "I created a visually stunning, performance-optimized website using React 19 and Tailwind CSS 4. The design features custom animations, responsive layouts, and seamless music integration. Advanced caching and CDN optimization ensure lightning-fast load times globally.",
+        challenge: "Universal Music Group needed a simple, yet moody artist website for Cece that would showcase her music while maintaining her unique grunge aesthetic. The site needed to handle high traffic spikes during releases.",
+        solution: "I created a visually grungy, performance-optimised website using vanilla HTML, CSS, and JavaScript. As a one-page, multi-tab site, it didn't warrant a complex framework. The design features custom animations, responsive layouts, and seamless music integration. Advanced caching and CDN optimization ensure lightning-fast load times globally.",
         impact: "The website successfully launched alongside Cece's debut single, handling massive traffic spikes without performance degradation. The site has become a template for other UMG artist websites due to its exceptional design and technical excellence.",
         metrics: [
-          "99.9% Uptime",
+          "100% Uptime",
           "< 1.2s Load Time",
-          "500K+ Monthly Visitors",
+          "Thousands of Monthly Visitors",
           "95+ Lighthouse Score"
         ]
       },
@@ -97,7 +92,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       ]
     },
     {
-      name: "Spaces Beta",
+      name: "Spaces (Beta)",
       description: "Next-Gen Productivity Platform",
       url: "https://web.simplr-app.com",
       icon: "/favicon-spaces.png",
@@ -144,9 +139,8 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
         { name: "React", icon: "/react.png" },
         { name: "TypeScript", icon: "/typescript.png" },
         { name: "Tailwind CSS", icon: "/Tailwind.png" },
-        { name: "Vite", icon: "/vite.png" },
-        { name: "Cloudflare", icon: "/Cloudflare.png" },
-        { name: "Figma", icon: "/figma.png" }
+        { name: "Next.js", icon: "/nextjs.svg" },
+        { name: "Vercel", icon: "/vercel.svg" }
       ],
       caseStudy: {
         challenge: "The hair styling industry lacks accessible, interactive tools for clients to visualize different hairstyles before committing to a cut. Traditional consultation methods rely heavily on static images and verbal descriptions, leading to miscommunication and unsatisfied customers.",
