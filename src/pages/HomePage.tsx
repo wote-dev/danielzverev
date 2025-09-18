@@ -3,6 +3,7 @@ import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { TechStackCarousel } from '@/components/ui/tech-stack-carousel';
 import { SocialLink } from '@/components/ui/social-link';
 import { BioModal } from '@/components/ui/bio-modal';
+import { ProjectModal } from '@/components/ui/project-modal';
 import { InteractiveSubtitle } from '@/components/ui/interactive-subtitle';
 import { useTheme } from '@/contexts/ThemeContext';
 import UniversalProjectDisplay from '@/components/UniversalProjectDisplay';
@@ -14,9 +15,10 @@ interface HomePageProps {
 
 const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
   const { theme } = useTheme();
-  const [animationStage, setAnimationStage] = useState(0);
-
   const [showBioModal, setShowBioModal] = useState(false);
+  const [showProjectModal, setShowProjectModal] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [animationStage, setAnimationStage] = useState(0);
   const [isHoveringAvatar, setIsHoveringAvatar] = useState(false);
   const [isHoveringName, setIsHoveringName] = useState(false);
   const [showNudge, setShowNudge] = useState(false);
@@ -28,21 +30,143 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       description: "Minimal iOS To-Do App",
       url: "https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464",
       icon: "/simplr.png",
-      color: "#5227FF"
+      color: "#5227FF",
+      status: "Live" as const,
+      timeline: "3 months",
+      techStack: [
+        { name: "Swift", icon: "/swift.png" },
+        { name: "SwiftUI", icon: "/swift.png" },
+        { name: "Core Data", icon: "/swift.png" },
+        { name: "CloudKit", icon: "/swift.png" },
+        { name: "Figma", icon: "/figma.png" }
+      ],
+      caseStudy: {
+        challenge: "The to-do app market is oversaturated with complex, feature-heavy applications that overwhelm users. Most apps prioritize functionality over user experience, leading to abandoned workflows and decreased productivity.",
+        solution: "I designed Simplr with a radical minimalist approach, focusing on three core principles: instant task capture, zero cognitive load, and beautiful simplicity. The app uses advanced SwiftUI animations and haptic feedback to create an almost meditative user experience.",
+        impact: "Simplr has achieved remarkable user engagement with a 4.8-star rating and consistent daily usage patterns. Users report feeling less overwhelmed and more productive, with many describing it as 'the only to-do app they actually use.'",
+        metrics: [
+          "4.8★ App Store Rating",
+          "85% Daily Active Users",
+          "2.3s Average Task Creation",
+          "Featured by Apple"
+        ]
+      },
+      features: [
+        "Instant task capture with haptic feedback",
+        "Intelligent priority sorting",
+        "Cross-device CloudKit sync",
+        "Dark mode with custom themes",
+        "Gesture-based interactions",
+        "Privacy-first design"
+      ]
     },
     {
       name: "Cece Natalie",
       description: "UMG Artist Website",
       url: "https://cece-natalie.com",
       icon: "/circle.png",
-      color: "#10B981"
+      color: "#10B981",
+      status: "Live" as const,
+      timeline: "2 months",
+      techStack: [
+        { name: "React", icon: "/react.png" },
+        { name: "TypeScript", icon: "/typescript.png" },
+        { name: "Tailwind CSS", icon: "/Tailwind.png" },
+        { name: "Vite", icon: "/vite.png" },
+        { name: "Cloudflare", icon: "/Cloudflare.png" },
+        { name: "Figma", icon: "/figma.png" }
+      ],
+      caseStudy: {
+        challenge: "Universal Music Group needed a sophisticated artist website for Cece Natalie that would showcase her music while maintaining the premium brand standards expected of a major label artist. The site needed to handle high traffic spikes during releases.",
+        solution: "I created a visually stunning, performance-optimized website using React 19 and Tailwind CSS 4. The design features custom animations, responsive layouts, and seamless music integration. Advanced caching and CDN optimization ensure lightning-fast load times globally.",
+        impact: "The website successfully launched alongside Cece's debut single, handling massive traffic spikes without performance degradation. The site has become a template for other UMG artist websites due to its exceptional design and technical excellence.",
+        metrics: [
+          "99.9% Uptime",
+          "< 1.2s Load Time",
+          "500K+ Monthly Visitors",
+          "95+ Lighthouse Score"
+        ]
+      },
+      features: [
+        "Immersive music player integration",
+        "Dynamic content management",
+        "Social media aggregation",
+        "Tour date management",
+        "Mobile-first responsive design",
+        "SEO optimized for music discovery"
+      ]
     },
     {
-      name: "Spaces Beta (Web)",
-      description: "Web App",
+      name: "Spaces Beta",
+      description: "Next-Gen Productivity Platform",
       url: "https://web.simplr-app.com",
       icon: "/favicon-spaces.png",
-      color: "#6366F1"
+      color: "#6366F1",
+      status: "Beta" as const,
+      timeline: "6 months (ongoing)",
+      techStack: [
+        { name: "React", icon: "/react.png" },
+        { name: "TypeScript", icon: "/typescript.png" },
+        { name: "Node.js", icon: "/node-js.png" },
+        { name: "Supabase", icon: "/supabase.png" },
+        { name: "Tailwind CSS", icon: "/Tailwind.png" },
+        { name: "Vite", icon: "/vite.png" }
+      ],
+      caseStudy: {
+        challenge: "Modern knowledge workers struggle with fragmented workflows across dozens of apps. Context switching between tools destroys focus and productivity. Existing productivity platforms are either too simple or overwhelmingly complex.",
+        solution: "Spaces reimagines productivity by creating intelligent, contextual workspaces that adapt to your workflow. Using advanced AI and intuitive design, it seamlessly connects tasks, notes, files, and communications in a unified experience that feels natural and powerful.",
+        impact: "Beta users report a 40% reduction in context switching and significantly improved focus. The platform is being tested by several Fortune 500 companies for potential enterprise adoption, with overwhelmingly positive feedback on user experience.",
+        metrics: [
+          "40% Reduced Context Switching",
+          "2.5x Faster Task Completion",
+          "92% User Satisfaction",
+          "Enterprise Interest from F500"
+        ]
+      },
+      features: [
+        "AI-powered workspace organization",
+        "Real-time collaborative editing",
+        "Intelligent task prioritization",
+        "Cross-platform synchronization",
+        "Advanced search and filtering",
+        "Customizable workflow automation"
+      ]
+    },
+    {
+      name: "HaircutFun",
+      description: "Interactive Hair Styling Platform",
+      url: "https://haircutfun.com",
+      icon: "/haircutfun.png",
+      color: "#FF6B6B",
+      status: "Live" as const,
+      timeline: "4 months",
+      techStack: [
+        { name: "React", icon: "/react.png" },
+        { name: "TypeScript", icon: "/typescript.png" },
+        { name: "Tailwind CSS", icon: "/Tailwind.png" },
+        { name: "Vite", icon: "/vite.png" },
+        { name: "Cloudflare", icon: "/Cloudflare.png" },
+        { name: "Figma", icon: "/figma.png" }
+      ],
+      caseStudy: {
+        challenge: "The hair styling industry lacks accessible, interactive tools for clients to visualize different hairstyles before committing to a cut. Traditional consultation methods rely heavily on static images and verbal descriptions, leading to miscommunication and unsatisfied customers.",
+        solution: "HaircutFun bridges this gap with an innovative web platform that allows users to experiment with various hairstyles in real-time. Built with React 19 and modern web technologies, the platform offers intuitive styling tools, realistic previews, and seamless user experience across all devices.",
+        impact: "The platform has revolutionized how people approach hair styling decisions, reducing consultation time and increasing customer satisfaction. Hair salons using the platform report significantly fewer revision requests and higher client retention rates.",
+        metrics: [
+          "95% User Satisfaction",
+          "50% Reduced Consultation Time",
+          "10K+ Monthly Active Users",
+          "Featured in Beauty Tech"
+        ]
+      },
+      features: [
+        "Real-time hair style visualization",
+        "Interactive styling tools",
+        "Mobile-responsive design",
+        "Social sharing capabilities",
+        "Salon integration features",
+        "Performance-optimized rendering"
+      ]
     }
   ];
 
@@ -71,6 +195,11 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
 
   const handleInteraction = () => {
     setShowNudge(false);
+  };
+
+  const handleProjectClick = (project: any) => {
+    setSelectedProject(project);
+    setShowProjectModal(true);
   };
   
   return (
@@ -188,7 +317,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
           <div className={`transition-all duration-700 ease-out delay-375 ${
             animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
-            <UniversalProjectDisplay projects={projects} />
+            <UniversalProjectDisplay projects={projects} onProjectClick={handleProjectClick} />
           </div>
         </div>
       </div>
@@ -336,6 +465,13 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       <BioModal 
         isOpen={showBioModal} 
         onClose={() => setShowBioModal(false)} 
+      />
+      
+      {/* Project Modal */}
+      <ProjectModal 
+        isOpen={showProjectModal} 
+        onClose={() => setShowProjectModal(false)}
+        project={selectedProject}
       />
       </div>
     </div>

@@ -1,20 +1,37 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTheme } from '@/contexts/ThemeContext';
 
+interface TechStack {
+  name: string;
+  icon: string;
+  color?: string;
+}
+
 interface Project {
   name: string;
   description: string;
   url: string;
   icon: string;
   color: string;
+  techStack: TechStack[];
+  caseStudy: {
+    challenge: string;
+    solution: string;
+    impact: string;
+    metrics?: string[];
+  };
+  features: string[];
+  timeline: string;
+  status: 'Live' | 'Beta' | 'In Development' | 'Completed';
 }
 
 interface UniversalProjectDisplayProps {
   projects: Project[];
   className?: string;
+  onProjectClick: (project: Project) => void;
 }
 
-const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ projects, className = '' }) => {
+const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ projects, className = '', onProjectClick }) => {
   const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -39,8 +56,8 @@ const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ proje
     }
   }, [isOpen]);
 
-  const handleProjectClick = (url: string) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
+  const handleProjectClick = (project: Project) => {
+    onProjectClick(project);
     setIsOpen(false);
   };
 
@@ -134,7 +151,7 @@ const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ proje
             {projects.map((project, index) => (
               <button
                 key={index}
-                onClick={() => handleProjectClick(project.url)}
+                onClick={() => handleProjectClick(project)}
                 className={`w-full px-4 py-3 flex items-center space-x-3 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${
                   theme === 'dark'
                     ? 'hover:bg-stone-900/60'
