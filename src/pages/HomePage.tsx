@@ -93,12 +93,12 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
     },
     {
       name: "Spaces (Beta)",
-      description: "Next-Gen Productivity Platform",
+      description: "Auto Assigning Task Manager",
       url: "https://web.simplr-app.com",
       icon: "/favicon-spaces.png",
       color: "#6366F1",
       status: "Beta" as const,
-      timeline: "6 months (ongoing)",
+      timeline: "3 weeks (ongoing)",
       techStack: [
         { name: "React", icon: "/react.png" },
         { name: "TypeScript", icon: "/typescript.png" },
@@ -134,7 +134,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
       icon: "/haircutfun.png",
       color: "#FF6B6B",
       status: "Live" as const,
-      timeline: "4 months",
+      timeline: "2 weeks (ongoing)",
       techStack: [
         { name: "React", icon: "/react.png" },
         { name: "TypeScript", icon: "/typescript.png" },
