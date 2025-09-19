@@ -17,7 +17,7 @@ const techStack: TechItem[] = [
   { name: 'Supabase', icon: '/supabase.png' },
   { name: 'Figma', icon: '/figma.png' },
   { name: 'Vite', icon: '/vite.png' },
-  { name: 'Git', icon: '/github.png' },
+  { name: 'Git', icon: '/github-mark.svg' },
 ];
 
 export function TechStackCarousel() {
@@ -66,7 +66,9 @@ export function TechStackCarousel() {
               <img
                 src={tech.icon}
                 alt={tech.name}
-                className="w-3.5 h-3.5 object-contain transition-all duration-300"
+                className={`w-3.5 h-3.5 object-contain transition-all duration-300 ${
+                  tech.name === 'Git' && theme === 'dark' ? 'filter invert' : ''
+                }`}
                 loading="lazy"
               />
             </div>
