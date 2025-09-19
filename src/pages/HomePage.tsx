@@ -327,21 +327,21 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
               <div className="relative">
                 {/* Tooltip */}
                 <div
-                  className={`absolute -top-10 left-1/2 transform -translate-x-1/2 px-2 py-1 rounded text-xs font-medium whitespace-nowrap pointer-events-none transition-all duration-200 z-20 ${
+                  className={`absolute -top-10 left-1/2 transform -translate-x-1/2 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap pointer-events-none transition-all duration-200 z-20 backdrop-blur-sm ${
                     isHoveringAvatar || showNudge
                       ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-1'
                   } ${
                     theme === 'dark'
-                      ? 'bg-stone-800/90 text-stone-200 shadow-lg'
-                      : 'bg-white/90 text-stone-700 shadow-lg'
+                      ? 'bg-stone-800/80 text-stone-200 shadow-lg border border-stone-700/30'
+                      : 'bg-white/80 text-stone-700 shadow-lg border border-stone-200/30'
                   }`}
                 >
-                  Click to read my bio
+                  Click to learn more about me
                   {/* Arrow */}
                   <div
                     className={`absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-l-transparent border-r-transparent ${
-                      theme === 'dark' ? 'border-t-stone-800/90' : 'border-t-white/90'
+                      theme === 'dark' ? 'border-t-stone-800/80' : 'border-t-white/80'
                     }`}
                   />
                 </div>
@@ -376,21 +376,21 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
             <div className="relative">
               {/* Tooltip */}
               <div
-                className={`absolute -top-12 left-1/2 transform -translate-x-1/2 px-2 py-1 rounded text-xs font-medium whitespace-nowrap pointer-events-none transition-all duration-200 z-20 ${
+                className={`absolute -top-12 left-1/2 transform -translate-x-1/2 px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap pointer-events-none transition-all duration-200 z-20 backdrop-blur-sm ${
                   isHoveringName
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-1'
                 } ${
                   theme === 'dark'
-                    ? 'bg-stone-800/90 text-stone-200 shadow-lg'
-                    : 'bg-white/90 text-stone-700 shadow-lg'
+                    ? 'bg-stone-800/80 text-stone-200 shadow-lg border border-stone-700/30'
+                    : 'bg-white/80 text-stone-700 shadow-lg border border-stone-200/30'
                 }`}
               >
-                Click to read my bio
+                Click to learn more about me
                 {/* Arrow */}
                 <div
                   className={`absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-l-transparent border-r-transparent ${
-                      theme === 'dark' ? 'border-t-stone-800/90' : 'border-t-white/90'
+                      theme === 'dark' ? 'border-t-stone-800/80' : 'border-t-white/80'
                   }`}
                 />
               </div>
