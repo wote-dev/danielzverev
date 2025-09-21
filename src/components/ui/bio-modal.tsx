@@ -171,7 +171,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 : 'text-stone-600'
             }`}>
               <p className="mb-4">
-                Hey! I'm a full-stack developer driven by a simple idea: technology should make life easier, not more complicated. I specialise in modern web and mobile development, with a focus on 
+                Hey! My name is Daniel and I'm a full-stack developer. I specialise in modern web and mobile development, with a focus on 
                 <span className={`font-medium ${
                   theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
                 }`}> clean design and intuitive interfaces</span>.
@@ -184,11 +184,11 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 }`}>
                   <img src="/favicon-spaces.png" alt="Spaces" className="w-4 h-4 rounded" />
                   Spaces
-                </span>. I am available for hire for contractual work or on a project. I'm open to opportunities from innovative clients and larger firms alike.
+                </span>. I'm currently available for freelance projects and contract work, collaborating with both innovative startups and established companies.
               </p>
               
               <p>
-                Outside of coding, you'll usually find me exploring Melbourne's coffee scene, experimenting with new technologies, or working on side projects that tackle real-world challenges.
+                Outside of coding, you'll usually find me exploring Melbourne's coffee scene, experimenting with new technologies, or working on side projects just for the fun of it.
               </p>
             </div>
           </div>
