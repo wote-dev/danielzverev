@@ -58,39 +58,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
         "Privacy-first design"
       ]
     },
-    {
-      name: "Cece Natalie",
-      description: "UMG Artist Website",
-      url: "https://cece-natalie.com",
-      icon: "/circle.png",
-      color: "#10B981",
-      status: "Live" as const,
-      timeline: "2 months",
-      techStack: [
-        { name: "HTML", icon: "/html-5.png" },
-        { name: "CSS", icon: "/css.png" },
-        { name: "JavaScript", icon: "/js-svg.svg" }
-      ],
-      caseStudy: {
-        challenge: "Universal Music Group needed a simple, yet moody artist website for Cece that would showcase her music while maintaining her unique grunge aesthetic. The site needed to handle high traffic spikes during releases.",
-        solution: "I created a visually grungy, performance-optimised website using vanilla HTML, CSS, and JavaScript. As a one-page, multi-tab site, it didn't warrant a complex framework. The design features custom animations, responsive layouts, and seamless music integration. Advanced caching and CDN optimization ensure lightning-fast load times globally.",
-        impact: "The website successfully launched alongside Cece's debut single, handling massive traffic spikes without performance degradation. The site has become a template for other UMG artist websites due to its exceptional design and technical excellence.",
-        metrics: [
-          "100% Uptime",
-          "< 1.2s Load Time",
-          "Thousands of Monthly Visitors",
-          "95+ Lighthouse Score"
-        ]
-      },
-      features: [
-        "Immersive music player integration",
-        "Dynamic content management",
-        "Social media aggregation",
-        "Tour date management",
-        "Mobile-first responsive design",
-        "SEO optimized for music discovery"
-      ]
-    },
+
     {
       name: "Spaces (Beta)",
       description: "Auto Assigning Task Manager",
