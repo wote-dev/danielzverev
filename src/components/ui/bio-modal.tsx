@@ -184,7 +184,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 }`}>
                   <img src="/favicon-spaces.png" alt="Spaces" className="w-4 h-4 rounded" />
                   Spaces
-                </span>. I'm currently available for freelance projects and contract work, collaborating with both innovative startups and established companies.
+                </span>. I'm available for freelance projects and contract work, collaborating with both innovative startups and established companies.
               </p>
               
               <p>
