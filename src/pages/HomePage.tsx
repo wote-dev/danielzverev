@@ -35,7 +35,7 @@ const HomePage: React.FC<HomePageProps> = () => {
   return (
     <div className="h-screen flex flex-col overflow-hidden">
       {/* Header */}
-      <header className="py-4 px-6">
+      <header className="py-3 sm:py-4 px-5 sm:px-6 flex-shrink-0">
         <nav className="max-w-3xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-6">
             <a
@@ -66,17 +66,17 @@ const HomePage: React.FC<HomePageProps> = () => {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 px-6 py-6">
-        <div className="max-w-3xl mx-auto h-full flex flex-col">
+      <main className="flex-1 px-5 sm:px-6 py-4 sm:py-6 overflow-hidden flex flex-col">
+        <div className="max-w-3xl mx-auto flex flex-col h-full">
           {/* Title */}
-          <h1 className={`text-4xl font-bold mb-6 ${
+          <h1 className={`text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 flex-shrink-0 ${
             theme === 'dark' ? 'text-stone-100' : 'text-stone-900'
           }`}>
             Daniel Zverev
           </h1>
 
           {/* Bio */}
-          <div className={`text-[15px] leading-relaxed mb-8 space-y-3 ${
+          <div className={`text-[13px] sm:text-[15px] leading-relaxed mb-5 sm:mb-8 space-y-2.5 sm:space-y-3 flex-shrink-0 ${
             theme === 'dark' ? 'text-stone-400' : 'text-stone-600'
           }`}>
             <p>
@@ -93,10 +93,10 @@ const HomePage: React.FC<HomePageProps> = () => {
           </div>
 
           {/* Projects */}
-          <div className="space-y-4 flex-1">
+          <div className="space-y-3 sm:space-y-4 flex-1 overflow-hidden flex flex-col justify-start">
             {projects.map((project, index) => (
-              <div key={index}>
-                <div className={`text-[13px] mb-1 ${
+              <div key={index} className="flex-shrink-0">
+                <div className={`text-[12px] sm:text-[13px] mb-1 ${
                   theme === 'dark' ? 'text-stone-500' : 'text-stone-500'
                 }`}>
                   {project.date}
@@ -105,7 +105,7 @@ const HomePage: React.FC<HomePageProps> = () => {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-[15px] underline decoration-1 underline-offset-4 transition-colors ${
+                  className={`text-[13px] sm:text-[15px] underline decoration-1 underline-offset-4 transition-colors block leading-snug ${
                     theme === 'dark'
                       ? 'text-stone-300 hover:text-stone-100'
                       : 'text-stone-700 hover:text-stone-900'
@@ -120,12 +120,12 @@ const HomePage: React.FC<HomePageProps> = () => {
       </main>
 
       {/* Footer */}
-      <footer className="py-4 px-6">
+      <footer className="py-3 sm:py-4 px-5 sm:px-6 flex-shrink-0">
         <div className="max-w-3xl mx-auto">
-          <div className="flex items-center gap-4 mb-2">
+          <div className="flex items-center flex-wrap gap-4 mb-2">
             <a
               href="mailto:admin@blackcubesolutions.com"
-              className={`text-[13px] flex items-center gap-1.5 transition-colors ${
+              className={`text-[12px] sm:text-[13px] flex items-center gap-1.5 transition-colors ${
                 theme === 'dark'
                   ? 'text-stone-500 hover:text-stone-300'
                   : 'text-stone-500 hover:text-stone-700'
@@ -141,7 +141,7 @@ const HomePage: React.FC<HomePageProps> = () => {
               href="https://x.com/wote_dev"
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-[13px] flex items-center gap-1.5 transition-colors ${
+              className={`text-[12px] sm:text-[13px] flex items-center gap-1.5 transition-colors ${
                 theme === 'dark'
                   ? 'text-stone-500 hover:text-stone-300'
                   : 'text-stone-500 hover:text-stone-700'
@@ -156,7 +156,7 @@ const HomePage: React.FC<HomePageProps> = () => {
               href="https://www.linkedin.com/in/daniel-zverev/"
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-[13px] flex items-center gap-1.5 transition-colors ${
+              className={`text-[12px] sm:text-[13px] flex items-center gap-1.5 transition-colors ${
                 theme === 'dark'
                   ? 'text-stone-500 hover:text-stone-300'
                   : 'text-stone-500 hover:text-stone-700'
@@ -171,7 +171,7 @@ const HomePage: React.FC<HomePageProps> = () => {
               href="https://github.com/wote-dev"
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-[13px] flex items-center gap-1.5 transition-colors ${
+              className={`text-[12px] sm:text-[13px] flex items-center gap-1.5 transition-colors ${
                 theme === 'dark'
                   ? 'text-stone-500 hover:text-stone-300'
                   : 'text-stone-500 hover:text-stone-700'
@@ -183,7 +183,7 @@ const HomePage: React.FC<HomePageProps> = () => {
               github
             </a>
           </div>
-          <div className={`text-[13px] ${
+          <div className={`text-[12px] sm:text-[13px] ${
             theme === 'dark' ? 'text-stone-600' : 'text-stone-500'
           }`}>
             © 2025 Daniel Zverev
