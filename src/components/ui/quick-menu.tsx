@@ -32,7 +32,7 @@ export function QuickMenu({ className = '' }: { className?: string }) {
         aria-expanded={open}
         onClick={() => setOpen(v => !v)}
         className={cn(
-          'm-2 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2',
+          'w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 hover:scale-110',
           embossed,
           theme === 'dark' ? 'focus:ring-stone-500 focus:ring-offset-stone-900' : 'focus:ring-stone-400 focus:ring-offset-stone-50'
         )}

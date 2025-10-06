@@ -185,7 +185,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
               </p>
               
               <p className="mb-3 sm:mb-4">
-                I'm fully embracing the new era of software development shaped by AI. The builder is only as effective as the architect, and AI has become an essential part of that design process. Just as the world never returned to horses after discovering cars, I believe those who adapt to this shift will define the next generation of software.
+                I'm fully embracing the new era of software development aided by AI. The builder is only as effective as the architect, and AI has become an essential part of that design process. Just as the world never returned to horses after discovering cars, I believe those who adapt to this shift will define the next generation of software.
               </p>
               
               <p>

@@ -251,7 +251,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
       {/* Quick actions menu (replaces old theme toggle) */}
       <div className={`absolute z-10 transition-all duration-700 ease-out delay-75 ${
         animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-      }`} style={{top: `calc(2rem + env(safe-area-inset-top))`, right: `calc(1.2rem + env(safe-area-inset-right))`}}>
+      }`} style={{top: `calc(1.5rem + env(safe-area-inset-top))`, right: `calc(1.5rem + env(safe-area-inset-right))`}}>
         <QuickMenu />
       </div>
 
