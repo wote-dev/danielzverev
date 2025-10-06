@@ -54,11 +54,27 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       apple.setAttribute('content', theme === 'dark' ? 'black-translucent' : 'default');
       document.head.appendChild(apple);
 
+      // Replace viewport meta to trigger chrome recalculation on some iOS versions
+      const viewport = document.querySelector('meta[name="viewport"]');
+      if (viewport) {
+        const clone = viewport.cloneNode(true) as HTMLMetaElement;
+        viewport.parentNode?.replaceChild(clone, viewport);
+      }
+
       // Small reflow + scroll nudge can help certain iOS versions repaint the chrome
       void root.offsetHeight;
       requestAnimationFrame(() => {
         window.scrollTo(window.scrollX, window.scrollY + 1);
         window.scrollTo(window.scrollX, window.scrollY);
+      });
+    };
+
+    // More aggressive: briefly flip to the opposite color, then set to the target color next frame
+    const flipSafariThemeColor = (finalCol: string) => {
+      const opposite = theme === 'dark' ? '#ffffff' : '#000000';
+      forceSafariThemeColorUpdate(opposite);
+      requestAnimationFrame(() => {
+        forceSafariThemeColorUpdate(finalCol);
       });
     };
     
@@ -86,7 +102,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     // Update theme-color meta (Safari needs a replacement to repaint)
     if (isIOS) {
-      forceSafariThemeColorUpdate(color);
+      flipSafariThemeColor(color);
     } else {
       const themeColorMeta = document.querySelector('meta[name="theme-color"]');
       if (themeColorMeta) themeColorMeta.setAttribute('content', color);
