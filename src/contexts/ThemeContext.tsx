@@ -28,14 +28,24 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Apply theme to document
     const root = document.documentElement;
+    const body = document.body;
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    
+    const darkColor = '#1c1917';
+    const lightColor = '#fafaf9';
     
     if (theme === 'dark') {
       root.classList.add('dark');
-      themeColorMeta?.setAttribute('content', '#1c1917');
+      themeColorMeta?.setAttribute('content', darkColor);
+      // Force background colors on html and body
+      root.style.backgroundColor = darkColor;
+      body.style.backgroundColor = darkColor;
     } else {
       root.classList.remove('dark');
-      themeColorMeta?.setAttribute('content', '#fafaf9');
+      themeColorMeta?.setAttribute('content', lightColor);
+      // Force background colors on html and body
+      root.style.backgroundColor = lightColor;
+      body.style.backgroundColor = lightColor;
     }
     
     // Save preference

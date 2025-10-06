@@ -40,12 +40,8 @@ html {
   min-height: 100dvh;
   position: relative;
   overflow-x: hidden;
-  background-color: var(--color-background) !important;
   color: var(--color-foreground);
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-  /* iOS Safari specific fixes */
-  -webkit-background-size: cover;
-  background-attachment: fixed;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 body {
@@ -63,12 +59,8 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
-  background-color: var(--color-background) !important;
   color: var(--color-foreground);
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-  /* iOS Safari specific fixes */
-  -webkit-background-size: cover;
-  background-attachment: fixed;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 /* SF Display Pro Font */
