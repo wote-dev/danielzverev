@@ -161,7 +161,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
         { name: "Vercel", icon: "/vercel.svg" }
       ],
       media: [
-        { type: "video" as const, src: "/coachplan-video.mov", poster: "/coachplan.png", alt: "Coach Plan Demo" },
+        { type: "video" as const, src: "/coachplan-video.webm", poster: "/coachplan.png", alt: "Coach Plan Demo" },
         { type: "image" as const, src: "/coachplan2.png", alt: "Coach Plan Dashboard" },
         { type: "video" as const, src: "/coachplan3.mov", poster: "/coachplan.png", alt: "Coach Plan Features" }
       ],
