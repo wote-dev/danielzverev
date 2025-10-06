@@ -163,7 +163,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
       media: [
         { type: "video" as const, src: "/coachplan-video.webm", poster: "/coachplan.png", alt: "Coach Plan Demo" },
         { type: "image" as const, src: "/coachplan2.png", alt: "Coach Plan Dashboard" },
-        { type: "video" as const, src: "/coachplan3.mov", poster: "/coachplan.png", alt: "Coach Plan Features" }
+        { type: "video" as const, src: "/coachplan3.webm", poster: "/coachplan.png", alt: "Coach Plan Features" }
       ],
       caseStudy: {
         challenge: "Sports coaches struggle with time-consuming lesson planning, often spending hours creating practice sessions manually. Traditional methods lack personalization and fail to adapt to individual athlete needs, resulting in less effective training programs and coach burnout.",
