@@ -61,6 +61,26 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         viewport.parentNode?.replaceChild(clone, viewport);
       }
 
+      // Hidden iframe trick to force Safari to recompute browser chrome without a page reload
+      try {
+        const iframe = document.createElement('iframe');
+        iframe.setAttribute('aria-hidden', 'true');
+        iframe.style.width = '0';
+        iframe.style.height = '0';
+        iframe.style.border = '0';
+        iframe.style.position = 'absolute';
+        iframe.style.left = '-9999px';
+        iframe.srcdoc = `<!doctype html><html><head>
+          <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+          <meta name="theme-color" content="${col}">
+          <meta name="apple-mobile-web-app-status-bar-style" content="${theme === 'dark' ? 'black-translucent' : 'default'}">
+        </head><body style="background:${col};"></body></html>`;
+        document.body.appendChild(iframe);
+        setTimeout(() => {
+          try { document.body.removeChild(iframe); } catch {}
+        }, 200);
+      } catch {}
+
       // Small reflow + scroll nudge can help certain iOS versions repaint the chrome
       void root.offsetHeight;
       requestAnimationFrame(() => {
@@ -138,30 +158,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const toggleTheme = () => {
     setTheme(prev => {
       const next = prev === 'light' ? 'dark' : 'light';
-
-      // Persist immediately so a potential iOS reload can pick it up
       try {
         localStorage.setItem('theme', next);
       } catch {}
-
-      // Detect Safari on iOS (not Chrome/Firefox on iOS strings)
-      const ua = navigator.userAgent;
-      const isIOS = /iP(hone|od|ad)/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-      const isSafari = /^((?!chrome|crios|fxios|edgios|opios).)*safari/i.test(ua);
-
-      if (isIOS && isSafari) {
-        try {
-          // Save scroll so we can restore after reload and skip the preloader
-          sessionStorage.setItem('restore-scroll', String(window.scrollY));
-          sessionStorage.setItem('skip-preloader', '1');
-          sessionStorage.setItem('skip-animations', '1');
-        } catch {}
-        // Force a fast reload so Safari recalculates the UI chrome colors reliably
-        requestAnimationFrame(() => {
-          window.location.reload();
-        });
-      }
-
       return next;
     });
   };
