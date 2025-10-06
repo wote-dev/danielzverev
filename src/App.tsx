@@ -13,7 +13,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="w-full h-full min-h-screen min-h-dvh full-viewport relative">
+      <div className="w-full h-full min-h-screen min-h-dvh full-viewport relative bg-background transition-colors duration-500">
         <GridBackground />
         {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
         <HomePage isVisible={!isLoading} />
