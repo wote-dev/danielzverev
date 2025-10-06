@@ -171,10 +171,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 : 'text-stone-600'
             }`}>
               <p className="mb-4">
-                Hey! My name is Daniel and I'm a full-stack developer. I specialise in modern web and mobile development, with a focus on 
-                <span className={`font-medium ${
-                  theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
-                }`}> clean design and intuitive interfaces</span>.
+                Hey, I'm Daniel! I'm a full-stack developer passionate about building beautifully designed projects for screens big, and small.
               </p>
               
               <p className="mb-4">
@@ -182,13 +179,17 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 <span className={`inline-flex items-center gap-1.5 font-semibold ${
                   theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
                 }`}>
-                  <img src="/favicon-spaces.png" alt="Spaces" className="w-4 h-4 rounded" />
-                  Spaces
-                </span>. I'm currently available for freelance projects and contract work, collaborating with both innovative startups and established companies.
+                  <img src="/a2tennis.png" alt="a1tennis.co" className="w-4 h-4 rounded" />
+                  a1tennis.co
+                </span>, but I'm open to freelance or contracted work with startups and established teams that value ambition, aesthetics, and innovation.
+              </p>
+              
+              <p className="mb-4">
+                I'm fully embracing the new era of software development shaped by AI. The builder is only as effective as the architect, and AI has become an essential part of that design process. Just as the world never returned to horses after discovering cars, I believe those who adapt to this shift will define the next generation of software.
               </p>
               
               <p>
-                Outside of coding, you'll usually find me exploring Melbourne's coffee scene, experimenting with new technologies, or working on side projects just for the fun of it.
+                When I'm not coding, you'll probably find me exploring Melbourne's coffee scene or experimenting with side projects just for the fun of it ☕️.
               </p>
             </div>
           </div>
