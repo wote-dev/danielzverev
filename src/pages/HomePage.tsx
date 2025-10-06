@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { TechStackCarousel } from '@/components/ui/tech-stack-carousel';
+import { QuickMenu } from '@/components/ui/quick-menu';
 import { SocialLink } from '@/components/ui/social-link';
 import { BioModal } from '@/components/ui/bio-modal';
 import { ProjectModal } from '@/components/ui/project-modal';
@@ -228,7 +229,12 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
         </div>
       </div>
 
-      {/* Theme Toggle intentionally hidden: following system preference */}
+      {/* Quick actions menu (replaces old theme toggle) */}
+      <div className={`absolute z-10 transition-all duration-700 ease-out delay-75 ${
+        animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+      }`} style={{top: `calc(2rem + env(safe-area-inset-top))`, right: `calc(1.2rem + env(safe-area-inset-right))`}}>
+        <QuickMenu />
+      </div>
 
       {/* Status Indicator - Top Left */}
       <div className={`absolute z-10 transition-all duration-700 ease-out delay-150 ${

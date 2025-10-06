@@ -88,7 +88,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
         }`}
       >
         <div 
-          className={`relative w-full rounded-3xl p-4 sm:p-6 transition-all duration-400 max-h-[95vh] overflow-y-auto ${
+          className={`relative w-full rounded-3xl p-4 sm:p-6 transition-all duration-400 max-h-[95vh] overflow-hidden ${
             theme === 'dark'
               ? 'bg-stone-900/95 embossed-subtle-dark backdrop-blur-lg border border-stone-700/30'
               : 'bg-stone-50/95 embossed-subtle-light backdrop-blur-lg border border-stone-200/30'
