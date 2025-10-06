@@ -57,8 +57,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (themeColorMeta) {
       themeColorMeta.setAttribute('content', color);
     }
+
+    // Explicitly tell the browser which UI color scheme to use (affects iOS Safari top/bottom bars)
+    root.style.setProperty('color-scheme', theme);
     
-    // Update apple status bar for iOS
+    // Update apple status bar for iOS (PWA/standalone)
     const appleStatusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
     if (appleStatusBar) {
       appleStatusBar.setAttribute('content', theme === 'dark' ? 'black-translucent' : 'default');

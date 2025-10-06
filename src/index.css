@@ -41,7 +41,15 @@ html {
   position: relative;
   overflow-x: hidden;
   color: var(--color-foreground);
+  background-color: var(--color-background);
+  /* Hint the browser which UI color scheme to use; updated via .dark or inline style */
+  color-scheme: light;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* When the .dark class is on <html>, tell Safari to use dark UI chrome */
+html.dark {
+  color-scheme: dark;
 }
 
 body {
@@ -60,6 +68,7 @@ body {
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   color: var(--color-foreground);
+  background-color: var(--color-background);
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 

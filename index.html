@@ -44,6 +44,9 @@
         if (themeColorMeta) {
           themeColorMeta.setAttribute('content', color);
         }
+
+        // Hint the browser UI which color scheme to use immediately on boot
+        document.documentElement.style.setProperty('color-scheme', isDark ? 'dark' : 'light');
         
         // Update apple status bar
         const appleStatusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
