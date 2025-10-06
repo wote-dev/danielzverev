@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { LoadingScreen } from './components/ui/loading-screen';
 import { GridBackground } from './components/GridBackground';
+import SafariBarsOverlay from './components/SafariBarsOverlay';
 
 function App() {
   // Skip the loader when we trigger a fast iOS theme reload
@@ -37,6 +38,7 @@ function App() {
     <ThemeProvider>
       <div className="w-full h-full min-h-screen min-h-dvh full-viewport relative bg-background transition-colors duration-500">
         <GridBackground />
+        <SafariBarsOverlay />
         {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
         <HomePage isVisible={!isLoading} suppressEntrance={suppressEntrance} />
       </div>
