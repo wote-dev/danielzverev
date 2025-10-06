@@ -88,7 +88,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
         }`}
       >
         <div 
-          className={`relative w-full rounded-3xl p-6 transition-all duration-400 max-h-[90vh] overflow-y-auto ${
+          className={`relative w-full rounded-3xl p-4 sm:p-6 transition-all duration-400 max-h-[95vh] overflow-y-auto ${
             theme === 'dark'
               ? 'bg-stone-900/95 embossed-subtle-dark backdrop-blur-lg border border-stone-700/30'
               : 'bg-stone-50/95 embossed-subtle-light backdrop-blur-lg border border-stone-200/30'
@@ -114,15 +114,15 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
           </button>
 
           {/* Header Section */}
-          <div className={`text-center mb-6 transition-all duration-500 ease-out ${
+          <div className={`text-center mb-4 sm:mb-6 transition-all duration-500 ease-out ${
             animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             {/* Enhanced Avatar */}
-            <div className="flex justify-center mb-4">
-              <div className={`relative w-20 h-20 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 ${
+            <div className="flex justify-center mb-3 sm:mb-4">
+              <div className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 ${
                 theme === 'dark'
-                  ? 'ring-3 ring-stone-600/40 shadow-2xl embossed-subtle-dark'
-                  : 'ring-3 ring-stone-300/40 shadow-xl embossed-subtle-light'
+                  ? 'ring-2 sm:ring-3 ring-stone-600/40 shadow-xl sm:shadow-2xl embossed-subtle-dark'
+                  : 'ring-2 sm:ring-3 ring-stone-300/40 shadow-lg sm:shadow-xl embossed-subtle-light'
               }`}>
                 <img 
                   src="/me.png" 
@@ -140,7 +140,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             </div>
 
             {/* Name with enhanced typography */}
-            <h2 className={`text-3xl font-light tracking-wide mb-2 transition-all duration-300 ${
+            <h2 className={`text-2xl sm:text-3xl font-light tracking-wide mb-2 transition-all duration-300 ${
               theme === 'dark' 
                 ? 'text-stone-100 embossed-text-dark' 
                 : 'text-stone-900 embossed-text-light'
@@ -149,7 +149,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             </h2>
             
             {/* Location badge */}
-            <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
+            <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
               theme === 'dark'
                 ? 'bg-stone-800/40 text-stone-400 embossed-subtle-dark'
                 : 'bg-white/40 text-stone-600 embossed-subtle-light'
@@ -162,19 +162,19 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* Bio Content with enhanced styling */}
-          <div className={`space-y-4 transition-all duration-500 ease-out delay-200 ${
+          <div className={`space-y-3 sm:space-y-4 transition-all duration-500 ease-out delay-200 ${
             animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
-            <div className={`text-base leading-relaxed ${
+            <div className={`text-sm sm:text-base leading-relaxed ${
               theme === 'dark' 
                 ? 'text-stone-300' 
                 : 'text-stone-600'
             }`}>
-              <p className="mb-4">
+              <p className="mb-3 sm:mb-4">
                 Hey, I'm Daniel! I'm a full-stack developer passionate about building beautifully designed projects for screens big, and small.
               </p>
               
-              <p className="mb-4">
+              <p className="mb-3 sm:mb-4">
                 Currently, I'm building{' '}
                 <span className={`inline-flex items-center gap-1.5 font-semibold ${
                   theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
@@ -184,7 +184,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 </span>, but I'm open to freelance or contracted work with startups and established teams that value ambition, aesthetics, and innovation.
               </p>
               
-              <p className="mb-4">
+              <p className="mb-3 sm:mb-4">
                 I'm fully embracing the new era of software development shaped by AI. The builder is only as effective as the architect, and AI has become an essential part of that design process. Just as the world never returned to horses after discovering cars, I believe those who adapt to this shift will define the next generation of software.
               </p>
               
@@ -195,7 +195,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* Action Section */}
-          <div className={`mt-6 pt-4 border-t transition-all duration-500 ease-out delay-400 ${
+          <div className={`mt-4 sm:mt-6 pt-3 sm:pt-4 border-t transition-all duration-500 ease-out delay-400 ${
             animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           } ${
             theme === 'dark'

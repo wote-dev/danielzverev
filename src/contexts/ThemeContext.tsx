@@ -10,20 +10,9 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    // Check if there's a saved preference
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    if (savedTheme) {
-      return savedTheme;
-    }
-    
-    // Otherwise, use system preference
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
-    }
-    
-    return 'light';
-  });
+  const [theme, setTheme] = useState<Theme>(() => (
+    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  ));
 
   useEffect(() => {
     // Apply theme to document
@@ -134,35 +123,21 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     console.log('✅ Background colors forced to:', color);
     console.log('HTML bg:', window.getComputedStyle(root).backgroundColor);
     console.log('Body bg:', window.getComputedStyle(body).backgroundColor);
-    
-    // Save preference
-    localStorage.setItem('theme', theme);
   }, [theme]);
 
   useEffect(() => {
-    // Listen for system theme changes
+    // Listen for system theme changes (always honor system)
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
     const handleChange = (e: MediaQueryListEvent) => {
-      // Only update if no saved preference exists
-      if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
+      setTheme(e.matches ? 'dark' : 'light');
     };
-    
     mediaQuery.addEventListener('change', handleChange);
-    
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
   const toggleTheme = () => {
-    setTheme(prev => {
-      const next = prev === 'light' ? 'dark' : 'light';
-      try {
-        localStorage.setItem('theme', next);
-      } catch {}
-      return next;
-    });
+    // Disabled for now: follow system preference only, toggle retained for future use
+    console.warn('Theme toggle disabled: following system preference');
   };
 
   return (

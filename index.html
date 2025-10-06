@@ -27,8 +27,7 @@
       (function() {
         const darkColor = '#1c1917';
         const lightColor = '#fafaf9';
-        const savedTheme = localStorage.getItem('theme');
-        const isDark = savedTheme ? savedTheme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         const color = isDark ? darkColor : lightColor;
         
         // Force colors with !important
