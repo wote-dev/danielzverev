@@ -18,7 +18,7 @@ function App() {
   });
 
   // If this is an iOS theme reload, also suppress entrance animations after boot
-  const [suppressEntrance, setSuppressEntrance] = useState(() => {
+  const [suppressEntrance] = useState(() => {
     try {
       const v = sessionStorage.getItem('skip-animations');
       if (v) {
