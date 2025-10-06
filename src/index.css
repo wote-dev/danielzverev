@@ -60,6 +60,9 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 /* SF Display Pro Font */
@@ -89,6 +92,8 @@ body {
   /* Root should also extend full height */
   min-height: 100vh;
   min-height: 100dvh;
+  background-color: var(--color-background);
+  transition: background-color 0.5s ease-in-out;
 }
 
 /* Custom animations for micro interactions */
