@@ -129,6 +129,41 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
         "Salon integration features",
         "Performance-optimized rendering"
       ]
+    },
+    {
+      name: "a1tennis.co",
+      description: "AI-Driven Lesson Planning for Coaches",
+      url: "http://coach-plan.vercel.app",
+      icon: "/a2tennis.png",
+      color: "#10B981",
+      status: "Live" as const,
+      timeline: "3 weeks",
+      techStack: [
+        { name: "Next.js", icon: "/nextjs.svg" },
+        { name: "Node.js", icon: "/node-js.png" },
+        { name: "Tailwind CSS", icon: "/Tailwind.png" },
+        { name: "TypeScript", icon: "/typescript.png" },
+        { name: "Vercel", icon: "/vercel.svg" }
+      ],
+      caseStudy: {
+        challenge: "Sports coaches struggle with time-consuming lesson planning, often spending hours creating practice sessions manually. Traditional methods lack personalization and fail to adapt to individual athlete needs, resulting in less effective training programs and coach burnout.",
+        solution: "a1tennis.co leverages artificial intelligence to revolutionize lesson planning for sports coaches. The platform analyzes player data, skill levels, and training goals to generate customized, data-driven practice plans in minutes. Built with Next.js and modern web technologies, it provides an intuitive interface that makes sophisticated AI accessible to coaches of all technical backgrounds.",
+        impact: "The platform has transformed coaching workflows, dramatically reducing planning time while improving session quality. Coaches report better athlete engagement and measurable skill improvements, with the AI-generated plans adapting to each player's progress and learning style.",
+        metrics: [
+          "80% Reduced Planning Time",
+          "95% Coach Satisfaction",
+          "3x Faster Session Creation",
+          "Enhanced Training Outcomes"
+        ]
+      },
+      features: [
+        "AI-powered practice plan generation",
+        "Personalized training recommendations",
+        "Player progress tracking",
+        "Adaptive skill level matching",
+        "Collaborative coaching tools",
+        "Mobile-optimized interface"
+      ]
     }
   ];
 
