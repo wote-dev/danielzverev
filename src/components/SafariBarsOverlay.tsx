@@ -19,24 +19,22 @@ export default function SafariBarsOverlay() {
   useEffect(() => {
     if (!enabled) return;
     setVisible(true);
-    const t = window.setTimeout(() => setVisible(false), 900); // allow time for chrome to settle
+    const t = window.setTimeout(() => setVisible(false), 700);
     return () => window.clearTimeout(t);
   }, [theme, enabled]);
 
   if (!enabled) return null;
 
-  const bg = theme === 'dark' ? '#1c1917' : '#fafaf9';
-
-  const hexToRgb = (hex: string) => {
-    const s = hex.replace('#', '');
-    const bigint = parseInt(s.length === 3 ? s.split('').map(c => c + c).join('') : s, 16);
-    const r = (bigint >> 16) & 255;
-    const g = (bigint >> 8) & 255;
-    const b = bigint & 255;
-    return `${r}, ${g}, ${b}`;
+  // Use the exact computed page background to guarantee a perfect color match
+  const resolveBg = () => {
+    const root = document.documentElement;
+    const styles = getComputedStyle(root);
+    const varCol = styles.getPropertyValue('--color-background').trim();
+    if (varCol) return varCol;
+    return styles.backgroundColor || (theme === 'dark' ? '#1c1917' : '#fafaf9');
   };
 
-  const rgb = hexToRgb(bg);
+  const bg = resolveBg();
 
   const common: React.CSSProperties = {
     position: 'fixed',
@@ -44,28 +42,27 @@ export default function SafariBarsOverlay() {
     right: 0,
     pointerEvents: 'none',
     zIndex: 2147483646,
-    transition: 'opacity 300ms ease',
+    transition: 'opacity 220ms ease',
     opacity: visible ? 1 : 0,
+    background: bg,
   };
 
   return (
     <>
-      {/* Top safe-area gradient cover (blend into content) */}
+      {/* Top safe-area solid cover (no blur, exact color) */}
       <div
         style={{
           ...common,
           top: 0,
-          height: 'calc(env(safe-area-inset-top, 0px) + 64px)',
-          background: `linear-gradient(to bottom, rgba(${rgb}, 1) 0%, rgba(${rgb}, 0.85) 60%, rgba(${rgb}, 0) 100%)`,
+          height: 'calc(env(safe-area-inset-top, 0px) + 2px)',
         }}
       />
-      {/* Bottom safe-area gradient cover */}
+      {/* Bottom safe-area solid cover */}
       <div
         style={{
           ...common,
           bottom: 0,
-          height: 'calc(env(safe-area-inset-bottom, 0px) + 140px)',
-          background: `linear-gradient(to top, rgba(${rgb}, 1) 0%, rgba(${rgb}, 0.85) 60%, rgba(${rgb}, 0) 100%)`,
+          height: 'calc(env(safe-area-inset-bottom, 0px) + 2px)',
         }}
       />
     </>
