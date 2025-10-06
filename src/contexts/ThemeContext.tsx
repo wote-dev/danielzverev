@@ -43,25 +43,32 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       root.classList.remove('dark');
     }
     
-    // Force background colors with !important via style property
+    // NUCLEAR OPTION: Force background colors everywhere
     root.style.setProperty('background-color', color, 'important');
     body.style.setProperty('background-color', color, 'important');
     
-    // Update meta theme-color
+    // Force on #root as well
+    const rootDiv = document.getElementById('root');
+    if (rootDiv) {
+      rootDiv.style.setProperty('background-color', color, 'important');
+    }
+    
+    // Update meta theme-color for browser chrome
     if (themeColorMeta) {
       themeColorMeta.setAttribute('content', color);
-      console.log('✅ Meta theme-color updated to:', color);
     }
     
     // Update apple status bar for iOS
     const appleStatusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
     if (appleStatusBar) {
       appleStatusBar.setAttribute('content', theme === 'dark' ? 'black-translucent' : 'default');
-      console.log('✅ Apple status bar updated to:', theme === 'dark' ? 'black-translucent' : 'default');
     }
     
-    // Also set CSS variables
+    // Set CSS variables
     root.style.setProperty('--color-background', color);
+    
+    // Force repaint
+    void root.offsetHeight;
     
     console.log('✅ Background colors forced to:', color);
     console.log('HTML bg:', window.getComputedStyle(root).backgroundColor);
