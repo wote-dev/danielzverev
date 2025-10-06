@@ -29,11 +29,38 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     // Apply theme to document
     const root = document.documentElement;
     const body = document.body;
-    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
     
     const darkColor = '#1c1917';
     const lightColor = '#fafaf9';
     const color = theme === 'dark' ? darkColor : lightColor;
+
+    const isIOS = /iP(hone|od|ad)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    // Helper: force Safari to re-evaluate theme-color by replacing the meta tag
+    const forceSafariThemeColorUpdate = (col: string) => {
+      // Remove all existing theme-color metas
+      document.querySelectorAll('meta[name="theme-color"]').forEach((el) => el.parentNode?.removeChild(el));
+      // Re-insert a fresh one
+      const meta = document.createElement('meta');
+      meta.setAttribute('name', 'theme-color');
+      meta.setAttribute('content', col);
+      document.head.appendChild(meta);
+
+      // Also re-insert apple status bar meta (helps in standalone/PWA)
+      const existingApple = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+      if (existingApple) existingApple.parentNode?.removeChild(existingApple);
+      const apple = document.createElement('meta');
+      apple.setAttribute('name', 'apple-mobile-web-app-status-bar-style');
+      apple.setAttribute('content', theme === 'dark' ? 'black-translucent' : 'default');
+      document.head.appendChild(apple);
+
+      // Small reflow + scroll nudge can help certain iOS versions repaint the chrome
+      void root.offsetHeight;
+      requestAnimationFrame(() => {
+        window.scrollTo(window.scrollX, window.scrollY + 1);
+        window.scrollTo(window.scrollX, window.scrollY);
+      });
+    };
     
     console.log('🎨 Theme changing to:', theme, 'Color:', color);
     
@@ -43,7 +70,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       root.classList.remove('dark');
     }
     
-    // NUCLEAR OPTION: Force background colors everywhere
+    // Force background colors everywhere
     root.style.setProperty('background-color', color, 'important');
     body.style.setProperty('background-color', color, 'important');
     
@@ -53,22 +80,17 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       rootDiv.style.setProperty('background-color', color, 'important');
     }
     
-    // Update meta theme-color for browser chrome
-    if (themeColorMeta) {
-      themeColorMeta.setAttribute('content', color);
-    }
-
-    // Explicitly tell the browser which UI color scheme to use (affects iOS Safari top/bottom bars)
-    root.style.setProperty('color-scheme', theme);
-    
-    // Update apple status bar for iOS (PWA/standalone)
-    const appleStatusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
-    if (appleStatusBar) {
-      appleStatusBar.setAttribute('content', theme === 'dark' ? 'black-translucent' : 'default');
-    }
-    
-    // Set CSS variables
+    // Set CSS variables and color-scheme
     root.style.setProperty('--color-background', color);
+    root.style.setProperty('color-scheme', theme);
+
+    // Update theme-color meta (Safari needs a replacement to repaint)
+    if (isIOS) {
+      forceSafariThemeColorUpdate(color);
+    } else {
+      const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeColorMeta) themeColorMeta.setAttribute('content', color);
+    }
     
     // Force repaint
     void root.offsetHeight;
