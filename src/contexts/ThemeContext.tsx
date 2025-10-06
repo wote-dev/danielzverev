@@ -136,7 +136,32 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+    setTheme(prev => {
+      const next = prev === 'light' ? 'dark' : 'light';
+
+      // Persist immediately so a potential iOS reload can pick it up
+      try {
+        localStorage.setItem('theme', next);
+      } catch {}
+
+      // Detect Safari on iOS (not Chrome/Firefox on iOS strings)
+      const ua = navigator.userAgent;
+      const isIOS = /iP(hone|od|ad)/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      const isSafari = /^((?!chrome|crios|fxios|edgios|opios).)*safari/i.test(ua);
+
+      if (isIOS && isSafari) {
+        try {
+          // Save scroll so we can restore after reload
+          sessionStorage.setItem('restore-scroll', String(window.scrollY));
+        } catch {}
+        // Force a fast reload so Safari recalculates the UI chrome colors reliably
+        requestAnimationFrame(() => {
+          window.location.reload();
+        });
+      }
+
+      return next;
+    });
   };
 
   return (

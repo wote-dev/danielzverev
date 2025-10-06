@@ -53,6 +53,16 @@
         if (appleStatusBar) {
           appleStatusBar.setAttribute('content', isDark ? 'black-translucent' : 'default');
         }
+
+        // Restore scroll position if we did an iOS Safari reload workaround
+        try {
+          const y = sessionStorage.getItem('restore-scroll');
+          if (y !== null) {
+            sessionStorage.removeItem('restore-scroll');
+            // Wait a tick to ensure layout is ready
+            requestAnimationFrame(() => window.scrollTo(0, parseInt(y, 10) || 0));
+          }
+        } catch {}
         
         console.log('🚀 Initial theme set:', isDark ? 'dark' : 'light', color);
       })();
