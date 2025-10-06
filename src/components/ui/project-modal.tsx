@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useTheme } from '@/contexts/ThemeContext';
 
 interface TechStack {
@@ -45,6 +45,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
   const [animationStage, setAnimationStage] = useState(0);
   const [selectedMediaIndex, setSelectedMediaIndex] = useState(0);
   const [videoErrors, setVideoErrors] = useState<Record<number, boolean>>({});
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (isOpen && project) {
@@ -65,6 +66,22 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
       setVideoErrors({});
     }
   }, [isOpen, project]);
+
+  // Force video playback when media changes or modal opens
+  useEffect(() => {
+    if (isOpen && videoRef.current && project?.media?.[selectedMediaIndex]?.type === 'video') {
+      const playVideo = async () => {
+        try {
+          await videoRef.current?.play();
+        } catch (error) {
+          console.log('Autoplay prevented:', error);
+        }
+      };
+      // Small delay to ensure the video element is ready
+      const timer = setTimeout(playVideo, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, selectedMediaIndex, project]);
 
   const handleClose = useCallback(() => {
     setIsVisible(false);
@@ -208,7 +225,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
               </div>
             </div>
 
-            {/* Project Name & Status */}
+            {/* Project Name & Status (status hidden for ZeddFlight) */}
             <div className="flex items-center justify-center gap-4 mb-4">
               <h2 className={`text-4xl font-sf-display-medium tracking-tight transition-all duration-300 ${
                 theme === 'dark' 
@@ -217,9 +234,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
               }`}>
                 {project.name}
               </h2>
-              <span className={`px-3 py-1.5 rounded-full text-xs font-medium border ${getStatusColor(project.status)}`}>
-                {project.status}
-              </span>
+              {project.name !== 'ZeddFlight' && (
+                <span className={`px-3 py-1.5 rounded-full text-xs font-medium border ${getStatusColor(project.status)}`}>
+                  {project.status}
+                </span>
+              )}
             </div>
             
             {/* Description */}
@@ -263,6 +282,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                     />
                   ) : (
                     <video
+                      ref={videoRef}
                       key={selectedMediaIndex}
                       autoPlay
                       loop
@@ -273,7 +293,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                       onError={() => {
                         setVideoErrors(prev => ({ ...prev, [selectedMediaIndex]: true }));
                       }}
+                      onLoadedData={() => {
+                        // Ensure video plays when loaded
+                        videoRef.current?.play().catch(() => {});
+                      }}
                     >
+                      <source src={project.media[selectedMediaIndex].src} type="video/webm" />
                       <source src={project.media[selectedMediaIndex].src} type="video/mp4" />
                       <source src={project.media[selectedMediaIndex].src} type="video/quicktime" />
                       Your browser does not support the video tag.
@@ -486,7 +511,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             </div>
           </div>
 
-          {/* Action Section */}
+          {/* Action Section (hidden for ZeddFlight) */}
           <div className={`pt-6 border-t transition-all duration-500 ease-out delay-900 ${
             animationStage >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           } ${
@@ -494,23 +519,25 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
               ? 'border-stone-700/50'
               : 'border-stone-200/50'
           }`}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`px-8 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 ${
-                  theme === 'dark'
-                    ? 'bg-stone-100/90 text-stone-900 embossed-subtle-light hover:bg-white'
-                    : 'bg-stone-900/90 text-white embossed-subtle-dark hover:bg-stone-800'
-                }`}
-              >
-                <span>View Project</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </div>
+            {project.name !== 'ZeddFlight' && (
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`px-8 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 ${
+                    theme === 'dark'
+                      ? 'bg-stone-100/90 text-stone-900 embossed-subtle-light hover:bg-white'
+                      : 'bg-stone-900/90 text-white embossed-subtle-dark hover:bg-stone-800'
+                  }`}
+                >
+                  <span>View Project</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>

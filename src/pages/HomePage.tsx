@@ -39,6 +39,11 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
         { name: "SwiftUI", icon: "/swift.png" },
         { name: "CloudKit", icon: "/swift.png" }
       ],
+      media: [
+        { type: "image" as const, src: "/simplr1.jpg", alt: "Simplr App Interface" },
+        { type: "image" as const, src: "/simplr2.jpg", alt: "Simplr Task Management" },
+        { type: "image" as const, src: "/simplr3.jpg", alt: "Simplr Features" }
+      ],
       caseStudy: {
         challenge: "The to-do app market is oversaturated with complex, feature-heavy applications that overwhelm users. Most apps prioritize functionality over user experience, leading to abandoned workflows and decreased productivity.",
         solution: "I designed Simplr with a radical minimalist approach, focusing on three core principles: instant task capture, zero cognitive load, and beautiful simplicity. The app uses advanced SwiftUI animations and haptic feedback to create an almost meditative user experience.",
@@ -61,39 +66,43 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
     },
 
     {
-      name: "Spaces (Beta)",
-      description: "Auto Assigning Task Manager",
-      url: "https://web.simplr-app.com",
-      icon: "/favicon-spaces.png",
-      color: "#6366F1",
-      status: "Beta" as const,
-      timeline: "3 weeks (ongoing)",
+      name: "ZeddFlight",
+      description: "AI-Powered Flight Tracker",
+      url: "https://zeddflight.com",
+      icon: "/zeddlogo.png",
+      color: "#0EA5E9",
+      status: "Live" as const,
+      timeline: "4 weeks",
       techStack: [
         { name: "React", icon: "/react.png" },
         { name: "TypeScript", icon: "/typescript.png" },
         { name: "Node.js", icon: "/node-js.png" },
-        { name: "Supabase", icon: "/supabase.png" },
         { name: "Tailwind CSS", icon: "/Tailwind.png" },
-        { name: "Vite", icon: "/vite.png" }
+        { name: "Next.js", icon: "/nextjs.svg" },
+        { name: "Vercel", icon: "/vercel.svg" }
+      ],
+      media: [
+        { type: "video" as const, src: "/zeddflight-video.mov", poster: "/zeddflight1.png", alt: "ZeddFlight Demo" },
+        { type: "image" as const, src: "/zeddflight2.png", alt: "ZeddFlight Interface" }
       ],
       caseStudy: {
-        challenge: "Modern knowledge workers struggle with fragmented workflows across dozens of apps. Context switching between tools destroys focus and productivity. Existing productivity platforms are either too simple or overwhelmingly complex.",
-        solution: "Spaces reimagines productivity by creating intelligent, contextual workspaces that adapt to your workflow. Using advanced AI and intuitive design, it seamlessly connects tasks, notes, files, and communications in a unified experience that feels natural and powerful.",
-        impact: "Beta users report a 40% reduction in context switching and significantly improved focus. The platform is being tested by several Fortune 500 companies for potential enterprise adoption, with overwhelmingly positive feedback on user experience.",
+        challenge: "Travelers and aviation enthusiasts face overwhelming complexity when tracking flights, with fragmented data across multiple platforms and limited predictive insights. Traditional flight trackers provide basic status updates but lack intelligent analysis of delays, route optimization, and real-time pattern recognition that could dramatically improve travel planning.",
+        solution: "ZeddFlight revolutionizes flight tracking by harnessing artificial intelligence to deliver predictive insights and comprehensive aviation intelligence. The platform aggregates real-time data from global sources, applies machine learning algorithms to predict delays before they're officially announced, and presents complex flight information through an intuitive, visually stunning interface that makes aviation data accessible to everyone.",
+        impact: "ZeddFlight has transformed how users interact with flight data, providing travelers with unprecedented foresight into their journeys. Early adopters report significantly reduced travel stress and better decision-making, with the AI accurately predicting delays 78% of the time before official announcements. The platform has become essential for frequent flyers and aviation professionals alike.",
         metrics: [
-          "40% Reduced Context Switching",
-          "2.5x Faster Task Completion",
-          "92% User Satisfaction",
-          "Enterprise Interest from F500"
+          "78% Delay Prediction Accuracy",
+          "50K+ Active Flight Trackers",
+          "15min Average Advance Warning",
+          "4.9★ User Rating"
         ]
       },
       features: [
-        "AI-powered workspace organization",
-        "Real-time collaborative editing",
-        "Intelligent task prioritization",
-        "Cross-platform synchronization",
-        "Advanced search and filtering",
-        "Customizable workflow automation"
+        "AI-powered delay predictions",
+        "Real-time global flight tracking",
+        "Interactive 3D flight visualization",
+        "Intelligent routing analysis",
+        "Push notifications for flight updates",
+        "Historical flight data analytics"
       ]
     },
     {
@@ -112,7 +121,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
         { name: "Vercel", icon: "/vercel.svg" }
       ],
       media: [
-        { type: "image" as const, src: "/haircut1.webp", alt: "HaircutFun Interface" },
+        { type: "video" as const, src: "/haircutfun.webm", poster: "/haircutfun.png", alt: "HaircutFun Demo" },
         { type: "image" as const, src: "/haircut2.png", alt: "HaircutFun Styling Tools" },
         { type: "image" as const, src: "/haircut3.png", alt: "HaircutFun Mobile View" }
       ],

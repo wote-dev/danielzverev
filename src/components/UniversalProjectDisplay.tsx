@@ -148,68 +148,77 @@ const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ proje
 
           {/* Project List */}
           <div className="py-2">
-            {projects.map((project, index) => (
-              <button
-                key={index}
-                onClick={() => handleProjectClick(project)}
-                className={`w-full px-4 py-3 flex items-center space-x-3 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] ${
-                  theme === 'dark'
-                    ? 'hover:bg-stone-900/60'
-                    : 'hover:bg-stone-50/60'
-                } ${
-                  index !== projects.length - 1
-                    ? theme === 'dark'
-                      ? 'border-b border-stone-700/30'
-                      : 'border-b border-stone-200/30'
-                    : ''
-                }`}
-              >
-                {/* Project Icon */}
-                <div className="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden">
-                  <img
-                    src={project.icon}
-                    alt={project.name}
-                    className="w-8 h-8 object-contain rounded-full"
-                    loading="lazy"
-                  />
-                </div>
+            {projects.map((project, index) => {
+              const isZeddFlight = project.name === 'ZeddFlight';
+              const baseClasses = `w-full px-4 py-3 flex items-center space-x-3 transition-all duration-200 ${
+                theme === 'dark' ? 'hover:bg-stone-900/60' : 'hover:bg-stone-50/60'
+              } ${
+                index !== projects.length - 1
+                  ? theme === 'dark'
+                    ? 'border-b border-stone-700/30'
+                    : 'border-b border-stone-200/30'
+                  : ''
+              }`;
 
-                {/* Project Info */}
-                <div className="flex-1 text-left">
-                  <h4
-                    className={`text-sm font-medium ${
-                      theme === 'dark' ? 'text-stone-100' : 'text-stone-800'
-                    }`}
-                  >
-                    {project.name}
-                  </h4>
-                  <p
-                    className={`text-xs ${
-                      theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
-                    }`}
-                  >
-                    {project.description}
-                  </p>
-                </div>
+              const content = (
+                <>
+                  {/* Project Icon */}
+                  <div className="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden">
+                    <img
+                      src={project.icon}
+                      alt={project.name}
+                      className="w-8 h-8 object-contain rounded-full"
+                      loading="lazy"
+                    />
+                  </div>
 
-                {/* External Link Icon */}
-                <svg
-                  className={`w-4 h-4 flex-shrink-0 ${
-                    theme === 'dark' ? 'text-stone-400' : 'text-stone-400'
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                  {/* Project Info */}
+                  <div className="flex-1 text-left">
+                    <h4
+                      className={`text-sm font-medium ${
+                        theme === 'dark' ? 'text-stone-100' : 'text-stone-800'
+                      }`}
+                    >
+                      {project.name}
+                    </h4>
+                    <p
+                      className={`text-xs ${
+                        theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+                      }`}
+                    >
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* External Link Icon */}
+                  <svg
+                    className={`w-4 h-4 flex-shrink-0 ${
+                      theme === 'dark' ? 'text-stone-400' : 'text-stone-400'
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </>
+              );
+
+              return (
+                <button
+                  key={index}
+                  onClick={() => handleProjectClick(project)}
+                  className={`${baseClasses} hover:scale-[1.02] active:scale-[0.98]`}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </button>
-            ))}
+                  {content}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
