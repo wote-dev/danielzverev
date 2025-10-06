@@ -19,7 +19,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
   const [showBioModal, setShowBioModal] = useState(false);
   const [showProjectModal, setShowProjectModal] = useState(false);
   const [selectedProject, setSelectedProject] = useState<any>(null);
-  const [animationStage, setAnimationStage] = useState(0);
+  const [animationStage, setAnimationStage] = useState(() => (suppressEntrance ? 5 : 0));
   const [isHoveringAvatar, setIsHoveringAvatar] = useState(false);
   const [isHoveringName, setIsHoveringName] = useState(false);
   const [showNudge, setShowNudge] = useState(false);
