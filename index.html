@@ -5,6 +5,8 @@
     <link rel="icon" type="image/png" href="/me.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="theme-color" content="#fafaf9" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>Daniel Zverev</title>
     <meta name="description" content="Daniel Zverev - Developer Website" />
     <meta name="author" content="Daniel Zverev" />
@@ -29,12 +31,27 @@
         const isDark = savedTheme ? savedTheme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
         const color = isDark ? darkColor : lightColor;
         
-        document.documentElement.style.backgroundColor = color;
-        document.body.style.backgroundColor = color;
+        // Force colors with !important
+        document.documentElement.style.setProperty('background-color', color, 'important');
+        document.body.style.setProperty('background-color', color, 'important');
+        
         if (isDark) {
           document.documentElement.classList.add('dark');
         }
-        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', color);
+        
+        // Update all theme-color meta tags
+        const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeColorMeta) {
+          themeColorMeta.setAttribute('content', color);
+        }
+        
+        // Update apple status bar
+        const appleStatusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+        if (appleStatusBar) {
+          appleStatusBar.setAttribute('content', isDark ? 'black-translucent' : 'default');
+        }
+        
+        console.log('🚀 Initial theme set:', isDark ? 'dark' : 'light', color);
       })();
     </script>
     <div id="root"></div>

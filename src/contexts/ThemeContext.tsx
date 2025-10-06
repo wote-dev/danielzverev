@@ -33,20 +33,39 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     
     const darkColor = '#1c1917';
     const lightColor = '#fafaf9';
+    const color = theme === 'dark' ? darkColor : lightColor;
+    
+    console.log('🎨 Theme changing to:', theme, 'Color:', color);
     
     if (theme === 'dark') {
       root.classList.add('dark');
-      themeColorMeta?.setAttribute('content', darkColor);
-      // Force background colors on html and body
-      root.style.backgroundColor = darkColor;
-      body.style.backgroundColor = darkColor;
     } else {
       root.classList.remove('dark');
-      themeColorMeta?.setAttribute('content', lightColor);
-      // Force background colors on html and body
-      root.style.backgroundColor = lightColor;
-      body.style.backgroundColor = lightColor;
     }
+    
+    // Force background colors with !important via style property
+    root.style.setProperty('background-color', color, 'important');
+    body.style.setProperty('background-color', color, 'important');
+    
+    // Update meta theme-color
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', color);
+      console.log('✅ Meta theme-color updated to:', color);
+    }
+    
+    // Update apple status bar for iOS
+    const appleStatusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
+    if (appleStatusBar) {
+      appleStatusBar.setAttribute('content', theme === 'dark' ? 'black-translucent' : 'default');
+      console.log('✅ Apple status bar updated to:', theme === 'dark' ? 'black-translucent' : 'default');
+    }
+    
+    // Also set CSS variables
+    root.style.setProperty('--color-background', color);
+    
+    console.log('✅ Background colors forced to:', color);
+    console.log('HTML bg:', window.getComputedStyle(root).backgroundColor);
+    console.log('Body bg:', window.getComputedStyle(body).backgroundColor);
     
     // Save preference
     localStorage.setItem('theme', theme);
