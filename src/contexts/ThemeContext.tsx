@@ -154,6 +154,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
           // Save scroll so we can restore after reload and skip the preloader
           sessionStorage.setItem('restore-scroll', String(window.scrollY));
           sessionStorage.setItem('skip-preloader', '1');
+          sessionStorage.setItem('skip-animations', '1');
         } catch {}
         // Force a fast reload so Safari recalculates the UI chrome colors reliably
         requestAnimationFrame(() => {

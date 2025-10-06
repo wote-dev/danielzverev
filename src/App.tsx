@@ -17,6 +17,18 @@ function App() {
     return true;
   });
 
+  // If this is an iOS theme reload, also suppress entrance animations after boot
+  const [suppressEntrance, setSuppressEntrance] = useState(() => {
+    try {
+      const v = sessionStorage.getItem('skip-animations');
+      if (v) {
+        sessionStorage.removeItem('skip-animations');
+        return true;
+      }
+    } catch {}
+    return false;
+  });
+
   const handleLoadingComplete = () => {
     setIsLoading(false);
   };
@@ -26,7 +38,7 @@ function App() {
       <div className="w-full h-full min-h-screen min-h-dvh full-viewport relative bg-background transition-colors duration-500">
         <GridBackground />
         {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
-        <HomePage isVisible={!isLoading} />
+        <HomePage isVisible={!isLoading} suppressEntrance={suppressEntrance} />
       </div>
     </ThemeProvider>
   );

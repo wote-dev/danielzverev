@@ -11,9 +11,10 @@ import UniversalProjectDisplay from '@/components/UniversalProjectDisplay';
 
 interface HomePageProps {
   isVisible: boolean;
+  suppressEntrance?: boolean;
 }
 
-const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
+const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false }) => {
   const { theme } = useTheme();
   const [showBioModal, setShowBioModal] = useState(false);
   const [showProjectModal, setShowProjectModal] = useState(false);
@@ -169,16 +170,20 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible }) => {
 
   useEffect(() => {
     if (isVisible) {
+      if (suppressEntrance) {
+        // Jump to the final stage instantly; no entrance animations
+        setAnimationStage(5);
+        return;
+      }
       const stages = [1, 2, 3, 4, 5];
+      const timers: number[] = [];
       stages.forEach((stage, index) => {
-        setTimeout(() => {
-          setAnimationStage(stage);
-        }, index * 150);
+        const t = window.setTimeout(() => setAnimationStage(stage), index * 150);
+        timers.push(t);
       });
-      
-
+      return () => timers.forEach(clearTimeout);
     }
-  }, [isVisible]);
+  }, [isVisible, suppressEntrance]);
   
   useEffect(() => {
     if (isVisible) {
