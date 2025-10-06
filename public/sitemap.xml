@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Main homepage -->
+  <url>
+    <loc>https://danielzverev.com/</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://danielzverev.com/me.png</image:loc>
+      <image:title>Daniel Zverev - Software Developer</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://danielzverev.com/fff.jpeg</image:loc>
+      <image:title>Daniel Zverev Portfolio</image:title>
+    </image:image>
+  </url>
+
+  <!-- Project: Simplr iOS App -->
+  <url>
+    <loc>https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Project: ZeddFlight -->
+  <url>
+    <loc>https://zeddflight.com</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Project: HaircutFun -->
+  <url>
+    <loc>https://haircutfun.com</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Project: Coach Plan -->
+  <url>
+    <loc>http://coach-plan.vercel.app</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Social profiles -->
+  <url>
+    <loc>https://github.com/wote-dev</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.linkedin.com/in/daniel-zverev/</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://x.com/wote_dev</loc>
+    <lastmod>2025-10-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

@@ -1,0 +1,15 @@
+# robots.txt for danielzverev.com
+# Allow all search engines to crawl all pages
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://danielzverev.com/sitemap.xml
+
+# Crawl-delay (optional, in seconds)
+Crawl-delay: 1
+
+# Disallow crawling of any temporary or test directories (if you have them)
+# Disallow: /test/
+# Disallow: /temp/
