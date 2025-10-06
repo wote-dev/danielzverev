@@ -149,7 +149,6 @@ const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ proje
           {/* Project List */}
           <div className="py-2">
             {projects.map((project, index) => {
-              const isZeddFlight = project.name === 'ZeddFlight';
               const baseClasses = `w-full px-4 py-3 flex items-center space-x-3 transition-all duration-200 ${
                 theme === 'dark' ? 'hover:bg-stone-900/60' : 'hover:bg-stone-50/60'
               } ${
