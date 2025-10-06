@@ -111,6 +111,11 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
         { name: "Next.js", icon: "/nextjs.svg" },
         { name: "Vercel", icon: "/vercel.svg" }
       ],
+      media: [
+        { type: "image" as const, src: "/haircut1.webp", alt: "HaircutFun Interface" },
+        { type: "image" as const, src: "/haircut2.png", alt: "HaircutFun Styling Tools" },
+        { type: "image" as const, src: "/haircut3.png", alt: "HaircutFun Mobile View" }
+      ],
       caseStudy: {
         challenge: "The hair styling industry lacks accessible, interactive tools for clients to visualize different hairstyles before committing to a cut. Traditional consultation methods rely heavily on static images and verbal descriptions, leading to miscommunication and unsatisfied customers.",
         solution: "HaircutFun bridges this gap with an innovative web platform that allows users to experiment with various hairstyles in real-time. Built with React 19 and modern web technologies, the platform offers intuitive styling tools, realistic previews, and seamless user experience across all devices.",
@@ -145,6 +150,11 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
         { name: "Tailwind CSS", icon: "/Tailwind.png" },
         { name: "TypeScript", icon: "/typescript.png" },
         { name: "Vercel", icon: "/vercel.svg" }
+      ],
+      media: [
+        { type: "video" as const, src: "/coachplan-video.mov", poster: "/coachplan.png", alt: "Coach Plan Demo" },
+        { type: "image" as const, src: "/coachplan2.png", alt: "Coach Plan Dashboard" },
+        { type: "video" as const, src: "/coachplan3.mov", poster: "/coachplan.png", alt: "Coach Plan Features" }
       ],
       caseStudy: {
         challenge: "Sports coaches struggle with time-consuming lesson planning, often spending hours creating practice sessions manually. Traditional methods lack personalization and fail to adapt to individual athlete needs, resulting in less effective training programs and coach burnout.",

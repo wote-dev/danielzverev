@@ -7,6 +7,13 @@ interface TechStack {
   color?: string;
 }
 
+interface MediaItem {
+  type: 'image' | 'video';
+  src: string;
+  alt: string;
+  poster?: string;
+}
+
 interface Project {
   name: string;
   description: string;
@@ -14,6 +21,7 @@ interface Project {
   icon: string;
   color: string;
   techStack: TechStack[];
+  media?: MediaItem[];
   caseStudy: {
     challenge: string;
     solution: string;
@@ -35,6 +43,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
   const { theme } = useTheme();
   const [isVisible, setIsVisible] = useState(false);
   const [animationStage, setAnimationStage] = useState(0);
+  const [selectedMediaIndex, setSelectedMediaIndex] = useState(0);
+  const [videoErrors, setVideoErrors] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     if (isOpen && project) {
@@ -45,11 +55,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
         setTimeout(() => setAnimationStage(2), 350);
         setTimeout(() => setAnimationStage(3), 500);
         setTimeout(() => setAnimationStage(4), 650);
+        setTimeout(() => setAnimationStage(5), 800);
       }, 50);
       return () => clearTimeout(timer);
     } else {
       setIsVisible(false);
       setAnimationStage(0);
+      setSelectedMediaIndex(0);
+      setVideoErrors({});
     }
   }, [isOpen, project]);
 
@@ -229,9 +242,100 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             </div>
           </div>
 
+          {/* Media Gallery Section */}
+          {project.media && project.media.length > 0 && (
+            <div className={`mb-8 transition-all duration-500 ease-out delay-200 ${
+              animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}>
+              {/* Main Media Display */}
+              <div className={`relative w-full aspect-video rounded-2xl overflow-hidden mb-4 transition-all duration-300 ${
+                theme === 'dark'
+                  ? 'bg-stone-800/40 embossed-subtle-dark'
+                  : 'bg-white/40 embossed-subtle-light'
+              }`}>
+                {project.media[selectedMediaIndex].type === 'video' ? (
+                  videoErrors[selectedMediaIndex] ? (
+                    // Fallback to poster image if video fails
+                    <img
+                      src={project.media[selectedMediaIndex].poster || project.icon}
+                      alt={project.media[selectedMediaIndex].alt}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <video
+                      key={selectedMediaIndex}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      poster={project.media[selectedMediaIndex].poster}
+                      className="w-full h-full object-cover"
+                      onError={() => {
+                        setVideoErrors(prev => ({ ...prev, [selectedMediaIndex]: true }));
+                      }}
+                    >
+                      <source src={project.media[selectedMediaIndex].src} type="video/mp4" />
+                      <source src={project.media[selectedMediaIndex].src} type="video/quicktime" />
+                      Your browser does not support the video tag.
+                    </video>
+                  )
+                ) : (
+                  <img
+                    src={project.media[selectedMediaIndex].src}
+                    alt={project.media[selectedMediaIndex].alt}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </div>
+
+              {/* Media Thumbnails */}
+              {project.media.length > 1 && (
+                <div className="flex gap-3 justify-center overflow-x-auto pb-2">
+                  {project.media.map((media, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setSelectedMediaIndex(index)}
+                      className={`relative flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 ${
+                        selectedMediaIndex === index
+                          ? theme === 'dark'
+                            ? 'ring-2 ring-stone-400 embossed-subtle-dark shadow-lg'
+                            : 'ring-2 ring-stone-600 embossed-subtle-light shadow-lg'
+                          : theme === 'dark'
+                            ? 'ring-1 ring-stone-700/50 embossed-subtle-dark opacity-60 hover:opacity-100'
+                            : 'ring-1 ring-stone-300/50 embossed-subtle-light opacity-60 hover:opacity-100'
+                      }`}
+                    >
+                      {media.type === 'video' ? (
+                        <>
+                          <img
+                            src={media.poster || project.icon}
+                            alt={media.alt}
+                            className="w-full h-full object-cover"
+                          />
+                          {/* Play icon overlay */}
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                            <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </div>
+                        </>
+                      ) : (
+                        <img
+                          src={media.src}
+                          alt={media.alt}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Tech Stack Section */}
-          <div className={`mb-8 transition-all duration-500 ease-out delay-200 ${
-            animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          <div className={`mb-8 transition-all duration-500 ease-out delay-300 ${
+            animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             <h3 className={`text-xl font-medium mb-4 ${
               theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
@@ -265,8 +369,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
           </div>
 
           {/* Case Study Section */}
-          <div className={`mb-8 transition-all duration-500 ease-out delay-400 ${
-            animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          <div className={`mb-8 transition-all duration-500 ease-out delay-500 ${
+            animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             <h3 className={`text-xl font-medium mb-6 ${
               theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
@@ -353,8 +457,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
           </div>
 
           {/* Features Section */}
-          <div className={`mb-8 transition-all duration-500 ease-out delay-600 ${
-            animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          <div className={`mb-8 transition-all duration-500 ease-out delay-700 ${
+            animationStage >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             <h3 className={`text-xl font-medium mb-4 ${
               theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
@@ -383,8 +487,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
           </div>
 
           {/* Action Section */}
-          <div className={`pt-6 border-t transition-all duration-500 ease-out delay-800 ${
-            animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          <div className={`pt-6 border-t transition-all duration-500 ease-out delay-900 ${
+            animationStage >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           } ${
             theme === 'dark'
               ? 'border-stone-700/50'
