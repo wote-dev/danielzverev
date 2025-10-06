@@ -25,26 +25,21 @@ export default function SafariBarsOverlay() {
 
   if (!enabled) return null;
 
-  // Use the exact computed page background to guarantee a perfect color match
-  const resolveBg = () => {
-    const root = document.documentElement;
-    const styles = getComputedStyle(root);
-    const varCol = styles.getPropertyValue('--color-background').trim();
-    if (varCol) return varCol;
-    return styles.backgroundColor || (theme === 'dark' ? '#1c1917' : '#fafaf9');
-  };
-
-  const bg = resolveBg();
+  // Use the exact CSS variable so it always matches, even mid-render
+  const bgVar = 'var(--color-background)';
 
   const common: React.CSSProperties = {
     position: 'fixed',
     left: 0,
     right: 0,
     pointerEvents: 'none',
-    zIndex: 2147483646,
+    zIndex: 9, // keep under interactive UI
     transition: 'opacity 220ms ease',
     opacity: visible ? 1 : 0,
-    background: bg,
+    background: bgVar,
+    mixBlendMode: 'normal',
+    WebkitBackdropFilter: 'none',
+    backdropFilter: 'none',
   };
 
   return (
