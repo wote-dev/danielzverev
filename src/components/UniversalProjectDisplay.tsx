@@ -10,17 +10,11 @@ interface TechStack {
 interface Project {
   name: string;
   description: string;
+  longDescription?: string;
   url: string;
   icon: string;
   color: string;
   techStack: TechStack[];
-  caseStudy: {
-    challenge: string;
-    solution: string;
-    impact: string;
-    metrics?: string[];
-  };
-  features: string[];
   timeline: string;
   status: 'Live' | 'Beta' | 'In Development' | 'Completed';
 }

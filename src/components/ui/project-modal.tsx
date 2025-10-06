@@ -17,18 +17,12 @@ interface MediaItem {
 interface Project {
   name: string;
   description: string;
+  longDescription?: string;
   url: string;
   icon: string;
   color: string;
   techStack: TechStack[];
   media?: MediaItem[];
-  caseStudy: {
-    challenge: string;
-    solution: string;
-    impact: string;
-    metrics?: string[];
-  };
-  features: string[];
   timeline: string;
   status: 'Live' | 'Beta' | 'In Development' | 'Completed';
 }
@@ -247,18 +241,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             }`}>
               {project.description}
             </p>
-
-            {/* Timeline */}
-            <div className={`inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full text-sm ${
-              theme === 'dark'
-                ? 'bg-stone-800/40 text-stone-400'
-                : 'bg-white/40 text-stone-600'
-            }`}>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>{project.timeline}</span>
-            </div>
           </div>
 
           {/* Media Gallery Section */}
@@ -393,127 +375,32 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             </div>
           </div>
 
-          {/* Case Study Section */}
+          {/* Project Description */}
           <div className={`mb-8 transition-all duration-500 ease-out delay-500 ${
             animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}>
-            <h3 className={`text-xl font-medium mb-6 ${
-              theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
-            }`}>
-              Case Study
-            </h3>
-            
-            <div className="space-y-6">
-              {/* Challenge */}
-              <div className={`p-6 rounded-2xl ${
-                theme === 'dark'
-                  ? 'bg-stone-800/30 embossed-subtle-dark'
-                  : 'bg-white/30 embossed-subtle-light'
-              }`}>
-                <h4 className={`text-lg font-medium mb-3 flex items-center gap-2 ${
-                  theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
-                }`}>
-                  <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                  Challenge
-                </h4>
-                <p className={`text-base leading-relaxed ${
-                  theme === 'dark' ? 'text-stone-300' : 'text-stone-600'
-                }`}>
-                  {project.caseStudy.challenge}
-                </p>
-              </div>
-
-              {/* Solution */}
-              <div className={`p-6 rounded-2xl ${
-                theme === 'dark'
-                  ? 'bg-stone-800/30 embossed-subtle-dark'
-                  : 'bg-white/30 embossed-subtle-light'
-              }`}>
-                <h4 className={`text-lg font-medium mb-3 flex items-center gap-2 ${
-                  theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
-                }`}>
-                  <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                  Solution
-                </h4>
-                <p className={`text-base leading-relaxed ${
-                  theme === 'dark' ? 'text-stone-300' : 'text-stone-600'
-                }`}>
-                  {project.caseStudy.solution}
-                </p>
-              </div>
-
-              {/* Impact */}
-              <div className={`p-6 rounded-2xl ${
-                theme === 'dark'
-                  ? 'bg-stone-800/30 embossed-subtle-dark'
-                  : 'bg-white/30 embossed-subtle-light'
-              }`}>
-                <h4 className={`text-lg font-medium mb-3 flex items-center gap-2 ${
-                  theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
-                }`}>
-                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                  Impact
-                </h4>
-                <p className={`text-base leading-relaxed mb-4 ${
-                  theme === 'dark' ? 'text-stone-300' : 'text-stone-600'
-                }`}>
-                  {project.caseStudy.impact}
-                </p>
-                
-                {/* Metrics */}
-                {project.caseStudy.metrics && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {project.caseStudy.metrics.map((metric, index) => (
-                      <div
-                        key={index}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                          theme === 'dark'
-                            ? 'bg-stone-700/40 text-stone-300'
-                            : 'bg-stone-100/60 text-stone-700'
-                        }`}
-                      >
-                        {metric}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Features Section */}
-          <div className={`mb-8 transition-all duration-500 ease-out delay-700 ${
-            animationStage >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             <h3 className={`text-xl font-medium mb-4 ${
               theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
             }`}>
-              Key Features
+              About This Project
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {project.features.map((feature, index) => (
-                <div
-                  key={index}
-                  className={`flex items-center gap-3 p-3 rounded-xl transition-all duration-300 hover:scale-[1.02] ${
-                    theme === 'dark'
-                      ? 'bg-stone-800/30 embossed-subtle-dark'
-                      : 'bg-white/30 embossed-subtle-light'
-                  }`}
-                >
-                  <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-                  <span className={`text-sm ${
-                    theme === 'dark' ? 'text-stone-300' : 'text-stone-700'
-                  }`}>
-                    {feature}
-                  </span>
-                </div>
-              ))}
+            <div className={`p-6 rounded-2xl ${
+              theme === 'dark'
+                ? 'bg-stone-800/30 embossed-subtle-dark'
+                : 'bg-white/30 embossed-subtle-light'
+            }`}>
+              <p className={`text-base leading-relaxed ${
+                theme === 'dark' ? 'text-stone-300' : 'text-stone-600'
+              }`}>
+                {project.longDescription || project.description}
+              </p>
             </div>
           </div>
 
+
           {/* Action Section (hidden for ZeddFlight) */}
-          <div className={`pt-6 border-t transition-all duration-500 ease-out delay-900 ${
-            animationStage >= 5 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          <div className={`pt-6 border-t transition-all duration-500 ease-out delay-600 ${
+            animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           } ${
             theme === 'dark'
               ? 'border-stone-700/50'

@@ -29,6 +29,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
     {
       name: "Simplr (iOS)",
       description: "Minimal iOS To-Do App",
+      longDescription: "A minimal iOS to-do app built with SwiftUI that focuses on simplicity and Apple like native design. Features instant task capture with haptic feedback, intelligent priority hierarchy, and seamless integration with iOS26 on the day of public release. With a 5-star, Simplr transforms task management into an effortless, meditative experience that users actually enjoy using daily.",
       url: "https://apps.apple.com/us/app/simplr-minimal-to-do-app/id6748098464",
       icon: "/simplr-round.png",
       color: "#5227FF",
@@ -43,33 +44,15 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
         { type: "image" as const, src: "/simplr1.jpg", alt: "Simplr App Interface" },
         { type: "image" as const, src: "/simplr2.jpg", alt: "Simplr Task Management" },
         { type: "image" as const, src: "/simplr3.jpg", alt: "Simplr Features" }
-      ],
-      caseStudy: {
-        challenge: "The to-do app market is oversaturated with complex, feature-heavy applications that overwhelm users. Most apps prioritize functionality over user experience, leading to abandoned workflows and decreased productivity.",
-        solution: "I designed Simplr with a radical minimalist approach, focusing on three core principles: instant task capture, zero cognitive load, and beautiful simplicity. The app uses advanced SwiftUI animations and haptic feedback to create an almost meditative user experience.",
-        impact: "Simplr has achieved remarkable user engagement with a 4.8-star rating and consistent daily usage patterns. Users report feeling less overwhelmed and more productive, with many describing it as 'the only to-do app they actually use.'",
-        metrics: [
-          "4.8★ App Store Rating",
-          "85% Daily Active Users",
-          "2.3s Average Task Creation",
-          "Featured by Apple"
-        ]
-      },
-      features: [
-        "Instant task capture with haptic feedback",
-        "Intelligent priority sorting",
-        "Cross-device CloudKit sync",
-        "Dark mode with custom themes",
-        "Gesture-based interactions",
-        "Privacy-first design"
       ]
     },
 
     {
       name: "ZeddFlight",
       description: "AI-Powered Flight Tracker",
+      longDescription: "An AI-powered flight tracking platform built with that revolutionizes how travelers monitor their flights. I was tasked with building a waitlist and UIUX demo version their website, according to their vision. ",
       url: "https://zeddflight.com",
-      icon: "/zeddlogo.png",
+      icon: "/zeddlog.png",
       color: "#0EA5E9",
       status: "Live" as const,
       timeline: "4 weeks",
@@ -84,30 +67,12 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
       media: [
         { type: "video" as const, src: "/zeddflight-video.mov", poster: "/zeddflight1.png", alt: "ZeddFlight Demo" },
         { type: "image" as const, src: "/zeddflight2.png", alt: "ZeddFlight Interface" }
-      ],
-      caseStudy: {
-        challenge: "Travelers and aviation enthusiasts face overwhelming complexity when tracking flights, with fragmented data across multiple platforms and limited predictive insights. Traditional flight trackers provide basic status updates but lack intelligent analysis of delays, route optimization, and real-time pattern recognition that could dramatically improve travel planning.",
-        solution: "ZeddFlight revolutionizes flight tracking by harnessing artificial intelligence to deliver predictive insights and comprehensive aviation intelligence. The platform aggregates real-time data from global sources, applies machine learning algorithms to predict delays before they're officially announced, and presents complex flight information through an intuitive, visually stunning interface that makes aviation data accessible to everyone.",
-        impact: "ZeddFlight has transformed how users interact with flight data, providing travelers with unprecedented foresight into their journeys. Early adopters report significantly reduced travel stress and better decision-making, with the AI accurately predicting delays 78% of the time before official announcements. The platform has become essential for frequent flyers and aviation professionals alike.",
-        metrics: [
-          "78% Delay Prediction Accuracy",
-          "50K+ Active Flight Trackers",
-          "15min Average Advance Warning",
-          "4.9★ User Rating"
-        ]
-      },
-      features: [
-        "AI-powered delay predictions",
-        "Real-time global flight tracking",
-        "Interactive 3D flight visualization",
-        "Intelligent routing analysis",
-        "Push notifications for flight updates",
-        "Historical flight data analytics"
       ]
     },
     {
       name: "HaircutFun",
-      description: "Interactive Hair Styling Platform",
+      description: "AI powered hairstyle try on tool",
+      longDescription: "An AI powered hairstyle try on tool, loved by many users has provided much joy and laughter. I built this tool after wanting to know how I would look like a buzzcut. Unfortunately, curiosity got the best of me and I ended up getting a buzzcut before I developed this tool.",
       url: "https://haircutfun.com",
       icon: "/haircutfun.png",
       color: "#FF6B6B",
@@ -124,30 +89,12 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
         { type: "video" as const, src: "/haircutfun.webm", poster: "/haircutfun.png", alt: "HaircutFun Demo" },
         { type: "image" as const, src: "/haircut2.png", alt: "HaircutFun Styling Tools" },
         { type: "image" as const, src: "/haircut3.png", alt: "HaircutFun Mobile View" }
-      ],
-      caseStudy: {
-        challenge: "The hair styling industry lacks accessible, interactive tools for clients to visualize different hairstyles before committing to a cut. Traditional consultation methods rely heavily on static images and verbal descriptions, leading to miscommunication and unsatisfied customers.",
-        solution: "HaircutFun bridges this gap with an innovative web platform that allows users to experiment with various hairstyles in real-time. Built with React 19 and modern web technologies, the platform offers intuitive styling tools, realistic previews, and seamless user experience across all devices.",
-        impact: "The platform has revolutionized how people approach hair styling decisions, reducing consultation time and increasing customer satisfaction. Hair salons using the platform report significantly fewer revision requests and higher client retention rates.",
-        metrics: [
-          "95% User Satisfaction",
-          "50% Reduced Consultation Time",
-          "10K+ Monthly Active Users",
-          "Featured in Beauty Tech"
-        ]
-      },
-      features: [
-        "Real-time hair style visualization",
-        "Interactive styling tools",
-        "Mobile-responsive design",
-        "Social sharing capabilities",
-        "Salon integration features",
-        "Performance-optimized rendering"
       ]
     },
     {
       name: "a1tennis.co",
       description: "AI-Driven Lesson Planning for Coaches",
+      longDescription: "AI powered tennis lesson planning tool, which allows coaches to create custom lesson plans in a matter of seconds. This app came about because of my own struggles, occasionally coaching tennis, where I had difficulty deciding on what to focus on with my players. This tool is still in it's infancy, but I believe it has great potential to help coaches and players alike. Try out the MVP below.",
       url: "http://coach-plan.vercel.app",
       icon: "/a2tennis.png",
       color: "#10B981",
@@ -164,25 +111,6 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
         { type: "video" as const, src: "/coachplan-video.webm", poster: "/coachplan.png", alt: "Coach Plan Demo" },
         { type: "image" as const, src: "/coachplan2.png", alt: "Coach Plan Dashboard" },
         { type: "video" as const, src: "/coachplan3.webm", poster: "/coachplan.png", alt: "Coach Plan Features" }
-      ],
-      caseStudy: {
-        challenge: "Sports coaches struggle with time-consuming lesson planning, often spending hours creating practice sessions manually. Traditional methods lack personalization and fail to adapt to individual athlete needs, resulting in less effective training programs and coach burnout.",
-        solution: "a1tennis.co leverages artificial intelligence to revolutionize lesson planning for sports coaches. The platform analyzes player data, skill levels, and training goals to generate customized, data-driven practice plans in minutes. Built with Next.js and modern web technologies, it provides an intuitive interface that makes sophisticated AI accessible to coaches of all technical backgrounds.",
-        impact: "The platform has transformed coaching workflows, dramatically reducing planning time while improving session quality. Coaches report better athlete engagement and measurable skill improvements, with the AI-generated plans adapting to each player's progress and learning style.",
-        metrics: [
-          "80% Reduced Planning Time",
-          "95% Coach Satisfaction",
-          "3x Faster Session Creation",
-          "Enhanced Training Outcomes"
-        ]
-      },
-      features: [
-        "AI-powered practice plan generation",
-        "Personalized training recommendations",
-        "Player progress tracking",
-        "Adaptive skill level matching",
-        "Collaborative coaching tools",
-        "Mobile-optimized interface"
       ]
     }
   ];
