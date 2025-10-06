@@ -5,7 +5,17 @@ import { LoadingScreen } from './components/ui/loading-screen';
 import { GridBackground } from './components/GridBackground';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  // Skip the loader when we trigger a fast iOS theme reload
+  const [isLoading, setIsLoading] = useState(() => {
+    try {
+      const skip = sessionStorage.getItem('skip-preloader');
+      if (skip) {
+        sessionStorage.removeItem('skip-preloader');
+        return false;
+      }
+    } catch {}
+    return true;
+  });
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
