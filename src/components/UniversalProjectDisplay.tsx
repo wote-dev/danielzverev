@@ -65,12 +65,12 @@ const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ proje
       <button
         ref={buttonRef}
         onClick={toggleMenu}
-        className={`relative w-9 h-9 rounded-full transition-all duration-300 ease-out hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent ${
+        className={`relative w-9 h-9 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent hover:scale-[1.02] active:scale-[0.98] ${
           theme === 'dark'
             ? 'bg-stone-900/40 backdrop-blur-sm border border-stone-700/50 text-stone-500 hover:text-stone-300 hover:bg-stone-900/60 focus:ring-stone-500 embossed-subtle-dark'
             : 'bg-stone-50/40 backdrop-blur-sm border border-stone-200/50 text-stone-400 hover:text-stone-600 hover:bg-stone-50/60 focus:ring-stone-400 embossed-subtle-light'
         } ${
-          isOpen ? 'scale-110' : ''
+          isOpen ? 'scale-105' : ''
         }`}
         aria-label="View projects"
         aria-expanded={isOpen}

@@ -175,13 +175,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
               </p>
               
               <p className="mb-3 sm:mb-4">
-                Currently, I'm building{' '}
-                <span className={`inline-flex items-center gap-1.5 font-semibold ${
-                  theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
-                }`}>
-                  <img src="/a2tennis.png" alt="a1tennis.co" className="w-4 h-4 rounded" />
-                  a1tennis.co
-                </span>, but I'm open to freelance or contracted work with startups and established teams that value ambition, aesthetics, and innovation.
+                I'm available for individual projects and open to other work opportunities.
               </p>
               
               <p className="mb-3 sm:mb-4">
