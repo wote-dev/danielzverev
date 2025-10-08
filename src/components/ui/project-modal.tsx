@@ -406,7 +406,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
               ? 'border-stone-700/50'
               : 'border-stone-200/50'
           }`}>
-            {project.name !== 'ZeddFlight' && (
+            {project.name !== 'ZeddFlight' && project.name !== 'dev/dash' && (
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href={project.url}

@@ -48,11 +48,11 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
     },
 
     {
-      name: "ZeddFlight",
-      description: "AI-Powered Flight Tracker",
-      longDescription: "An AI-powered flight tracking platform built with that revolutionizes how travelers monitor their flights. I was tasked with building a waitlist and UIUX demo version their website, according to their vision. ",
-      url: "https://zeddflight.com",
-      icon: "/zeddlog.png",
+      name: "dev/dash",
+      description: "Resources for learning to code with AI",
+      longDescription: "A comprehensive platform for developers to learn best coding practices and get introduced to AI agent development. Features interactive coding tutorials, AI tool guides, best practice examples, and curated resources to master modern development workflows. Built with Next.js 15, React 19, TypeScript, and Tailwind CSS",
+      url: "https://dev-dash.vercel.app",
+      icon: "/devfav.png",
       color: "#0EA5E9",
       status: "Live" as const,
       timeline: "4 weeks",
@@ -65,8 +65,9 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
         { name: "Vercel", icon: "/vercel.svg" }
       ],
       media: [
-        { type: "video" as const, src: "/zeddflight-video.mov", poster: "/zeddflight1.png", alt: "ZeddFlight Demo" },
-        { type: "image" as const, src: "/zeddflight2.png", alt: "ZeddFlight Interface" }
+        { type: "image" as const, src: "/vc1.png", alt: "dev/dash Dashboard" },
+        { type: "image" as const, src: "/vc2.png", alt: "dev/dash GitHub Stats" },
+        { type: "image" as const, src: "/vc3.png", alt: "dev/dash Resources" }
       ]
     },
     {
