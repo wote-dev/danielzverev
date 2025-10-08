@@ -50,7 +50,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
     {
       name: "dev/dash",
       description: "Resources for learning to code with AI",
-      longDescription: "A comprehensive platform for developers to learn best coding practices and get introduced to AI agent development. Features interactive coding tutorials, AI tool guides, best practice examples, and curated resources to master modern development workflows. Built with Next.js 15, React 19, TypeScript, and Tailwind CSS",
+      longDescription: "A platform for developers to learn best practices and explore AI agent development. Includes interactive coding tutorials, AI workflow guides, and curated resources to help engineers master modern development stacks. Built with Next.js 15, React 19, TypeScript, and Tailwind CSS.",
       url: "https://dev-dash.vercel.app",
       icon: "/devfav.png",
       color: "#0EA5E9",
