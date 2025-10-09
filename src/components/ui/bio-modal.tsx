@@ -63,8 +63,14 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
       onClick={handleBackdropClick}
+      style={{
+        paddingTop: 'max(0.75rem, env(safe-area-inset-top))',
+        paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))',
+        paddingLeft: 'max(0.75rem, env(safe-area-inset-left))',
+        paddingRight: 'max(0.75rem, env(safe-area-inset-right))'
+      }}
     >
       {/* Enhanced Backdrop */}
       <div 
@@ -88,7 +94,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
         }`}
       >
         <div 
-          className={`relative w-full rounded-3xl p-4 sm:p-6 transition-all duration-400 max-h-[95vh] overflow-hidden ${
+          className={`relative w-full rounded-2xl sm:rounded-3xl p-4 sm:p-6 transition-all duration-400 max-h-[90vh] sm:max-h-[85vh] overflow-hidden ${
             theme === 'dark'
               ? 'bg-stone-900/95 embossed-subtle-dark backdrop-blur-lg border border-stone-700/30'
               : 'bg-stone-50/95 embossed-subtle-light backdrop-blur-lg border border-stone-200/30'
@@ -100,7 +106,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
               e.stopPropagation();
               handleClose();
             }}
-            className={`absolute top-6 right-6 p-2.5 rounded-full transition-all duration-300 hover:scale-110 focus:scale-110 group z-50 pointer-events-auto ${
+            className={`absolute top-4 right-4 sm:top-6 sm:right-6 p-2 sm:p-2.5 rounded-full transition-all duration-300 hover:scale-110 focus:scale-110 group z-50 pointer-events-auto ${
               theme === 'dark'
                 ? 'text-stone-400 hover:text-stone-200 embossed-subtle-dark hover:bg-stone-800/40'
                 : 'text-stone-500 hover:text-stone-700 embossed-subtle-light hover:bg-white/40'
@@ -108,21 +114,21 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             aria-label="Close"
             type="button"
           >
-            <svg className="w-5 h-5 transition-transform duration-200 group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-200 group-hover:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
 
           {/* Header Section */}
-          <div className={`text-center mb-4 sm:mb-6 transition-all duration-500 ease-out ${
+          <div className={`text-center mb-3 sm:mb-5 transition-all duration-500 ease-out ${
             animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             {/* Enhanced Avatar */}
-            <div className="flex justify-center mb-3 sm:mb-4">
-              <div className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 ${
+            <div className="flex justify-center mb-2 sm:mb-3">
+              <div className={`relative w-14 h-14 sm:w-18 sm:h-18 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 ${
                 theme === 'dark'
-                  ? 'ring-2 sm:ring-3 ring-stone-600/40 shadow-xl sm:shadow-2xl embossed-subtle-dark'
-                  : 'ring-2 sm:ring-3 ring-stone-300/40 shadow-lg sm:shadow-xl embossed-subtle-light'
+                  ? 'ring-2 ring-stone-600/40 shadow-lg sm:shadow-xl embossed-subtle-dark'
+                  : 'ring-2 ring-stone-300/40 shadow-md sm:shadow-lg embossed-subtle-light'
               }`}>
                 <img 
                   src="/me.png" 
@@ -140,7 +146,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             </div>
 
             {/* Name with enhanced typography */}
-            <h2 className={`text-2xl sm:text-3xl font-light tracking-wide mb-2 transition-all duration-300 ${
+            <h2 className={`text-xl sm:text-2xl md:text-3xl font-light tracking-wide mb-1.5 sm:mb-2 transition-all duration-300 ${
               theme === 'dark' 
                 ? 'text-stone-100 embossed-text-dark' 
                 : 'text-stone-900 embossed-text-light'
@@ -149,7 +155,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             </h2>
             
             {/* Location badge */}
-            <div className={`inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
+            <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-300 ${
               theme === 'dark'
                 ? 'bg-stone-800/40 text-stone-400 embossed-subtle-dark'
                 : 'bg-white/40 text-stone-600 embossed-subtle-light'
@@ -161,41 +167,159 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             </div>
           </div>
 
-          {/* Bio Content with enhanced styling */}
-          <div className={`space-y-3 sm:space-y-4 transition-all duration-500 ease-out delay-200 ${
+          {/* Bio Content - Sleeker Layout */}
+          <div className={`transition-all duration-500 ease-out delay-200 max-h-[50vh] sm:max-h-[45vh] overflow-y-auto pr-1 sm:pr-2 space-y-4 sm:space-y-5 ${
             animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
-            <div className={`text-sm sm:text-base leading-relaxed ${
-              theme === 'dark' 
-                ? 'text-stone-300' 
-                : 'text-stone-600'
+            {/* Introduction */}
+            <div className={`text-sm leading-relaxed ${
+              theme === 'dark' ? 'text-stone-300' : 'text-stone-600'
             }`}>
-              <p className="mb-3 sm:mb-4">
-                Hey, I'm Daniel! I'm a full-stack developer passionate about building beautifully designed projects for screens big, and small.
+              <p className="mb-3">
+                Hey, I'm Daniel! I'm a self taught full-stack developer passionate about building beautifully designed projects for screens big and small.
               </p>
-              
-              <p className="mb-3 sm:mb-4">
-                I'm available for individual projects and open to other work opportunities.
-              </p>
-              
-              <p className="mb-3 sm:mb-4">
-                I'm fully embracing the new era of software development aided by AI. The builder is only as effective as the architect, and AI has become an essential part of that design process. Just as the world never returned to horses after discovering cars, I believe those who adapt to this shift will define the next generation of software.
+              <p className="mb-3">
+                Currently based in Melbourne, Australia, and available for freelance projects and full-time opportunities.
               </p>
               
               <p>
-                When I'm not coding, you'll probably find me exploring Melbourne's coffee scene or experimenting with side projects just for the fun of it ☕️.
+                I'm fully embracing the new era of software development aided by AI. The builder is only as effective as the architect, and AI has become an essential part of that design process.
               </p>
+            </div>
+
+            {/* Journey Timeline - Condensed */}
+            <div>
+              <h3 className={`text-sm font-semibold mb-3 tracking-wide uppercase ${
+                theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+              }`}>
+                Journey
+              </h3>
+              <div className="space-y-2.5">
+                {[
+                  { year: '2025', title: 'First iOS App Released', description: 'Launched Simplr on the App Store & continuing to freelance and improve my craft' },
+                  { year: '2024', title: 'Started Freelancing', description: 'Building custom web applications for clients' },
+                  { year: '2023', title: 'Learning to Code', description: 'Started with the basics of web development' },
+                ].map((item, index) => (
+                  <div key={index} className={`flex gap-4 text-sm`}>
+                    <div className={`font-medium min-w-[60px] ${
+                      theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+                    }`}>
+                      {item.year}
+                    </div>
+                    <div className="flex-1">
+                      <div className={`font-medium mb-0.5 ${
+                        theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
+                      }`}>
+                        {item.title}
+                      </div>
+                      <div className={`text-xs ${
+                        theme === 'dark' ? 'text-stone-400' : 'text-stone-600'
+                      }`}>
+                        {item.description}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Skills - Inline Tags */}
+            <div>
+              <h3 className={`text-sm font-semibold mb-3 tracking-wide uppercase ${
+                theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+              }`}>
+                Skills
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {['React', 'TypeScript', 'Next.js', 'Tailwind', 'Swift', 'SwiftUI', 'Node.js', 'Supabase', 'Git', 'Figma'].map((skill, index) => (
+                  <span key={index} className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all duration-300 hover:scale-105 ${
+                    theme === 'dark'
+                      ? 'bg-stone-800/50 text-stone-300 embossed-subtle-dark'
+                      : 'bg-white/50 text-stone-700 embossed-subtle-light'
+                  }`}>
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Interests - Minimal */}
+            <div>
+              <h3 className={`text-sm font-semibold mb-3 tracking-wide uppercase ${
+                theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+              }`}>
+                Interests
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { emoji: '☕', label: 'Coffee' },
+                  { emoji: '🎾', label: 'Tennis' },
+                  { emoji: '🤖', label: 'AI' },
+                  { emoji: '📱', label: 'Mobile Design' },
+                  { emoji: '🎨', label: 'UI/UX' },
+                ].map((interest, index) => (
+                  <span key={index} className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all duration-300 hover:scale-105 ${
+                    theme === 'dark'
+                      ? 'bg-stone-800/40 text-stone-300'
+                      : 'bg-white/40 text-stone-700'
+                  }`}>
+                    {interest.emoji} {interest.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Currently - Clean Card */}
+            <div className={`p-4 rounded-xl ${
+              theme === 'dark'
+                ? 'bg-stone-800/30 embossed-subtle-dark'
+                : 'bg-white/30 embossed-subtle-light'
+            }`}>
+              <div className={`text-xs font-semibold mb-2 tracking-wide uppercase ${
+                theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+              }`}>
+                Currently
+              </div>
+              <div className={`text-sm leading-relaxed ${
+                theme === 'dark' ? 'text-stone-300' : 'text-stone-700'
+              }`}>
+                Building AI-powered tools for coaches, exploring Next.js 15, and continuously shipping real products.
+              </div>
             </div>
           </div>
 
-          {/* Action Section */}
-          <div className={`mt-4 sm:mt-6 pt-3 sm:pt-4 border-t transition-all duration-500 ease-out delay-400 ${
+          {/* Action Section - Outside scroll area */}
+          <div className={`mt-3 sm:mt-4 pt-3 sm:pt-4 border-t flex-shrink-0 transition-all duration-500 ease-out delay-400 ${
             animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           } ${
             theme === 'dark'
               ? 'border-stone-700/50'
               : 'border-stone-200/50'
           }`}>
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
+              <a
+                href="mailto:admin@blackcubesolutions.com"
+                className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 text-center ${
+                  theme === 'dark'
+                    ? 'bg-stone-100/90 text-stone-900 embossed-subtle-light hover:bg-white'
+                    : 'bg-stone-900/90 text-white embossed-subtle-dark hover:bg-stone-800'
+                }`}
+              >
+                Get In Touch
+              </a>
+              <a
+                href="https://www.linkedin.com/in/daniel-zverev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 text-center ${
+                  theme === 'dark'
+                    ? 'text-stone-400 hover:text-stone-300 bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
+                    : 'text-stone-500 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
+                }`}
+              >
+                View LinkedIn
+              </a>
+            </div>
           </div>
         </div>
       </div>
