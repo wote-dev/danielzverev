@@ -230,12 +230,12 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
               }`}>
                 Skills
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {['React', 'TypeScript', 'Next.js', 'Tailwind', 'Swift', 'SwiftUI', 'Node.js', 'Supabase', 'Git', 'Figma'].map((skill, index) => (
-                  <span key={index} className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all duration-300 hover:scale-105 ${
+                  <span key={index} className={`text-xs sm:text-sm px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full font-medium transition-all duration-300 hover:scale-105 whitespace-nowrap ${
                     theme === 'dark'
-                      ? 'bg-stone-800/50 text-stone-300 embossed-subtle-dark'
-                      : 'bg-white/50 text-stone-700 embossed-subtle-light'
+                      ? 'bg-stone-800/60 text-stone-300 embossed-subtle-dark hover:bg-stone-800/80'
+                      : 'bg-white/60 text-stone-700 embossed-subtle-light hover:bg-white/80'
                   }`}>
                     {skill}
                   </span>
@@ -250,7 +250,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
               }`}>
                 Interests
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {[
                   { emoji: '☕', label: 'Coffee' },
                   { emoji: '🎾', label: 'Tennis' },
@@ -258,10 +258,10 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                   { emoji: '📱', label: 'Mobile Design' },
                   { emoji: '🎨', label: 'UI/UX' },
                 ].map((interest, index) => (
-                  <span key={index} className={`text-xs px-3 py-1.5 rounded-full font-medium transition-all duration-300 hover:scale-105 ${
+                  <span key={index} className={`text-xs sm:text-sm px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full font-medium transition-all duration-300 hover:scale-105 whitespace-nowrap ${
                     theme === 'dark'
-                      ? 'bg-stone-800/40 text-stone-300'
-                      : 'bg-white/40 text-stone-700'
+                      ? 'bg-stone-800/50 text-stone-300 embossed-subtle-dark hover:bg-stone-800/70'
+                      : 'bg-white/50 text-stone-700 embossed-subtle-light hover:bg-white/70'
                   }`}>
                     {interest.emoji} {interest.label}
                   </span>
