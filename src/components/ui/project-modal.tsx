@@ -228,7 +228,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
               }`}>
                 {project.name}
               </h2>
-              {project.name !== 'ZeddFlight' && (
+              {project.name !== 'ZeddFlight' && project.name !== 'dev/dash' && (
                 <span className={`px-3 py-1.5 rounded-full text-xs font-medium border ${getStatusColor(project.status)}`}>
                   {project.status}
                 </span>
