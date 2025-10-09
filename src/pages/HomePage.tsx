@@ -71,25 +71,23 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
       ]
     },
     {
-      name: "HaircutFun",
-      description: "AI powered hairstyle try on tool",
-      longDescription: "An AI powered hairstyle try on tool, loved by many users has provided much joy and laughter. I built this tool after wanting to know how I would look like a buzzcut. Unfortunately, curiosity got the best of me and I ended up getting a buzzcut before I developed this tool.",
-      url: "https://haircutfun.com",
-      icon: "/haircutfun.png",
-      color: "#FF6B6B",
+      name: "Cece Natalie",
+      description: "Portfolio website for UMG artist",
+      longDescription: "A sleek portfolio website built for UMG artist Cece Natalie using vanilla HTML, CSS, and JavaScript. This project demonstrates that sometimes the classics are all you need - no frameworks required. The minimalist approach ensures lightning-fast load times and a clean, distraction-free experience that puts the artist's work front and center.",
+      url: "https://cecenatalie.com",
+      icon: "/cececircle.png",
+      color: "#FF6B9D",
       status: "Live" as const,
-      timeline: "2 weeks (ongoing)",
+      timeline: "1 week",
       techStack: [
-        { name: "React", icon: "/react.png" },
-        { name: "TypeScript", icon: "/typescript.png" },
-        { name: "Tailwind CSS", icon: "/Tailwind.png" },
-        { name: "Next.js", icon: "/nextjs.svg" },
-        { name: "Vercel", icon: "/vercel.svg" }
+        { name: "HTML", icon: "/html-5.png" },
+        { name: "CSS", icon: "/css.png" },
+        { name: "JavaScript", icon: "/js-svg.svg" }
       ],
       media: [
-        { type: "video" as const, src: "/haircutfun.webm", poster: "/haircutfun.png", alt: "HaircutFun Demo" },
-        { type: "image" as const, src: "/haircut2.png", alt: "HaircutFun Styling Tools" },
-        { type: "image" as const, src: "/haircut3.png", alt: "HaircutFun Mobile View" }
+        { type: "image" as const, src: "/cece.webp", alt: "Cece Natalie Portfolio" },
+        { type: "image" as const, src: "/cece2.webp", alt: "Cece Natalie Artist Page" },
+        { type: "image" as const, src: "/cece3.webp", alt: "Cece Natalie Gallery" }
       ]
     },
     {

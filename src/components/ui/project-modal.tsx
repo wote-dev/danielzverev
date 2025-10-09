@@ -228,7 +228,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
               }`}>
                 {project.name}
               </h2>
-              {project.name !== 'ZeddFlight' && project.name !== 'dev/dash' && (
+              {project.name !== 'ZeddFlight' && project.name !== 'dev/dash' && project.name !== 'Cece Natalie' && (
                 <span className={`px-3 py-1.5 rounded-full text-xs font-medium border ${getStatusColor(project.status)}`}>
                   {project.status}
                 </span>
@@ -406,7 +406,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
               ? 'border-stone-700/50'
               : 'border-stone-200/50'
           }`}>
-            {project.name !== 'ZeddFlight' && project.name !== 'dev/dash' && (
+            {project.name !== 'ZeddFlight' && project.name !== 'dev/dash' && project.name !== 'Cece Natalie' && (
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href={project.url}
