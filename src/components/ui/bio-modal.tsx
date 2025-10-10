@@ -183,7 +183,11 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
               </p>
               
               <p>
-                I'm fully embracing the new era of software development aided by AI. The builder is only as effective as the architect, and AI has become an essential part of that design process.
+                I'm fully embracing the use of AI in development to become more efficient and productive, but also allow me to dabble more in UIUX concepts and interactions.
+              </p>
+              <br></br>
+              <p>
+                Feel free to use the buttons below to get in touch or view my LinkedIn.
               </p>
             </div>
 
@@ -196,7 +200,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
               </h3>
               <div className="space-y-2.5">
                 {[
-                  { year: '2025', title: 'First iOS App Released', description: 'Launched Simplr on the App Store & continuing to freelance and improve my craft' },
+                  { year: '2025', title: 'First iOS App Released', description: 'Launched Simplr on the App Store & continuing to freelance and improve my skills' },
                   { year: '2024', title: 'Started Freelancing', description: 'Building custom web applications for clients' },
                   { year: '2023', title: 'Learning to Code', description: 'Started with the basics of web development' },
                 ].map((item, index) => (
@@ -231,7 +235,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 Skills
               </h3>
               <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                {['React', 'TypeScript', 'Next.js', 'Tailwind', 'Swift', 'SwiftUI', 'Node.js', 'Supabase', 'Git', 'Figma'].map((skill, index) => (
+                {['React', 'TypeScript', 'Next.js', 'Tailwind', 'Swift', 'SwiftUI', 'Node.js', 'Supabase', 'Git', 'Figma', 'AWS', 'Cloudflare', 'Vercel', 'Google Cloud',].map((skill, index) => (
                   <span key={index} className={`text-xs sm:text-sm px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full font-medium transition-all duration-300 hover:scale-105 whitespace-nowrap ${
                     theme === 'dark'
                       ? 'bg-stone-800/60 text-stone-300 embossed-subtle-dark hover:bg-stone-800/80'

@@ -111,7 +111,24 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
         { type: "image" as const, src: "/coachplan2.png", alt: "Coach Plan Dashboard" },
         { type: "video" as const, src: "/coachplan3.webm", poster: "/coachplan.png", alt: "Coach Plan Features" }
       ]
-    }
+    },
+    {
+      name: "UI Exploration",
+      description: "Figma UI Exploration",
+      longDescription: "A collection of interface studies created in Figma while exploring different interaction patterns. Some concepts are intentionally rough to stress layout decisions, others are a touch more refined to share with collaborators.",
+      url: "https://www.figma.com",
+      icon: "/figma.png",
+      color: "#A259FF",
+      status: "In Development" as const,
+      timeline: "Ongoing",
+      techStack: [
+        { name: "Figma", icon: "/figma.png" }
+      ],
+      media: [
+        { type: "image" as const, src: "/gmail1.png", alt: "UI exploration board" },
+        { type: "image" as const, src: "/gmail2.png", alt: "Refined UI concept" }
+      ]
+    },
   ];
 
   useEffect(() => {
