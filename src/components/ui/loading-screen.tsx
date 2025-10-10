@@ -10,19 +10,23 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
   const [isComplete, setIsComplete] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
 
+  const showDelay = 150;
+  const completeDelay = 900;
+  const exitDelay = 350;
+
   useEffect(() => {
-    // Show loader after a brief delay
+    // Show loader after a brief delay so we avoid a flash on instant loads
     const showTimer = setTimeout(() => {
       setShowLoader(true);
-    }, 200);
+    }, showDelay);
 
-    // Complete loading after 2.5 seconds (similar to original timing)
+    // Complete loading quickly once the loader has had a moment to display
     const completeTimer = setTimeout(() => {
       setIsComplete(true);
       setTimeout(() => {
         onLoadingComplete();
-      }, 600);
-    }, 2500);
+      }, exitDelay);
+    }, completeDelay);
 
     return () => {
       clearTimeout(showTimer);
@@ -32,7 +36,7 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center transition-all duration-600 ease-out ${
+      className={`fixed inset-0 z-50 flex items-center justify-center transition-all duration-300 ease-out ${
         isComplete ? 'opacity-0 pointer-events-none' : 'opacity-100'
       } ${
         theme === 'dark' ? 'bg-stone-900' : 'bg-stone-50'
