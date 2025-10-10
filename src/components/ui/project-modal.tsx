@@ -129,7 +129,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto modal-scroll"
       onClick={handleBackdropClick}
     >
       {/* Enhanced Backdrop with Prismatic Effect */}
@@ -173,7 +173,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
         }`}
       >
         <div 
-          className={`relative w-full rounded-3xl p-8 transition-all duration-400 max-h-[90vh] overflow-y-auto ${
+          className={`relative w-full rounded-3xl p-8 transition-all duration-400 max-h-[90vh] overflow-y-auto modal-scroll ${
             theme === 'dark'
               ? 'bg-stone-900/95 embossed-subtle-dark backdrop-blur-lg border border-stone-700/30'
               : 'bg-stone-50/95 embossed-subtle-light backdrop-blur-lg border border-stone-200/30'
@@ -297,7 +297,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
 
               {/* Media Thumbnails */}
               {project.media.length > 1 && (
-                <div className="flex gap-3 justify-center overflow-x-auto pb-2">
+                <div className="flex gap-3 justify-center overflow-x-auto modal-scroll pb-2">
                   {project.media.map((media, index) => (
                     <button
                       key={index}

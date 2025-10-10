@@ -63,7 +63,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto modal-scroll"
       onClick={handleBackdropClick}
       style={{
         paddingTop: 'max(0.75rem, env(safe-area-inset-top))',
@@ -168,7 +168,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* Bio Content - Sleeker Layout */}
-          <div className={`transition-all duration-500 ease-out delay-200 max-h-[50vh] sm:max-h-[45vh] overflow-y-auto pr-1 sm:pr-2 space-y-4 sm:space-y-5 ${
+          <div className={`transition-all duration-500 ease-out delay-200 max-h-[50vh] sm:max-h-[45vh] overflow-y-auto modal-scroll pr-1 sm:pr-2 space-y-4 sm:space-y-5 ${
             animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             {/* Introduction */}
@@ -283,7 +283,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
               <div className={`text-sm leading-relaxed ${
                 theme === 'dark' ? 'text-stone-300' : 'text-stone-700'
               }`}>
-                Building AI-powered tools for coaches, exploring Next.js 15, and continuously shipping real products.
+                Building AI-powered tools for tennis coaches, and working on whatever comes to mind.
               </div>
             </div>
           </div>
