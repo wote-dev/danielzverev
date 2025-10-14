@@ -61,45 +61,50 @@ const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ proje
 
   return (
     <div className={`relative z-50 ${className}`}>
-      {/* Floating Action Button */}
+      {/* Floating Action Button - Matches pill aesthetic */}
       <button
         ref={buttonRef}
         onClick={toggleMenu}
-        className={`relative w-9 h-9 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent hover:scale-[1.02] active:scale-[0.98] ${
+        className={`group relative px-4 py-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 hover:scale-105 ${
           theme === 'dark'
-            ? 'bg-stone-900/40 backdrop-blur-sm border border-stone-700/50 text-stone-500 hover:text-stone-300 hover:bg-stone-900/60 focus:ring-stone-500 embossed-subtle-dark'
-            : 'bg-stone-50/40 backdrop-blur-sm border border-stone-200/50 text-stone-400 hover:text-stone-600 hover:bg-stone-50/60 focus:ring-stone-400 embossed-subtle-light'
-        } ${
-          isOpen ? 'scale-105' : ''
+            ? 'bg-stone-900/40 text-stone-400 embossed-subtle-dark hover:bg-stone-900/60 hover:text-stone-300 focus:ring-stone-500'
+            : 'bg-stone-50/40 text-stone-500 embossed-subtle-light hover:bg-stone-50/60 hover:text-stone-600 focus:ring-stone-400'
         }`}
         aria-label="View projects"
         aria-expanded={isOpen}
       >
-        {/* Folder Icon */}
-        <svg
-          className="w-5 h-5 mx-auto"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-5l-2-2H5a2 2 0 00-2 2z"
-          />
-        </svg>
-
-        {/* Notification Badge */}
-        {projects.length > 0 && (
-          <span className={`absolute -top-1 -right-1 w-4 h-4 text-xs rounded-full flex items-center justify-center font-medium ${
-            theme === 'dark'
-              ? 'bg-stone-100/90 text-stone-900'
-              : 'bg-stone-900/90 text-white'
-          }`}>
-            {projects.length}
+        <div className="flex items-center gap-2">
+          {/* Folder Icon */}
+          <svg
+            className="w-4 h-4 transition-transform duration-200"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-5l-2-2H5a2 2 0 00-2 2z"
+            />
+          </svg>
+          
+          {/* Label Text */}
+          <span className="text-xs font-medium tracking-wide">
+            Projects
           </span>
-        )}
+          
+          {/* Notification Badge */}
+          {projects.length > 0 && (
+            <span className={`px-1.5 py-0.5 text-xs rounded-full font-medium transition-all duration-300 ${
+              theme === 'dark'
+                ? 'bg-stone-700/50 text-stone-300'
+                : 'bg-stone-200/50 text-stone-600'
+            }`}>
+              {projects.length}
+            </span>
+          )}
+        </div>
       </button>
 
       {/* Project Menu */}
