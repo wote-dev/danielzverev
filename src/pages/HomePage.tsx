@@ -91,28 +91,6 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
       ]
     },
     {
-      name: "a1tennis.co",
-      description: "AI-Driven Lesson Planning for Coaches",
-      longDescription: "AI powered tennis lesson planning tool, which allows coaches to create custom lesson plans in a matter of seconds. This app came about because of my own struggles, occasionally coaching tennis, where I had difficulty deciding on what to focus on with my players. This tool is still in it's infancy, but I believe it has great potential to help coaches and players alike. Try out the MVP below.",
-      url: "http://coach-plan.vercel.app",
-      icon: "/a2tennis.png",
-      color: "#10B981",
-      status: "Live" as const,
-      timeline: "3 weeks",
-      techStack: [
-        { name: "Next.js", icon: "/nextjs.svg" },
-        { name: "Node.js", icon: "/node-js.png" },
-        { name: "Tailwind CSS", icon: "/Tailwind.png" },
-        { name: "TypeScript", icon: "/typescript.png" },
-        { name: "Vercel", icon: "/vercel.svg" }
-      ],
-      media: [
-        { type: "video" as const, src: "/coachplan-video.webm", poster: "/coachplan.png", alt: "Coach Plan Demo" },
-        { type: "image" as const, src: "/coachplan2.png", alt: "Coach Plan Dashboard" },
-        { type: "video" as const, src: "/coachplan3.webm", poster: "/coachplan.png", alt: "Coach Plan Features" }
-      ]
-    },
-    {
       name: "Emgloss Design Exploration",
       description: "Exploration of the Emgloss design.",
       longDescription: `While 'Liquid Glass' is nice and all, the way it bends light and makes the UI feel 'alive', is it really worth all that extra processing power (additional battery consumption, more RAM usage, complex real time computations), for some cool reflections? Not so sure that's the trade off I'd like to make.

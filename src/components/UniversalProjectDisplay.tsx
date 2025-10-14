@@ -129,7 +129,7 @@ const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ proje
                 theme === 'dark' ? 'text-stone-200' : 'text-stone-700'
               }`}
             >
-              My Projects
+              My Projects/Work
             </h3>
             <p
               className={`text-xs ${
