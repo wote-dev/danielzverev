@@ -113,9 +113,13 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
       ]
     },
     {
-      name: "UI Exploration",
-      description: "Figma UI Exploration",
-      longDescription: "A collection of interface studies created in Figma while exploring different interaction patterns. Some concepts are intentionally rough to stress layout decisions, others are a touch more refined to share with collaborators.",
+      name: "Emgloss Design Exploration",
+      description: "Exploration of the Emgloss design.",
+      longDescription: `While 'Liquid Glass' is nice and all, the way it bends light and makes the UI feel 'alive', is it really worth all that extra processing power (additional battery consumption, more RAM usage, complex real time computations), for some cool reflections? Not so sure that's the trade off I'd like to make.
+
+And so, I developed 'Emgloss' or 'Emglossing', a visual design language that merges the relatively forgotten skeuomorphism with the cleaner, modern aesthetic of glassmorphism. It's a callback to the old, yet adapted to the demands of modern UI design.
+
+Emgloss relies on inner shadows to simulate depth within containers, rather than stacking layers above one another. Buttons, cards, and labels are shaped by subtle highlights, soft edge gradients, and ambient reflections, creating the illusion that they're carved into a translucent surface. This approach gives interfaces a tactile, dimensional quality, without the computational weight of full dynamic lighting or GPU-intensive transparency effects.`,
       url: "https://www.figma.com",
       icon: "/figma.png",
       color: "#A259FF",
@@ -125,8 +129,9 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
         { name: "Figma", icon: "/figma.png" }
       ],
       media: [
-        { type: "image" as const, src: "/gmail1.png", alt: "UI exploration board" },
-        { type: "image" as const, src: "/gmail2.png", alt: "Refined UI concept" }
+        { type: "image" as const, src: "/emgloss1.png", alt: "Emgloss design language exploration" },
+        { type: "image" as const, src: "/emgloss4.png", alt: "Emgloss interface concept" },
+        { type: "image" as const, src: "/emgloss6.png", alt: "Emgloss component details" }
       ]
     },
   ];

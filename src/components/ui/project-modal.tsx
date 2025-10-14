@@ -389,11 +389,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                 ? 'bg-stone-800/30 embossed-subtle-dark'
                 : 'bg-white/30 embossed-subtle-light'
             }`}>
-              <p className={`text-base leading-relaxed ${
-                theme === 'dark' ? 'text-stone-300' : 'text-stone-600'
-              }`}>
-                {project.longDescription || project.description}
-              </p>
+              <div className="space-y-4">
+                {(project.longDescription || project.description)
+                  ?.split('\n\n')
+                  .map((paragraph, index) => (
+                    <p
+                      key={index}
+                      className={`text-base leading-relaxed ${
+                        theme === 'dark' ? 'text-stone-300' : 'text-stone-600'
+                      }`}
+                    >
+                      {paragraph.trim()}
+                    </p>
+                  ))}
+              </div>
             </div>
           </div>
 

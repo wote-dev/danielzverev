@@ -185,7 +185,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
               <p>
                 I'm fully embracing the use of AI in development to become more efficient and productive, but also allow me to dabble more in UIUX concepts and interactions.
               </p>
-              <br></br>
+              
               <p>
                 Feel free to use the buttons below to get in touch or view my LinkedIn.
               </p>
