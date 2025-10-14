@@ -205,10 +205,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             {/* Project Icon */}
             <div className="flex justify-center mb-6">
               <div className="relative w-24 h-24 overflow-hidden transition-all duration-300 hover:scale-105">
-                <img 
-                  src={project.icon} 
-                  alt={project.name} 
-                  className="w-full h-full object-cover"
+                <img
+                  src={project.icon}
+                  alt={project.name}
+                  className="w-full h-full object-cover object-top"
                   loading="eager"
                 />
                 <div className={`absolute inset-0 rounded-2xl ${
@@ -260,7 +260,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                     <img
                       src={project.media[selectedMediaIndex].poster || project.icon}
                       alt={project.media[selectedMediaIndex].alt}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top"
                     />
                   ) : (
                     <video
@@ -271,7 +271,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                       muted
                       playsInline
                       poster={project.media[selectedMediaIndex].poster}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top"
                       onError={() => {
                         setVideoErrors(prev => ({ ...prev, [selectedMediaIndex]: true }));
                       }}
@@ -290,7 +290,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                   <img
                     src={project.media[selectedMediaIndex].src}
                     alt={project.media[selectedMediaIndex].alt}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 )}
               </div>
@@ -317,7 +317,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                           <img
                             src={media.poster || project.icon}
                             alt={media.alt}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-top"
                           />
                           {/* Play icon overlay */}
                           <div className="absolute inset-0 flex items-center justify-center bg-black/30">
@@ -330,7 +330,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                         <img
                           src={media.src}
                           alt={media.alt}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover object-top"
                         />
                       )}
                     </button>
