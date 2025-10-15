@@ -126,15 +126,15 @@ const Folder: React.FC<FolderProps> = ({ color = '#5227FF', size = 1, items = []
             onClick={handleClick}
             className={`flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300 hover:scale-105 ${
               open 
-                ? 'bg-stone-900/60 embossed-subtle-dark scale-110' 
-                : 'bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
-            } ${open ? 'dark:bg-stone-50/60 dark:embossed-subtle-light' : 'dark:bg-stone-50/40 dark:embossed-subtle-light dark:hover:bg-stone-50/60'}`}
+                ? 'bg-neutral-900/60 embossed-subtle-dark scale-110' 
+                : 'bg-neutral-900/40 embossed-subtle-dark hover:bg-neutral-900/60'
+            } ${open ? 'dark:bg-neutral-50/60 dark:embossed-subtle-light' : 'dark:bg-neutral-50/40 dark:embossed-subtle-light dark:hover:bg-neutral-50/60'}`}
           >
             <svg 
               className={`w-5 h-5 transition-colors duration-300 ${
                 open 
-                  ? 'text-stone-300 dark:text-stone-600' 
-                  : 'text-stone-400 dark:text-stone-500'
+                  ? 'text-neutral-300 dark:text-neutral-600' 
+                  : 'text-neutral-400 dark:text-neutral-500'
               }`}
               fill="none" 
               stroke="currentColor" 
@@ -151,13 +151,13 @@ const Folder: React.FC<FolderProps> = ({ color = '#5227FF', size = 1, items = []
           
           {/* Mobile dropdown menu */}
           {open && (
-            <div className="absolute bottom-full right-0 mb-3 bg-stone-50/40 dark:bg-stone-900/40 embossed-subtle-light dark:embossed-subtle-dark rounded-2xl backdrop-blur-sm overflow-hidden min-w-[220px] z-50 border border-stone-200/20 dark:border-stone-700/20">
+            <div className="absolute bottom-full right-0 mb-3 bg-stone-50/40 dark:bg-black/40 embossed-subtle-light dark:embossed-subtle-dark rounded-2xl backdrop-blur-sm overflow-hidden min-w-[220px] z-50 border border-stone-200/20 dark:border-neutral-700/20">
               {papers.map((item, i) => {
                 if (!item) return null;
                 return (
                   <div
                     key={i}
-                    className="p-4 hover:bg-stone-100/60 dark:hover:bg-stone-800/60 transition-all duration-300 hover:scale-[1.02] border-b border-stone-200/30 dark:border-stone-700/30 last:border-b-0 cursor-pointer"
+                    className="p-4 hover:bg-stone-100/60 dark:hover:bg-neutral-800/60 transition-all duration-300 hover:scale-[1.02] border-b border-stone-200/30 dark:border-neutral-700/30 last:border-b-0 cursor-pointer"
                   >
                     {item}
                   </div>

@@ -42,7 +42,7 @@ export function TechStackCarousel() {
                   : 'opacity-0 translate-y-1'
               } ${
                 theme === 'dark'
-                  ? 'bg-stone-800/80 text-stone-200'
+                  ? 'bg-neutral-800/80 text-neutral-200'
                   : 'bg-white/80 text-stone-700'
               }`}
             >
@@ -50,7 +50,7 @@ export function TechStackCarousel() {
               {/* Arrow */}
               <div
                 className={`absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[3px] border-r-[3px] border-t-[3px] border-l-transparent border-r-transparent ${
-                  theme === 'dark' ? 'border-t-stone-800' : 'border-t-white'
+                  theme === 'dark' ? 'border-t-neutral-800' : 'border-t-white'
                 }`}
               />
             </div>

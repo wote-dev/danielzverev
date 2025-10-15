@@ -24,7 +24,7 @@ function InteractiveSubtitle({ animationStage }: InteractiveSubtitleProps) {
       >
         <span className={`font-bold transition-all duration-300 cursor-pointer ${
           theme === 'dark' 
-            ? 'text-stone-200 group-hover:text-stone-100' 
+            ? 'text-neutral-200 group-hover:text-neutral-100' 
             : 'text-stone-700 group-hover:text-stone-900'
         }`}>
           {word}
@@ -57,7 +57,7 @@ function InteractiveSubtitle({ animationStage }: InteractiveSubtitleProps) {
   return (
     <div className={`text-base sm:text-lg font-normal max-w-sm sm:max-w-md mx-auto leading-snug transition-all duration-300 delay-100 ${
       theme === 'dark' 
-        ? 'text-stone-400' 
+        ? 'text-neutral-400' 
         : 'text-stone-500'
     } ${
       animationStage >= 3 ? 'opacity-100' : 'opacity-0'

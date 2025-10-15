@@ -121,7 +121,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
       case 'Completed':
         return `bg-purple-500/20 text-purple-600 border-purple-500/30 ${baseClasses}`;
       default:
-        return `bg-stone-500/20 text-stone-600 border-stone-500/30 ${baseClasses}`;
+        return `bg-neutral-500/20 text-neutral-600 border-neutral-500/30 ${baseClasses}`;
     }
   };
 
@@ -140,7 +140,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             : 'opacity-0'
         } ${
           theme === 'dark'
-            ? 'bg-stone-900/90 backdrop-blur-xl'
+            ? 'bg-black/90 backdrop-blur-xl'
             : 'bg-stone-50/90 backdrop-blur-xl'
         }`}
       />
@@ -153,7 +153,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             className={`absolute w-1 h-1 rounded-full transition-all duration-1000 ease-out ${
               isVisible ? 'opacity-30' : 'opacity-0'
             } ${
-              theme === 'dark' ? 'bg-stone-400' : 'bg-stone-600'
+              theme === 'dark' ? 'bg-neutral-400' : 'bg-stone-600'
             }`}
             style={{
               left: `${20 + i * 15}%`,
@@ -175,7 +175,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
         <div 
           className={`relative w-full rounded-3xl p-8 transition-all duration-400 max-h-[90vh] overflow-y-auto modal-scroll ${
             theme === 'dark'
-              ? 'bg-stone-900/95 embossed-subtle-dark backdrop-blur-lg border border-stone-700/30'
+              ? 'bg-black/95 embossed-subtle-dark backdrop-blur-lg border border-neutral-700/30'
               : 'bg-stone-50/95 embossed-subtle-light backdrop-blur-lg border border-stone-200/30'
           }`}
         >
@@ -187,7 +187,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             }}
             className={`absolute top-6 right-6 p-2.5 rounded-full transition-all duration-300 hover:scale-110 focus:scale-110 group z-50 pointer-events-auto ${
               theme === 'dark'
-                ? 'text-stone-400 hover:text-stone-200 embossed-subtle-dark hover:bg-stone-800/40'
+                ? 'text-neutral-400 hover:text-neutral-200 embossed-subtle-dark hover:bg-neutral-800/40'
                 : 'text-stone-500 hover:text-stone-700 embossed-subtle-light hover:bg-white/40'
             }`}
             aria-label="Close"
@@ -213,7 +213,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                 />
                 <div className={`absolute inset-0 rounded-2xl ${
                   theme === 'dark'
-                    ? 'bg-gradient-to-br from-transparent via-transparent to-stone-900/20'
+                    ? 'bg-gradient-to-br from-transparent via-transparent to-black/20'
                     : 'bg-gradient-to-br from-transparent via-transparent to-stone-900/10'
                 }`} />
               </div>
@@ -223,7 +223,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             <div className="flex items-center justify-center gap-4 mb-4">
               <h2 className={`text-4xl font-sf-display-medium tracking-tight transition-all duration-300 ${
                 theme === 'dark' 
-                  ? 'text-stone-100' 
+                  ? 'text-neutral-100' 
                   : 'text-stone-900'
               }`}>
                 {project.name}
@@ -237,7 +237,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             
             {/* Description */}
             <p className={`text-lg ${
-              theme === 'dark' ? 'text-stone-400' : 'text-stone-600'
+              theme === 'dark' ? 'text-neutral-400' : 'text-stone-600'
             }`}>
               {project.description}
             </p>
@@ -251,7 +251,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
               {/* Main Media Display */}
               <div className={`relative w-full aspect-video rounded-2xl overflow-hidden mb-4 transition-all duration-300 ${
                 theme === 'dark'
-                  ? 'bg-stone-800/40 embossed-subtle-dark'
+                  ? 'bg-neutral-800/40 embossed-subtle-dark'
                   : 'bg-white/40 embossed-subtle-light'
               }`}>
                 {project.media[selectedMediaIndex].type === 'video' ? (
@@ -305,10 +305,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                       className={`relative flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 ${
                         selectedMediaIndex === index
                           ? theme === 'dark'
-                            ? 'ring-2 ring-stone-400 embossed-subtle-dark shadow-lg'
+                            ? 'ring-2 ring-neutral-400 embossed-subtle-dark shadow-lg'
                             : 'ring-2 ring-stone-600 embossed-subtle-light shadow-lg'
                           : theme === 'dark'
-                            ? 'ring-1 ring-stone-700/50 embossed-subtle-dark opacity-60 hover:opacity-100'
+                            ? 'ring-1 ring-neutral-700/50 embossed-subtle-dark opacity-60 hover:opacity-100'
                             : 'ring-1 ring-stone-300/50 embossed-subtle-light opacity-60 hover:opacity-100'
                       }`}
                     >
@@ -345,7 +345,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             <h3 className={`text-xl font-medium mb-4 ${
-              theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
+              theme === 'dark' ? 'text-neutral-200' : 'text-stone-800'
             }`}>
               Tech Stack
             </h3>
@@ -355,7 +355,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                   key={index}
                   className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105 ${
                     theme === 'dark'
-                      ? 'bg-stone-800/40 embossed-subtle-dark'
+                      ? 'bg-neutral-800/40 embossed-subtle-dark'
                       : 'bg-white/40 embossed-subtle-light'
                   }`}
                   style={{ animationDelay: `${index * 100}ms` }}
@@ -366,7 +366,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                     className="w-5 h-5 object-contain"
                   />
                   <span className={`text-sm font-medium ${
-                    theme === 'dark' ? 'text-stone-300' : 'text-stone-700'
+                    theme === 'dark' ? 'text-neutral-300' : 'text-stone-700'
                   }`}>
                     {tech.name}
                   </span>
@@ -380,13 +380,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             <h3 className={`text-xl font-medium mb-4 ${
-              theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
+              theme === 'dark' ? 'text-neutral-200' : 'text-stone-800'
             }`}>
               About This Project
             </h3>
             <div className={`p-6 rounded-2xl ${
               theme === 'dark'
-                ? 'bg-stone-800/30 embossed-subtle-dark'
+                ? 'bg-neutral-800/30 embossed-subtle-dark'
                 : 'bg-white/30 embossed-subtle-light'
             }`}>
               <div className="space-y-4">
@@ -396,7 +396,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                     <p
                       key={index}
                       className={`text-base leading-relaxed ${
-                        theme === 'dark' ? 'text-stone-300' : 'text-stone-600'
+                        theme === 'dark' ? 'text-neutral-300' : 'text-stone-600'
                       }`}
                     >
                       {paragraph.trim()}
@@ -412,7 +412,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           } ${
             theme === 'dark'
-              ? 'border-stone-700/50'
+              ? 'border-neutral-700/50'
               : 'border-stone-200/50'
           }`}>
             {project.name !== 'ZeddFlight' && project.name !== 'dev/dash' && project.name !== 'Cece Natalie' && (
@@ -423,7 +423,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                   rel="noopener noreferrer"
                   className={`px-8 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 ${
                     theme === 'dark'
-                      ? 'bg-stone-100/90 text-stone-900 embossed-subtle-light hover:bg-white'
+                      ? 'bg-neutral-100/90 text-black embossed-subtle-light hover:bg-white'
                       : 'bg-stone-900/90 text-white embossed-subtle-dark hover:bg-stone-800'
                   }`}
                 >

@@ -17,11 +17,11 @@ export function QuickMenu({ className = '' }: { className?: string }) {
   }, []);
 
   const embossed = theme === 'dark'
-    ? 'bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
+    ? 'bg-black/40 embossed-subtle-dark hover:bg-black/60'
     : 'bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60';
 
   const panelStyle = theme === 'dark'
-    ? 'bg-stone-900/95 border border-stone-700/40 embossed-subtle-dark'
+    ? 'bg-black/95 border border-neutral-700/40 embossed-subtle-dark'
     : 'bg-stone-50/95 border border-stone-200/50 embossed-subtle-light';
 
   return (
@@ -35,7 +35,7 @@ export function QuickMenu({ className = '' }: { className?: string }) {
           'w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 hover:scale-110 active:scale-95',
           embossed,
           open ? 'scale-105' : 'scale-100',
-          theme === 'dark' ? 'focus:ring-stone-500 focus:ring-offset-stone-900' : 'focus:ring-stone-400 focus:ring-offset-stone-50'
+          theme === 'dark' ? 'focus:ring-neutral-500 focus:ring-offset-black' : 'focus:ring-stone-400 focus:ring-offset-stone-50'
         )}
         aria-label="Open quick actions"
       >
@@ -47,7 +47,7 @@ export function QuickMenu({ className = '' }: { className?: string }) {
           fill="currentColor" 
           className={cn(
             'transition-transform duration-300',
-            theme === 'dark' ? 'text-stone-300' : 'text-stone-700',
+            theme === 'dark' ? 'text-neutral-300' : 'text-stone-700',
             open ? 'rotate-90' : 'rotate-0'
           )}
         >
@@ -74,7 +74,7 @@ export function QuickMenu({ className = '' }: { className?: string }) {
             download="DANIEL_E_ZVEREV.pdf"
             className={cn(
               'flex items-center gap-3 px-3 py-2 rounded-xl text-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]',
-              theme === 'dark' ? 'text-stone-200 hover:bg-stone-800/50' : 'text-stone-800 hover:bg-white/60'
+              theme === 'dark' ? 'text-neutral-200 hover:bg-neutral-800/50' : 'text-stone-800 hover:bg-white/60'
             )}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="opacity-80"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM8 12h8v2H8v-2zm0 4h8v2H8v-2zm6-7V3.5L18.5 9H14z"/></svg>
@@ -88,7 +88,7 @@ export function QuickMenu({ className = '' }: { className?: string }) {
             rel="noopener noreferrer"
             className={cn(
               'flex items-center gap-3 px-3 py-2 rounded-xl text-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] mt-1',
-              theme === 'dark' ? 'text-stone-200 hover:bg-stone-800/50' : 'text-stone-800 hover:bg-white/60'
+              theme === 'dark' ? 'text-neutral-200 hover:bg-neutral-800/50' : 'text-stone-800 hover:bg-white/60'
             )}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="opacity-80"><path d="M7 2h2v2h6V2h2v2h2a1 1 0 0 1 1 1v3H4V5a1 1 0 0 1 1-1h2V2zm-3 8h16v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9zm4 2v2h2v-2H8zm4 0v2h2v-2h-2z"/></svg>
@@ -100,7 +100,7 @@ export function QuickMenu({ className = '' }: { className?: string }) {
             href="mailto:admin@blackcubesolutions.com"
             className={cn(
               'flex items-center gap-3 px-3 py-2 rounded-xl text-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] mt-1',
-              theme === 'dark' ? 'text-stone-200 hover:bg-stone-800/50' : 'text-stone-800 hover:bg-white/60'
+              theme === 'dark' ? 'text-neutral-200 hover:bg-neutral-800/50' : 'text-stone-800 hover:bg-white/60'
             )}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="opacity-80"><path d="M20 4H4a2 2 0 0 0-2 2v.4l10 6.25L22 6.4V6a2 2 0 0 0-2-2zm0 5.2l-8 5-8-5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9.2z"/></svg>
@@ -115,7 +115,7 @@ export function QuickMenu({ className = '' }: { className?: string }) {
             }}
             className={cn(
               'w-full text-left flex items-center gap-3 px-3 py-2 rounded-xl text-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] mt-1',
-              theme === 'dark' ? 'text-stone-200 hover:bg-stone-800/50' : 'text-stone-800 hover:bg-white/60'
+              theme === 'dark' ? 'text-neutral-200 hover:bg-neutral-800/50' : 'text-stone-800 hover:bg-white/60'
             )}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="opacity-80"><path d="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14h13a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z"/></svg>
@@ -124,7 +124,7 @@ export function QuickMenu({ className = '' }: { className?: string }) {
 
           <div className={cn(
             'mt-2 px-3 py-2 rounded-xl text-[11px] uppercase tracking-wide transition-all duration-200',
-            theme === 'dark' ? 'text-stone-400 bg-stone-800/40' : 'text-stone-600 bg-white/60'
+            theme === 'dark' ? 'text-neutral-400 bg-neutral-800/40' : 'text-stone-600 bg-white/60'
           )}>
             Appearance: Follows System
           </div>

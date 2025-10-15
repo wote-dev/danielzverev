@@ -163,7 +163,7 @@ Emgloss relies on inner shadows to simulate depth within containers, rather than
       }`} style={{top: `calc(2rem + env(safe-area-inset-top))`}}>
         <div className={`px-4 py-2 font-sans text-xs font-medium rounded-full transition-all duration-300 hover:scale-105 cursor-pointer ${
           theme === 'dark'
-            ? 'bg-stone-900/40 text-stone-400 embossed-subtle-dark hover:bg-stone-900/60 hover:text-stone-300'
+            ? 'bg-black/40 text-neutral-400 embossed-subtle-dark hover:bg-black/60 hover:text-neutral-300'
             : 'bg-stone-50/40 text-stone-500 embossed-subtle-light hover:bg-stone-50/60 hover:text-stone-600'
         }`}>
           <span className="tracking-wide flex items-center gap-1.5">
@@ -188,14 +188,14 @@ Emgloss relies on inner shadows to simulate depth within containers, rather than
       }`} style={{top: `calc(2rem + env(safe-area-inset-top))`, left: `calc(1.5rem + env(safe-area-inset-left))`}}>
         <div className={`px-3 py-2 rounded-full transition-all duration-300 hover:scale-105 ${
           theme === 'dark'
-            ? 'bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
+            ? 'bg-black/40 embossed-subtle-dark hover:bg-black/60'
             : 'bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
         }`}>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
             <span className={`text-xs font-medium transition-colors duration-300 ${
               theme === 'dark' 
-                ? 'text-stone-400' 
+                ? 'text-neutral-400' 
                 : 'text-stone-500'
             }`}>
               Available
@@ -287,7 +287,7 @@ Emgloss relies on inner shadows to simulate depth within containers, rather than
                       : 'opacity-0 translate-y-1'
                   } ${
                     theme === 'dark'
-                      ? 'bg-stone-800/80 text-stone-200 shadow-lg border border-stone-700/30'
+                      ? 'bg-neutral-800/80 text-neutral-200 shadow-lg border border-neutral-700/30'
                       : 'bg-white/80 text-stone-700 shadow-lg border border-stone-200/30'
                   }`}
                 >
@@ -295,7 +295,7 @@ Emgloss relies on inner shadows to simulate depth within containers, rather than
                   {/* Arrow */}
                   <div
                     className={`absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-l-transparent border-r-transparent ${
-                      theme === 'dark' ? 'border-t-stone-800/80' : 'border-t-white/80'
+                      theme === 'dark' ? 'border-t-neutral-800/80' : 'border-t-white/80'
                     }`}
                   />
                 </div>
@@ -312,7 +312,7 @@ Emgloss relies on inner shadows to simulate depth within containers, rather than
                   onMouseLeave={() => setIsHoveringAvatar(false)}
                   className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 ${
                     theme === 'dark'
-                      ? 'ring-2 ring-stone-700/50 shadow-xl focus:ring-stone-500 focus:ring-offset-stone-900'
+                      ? 'ring-2 ring-neutral-700/50 shadow-xl focus:ring-neutral-500 focus:ring-offset-black'
                       : 'ring-2 ring-stone-200/50 shadow-lg focus:ring-stone-400 focus:ring-offset-stone-50'
                   }`}
                   aria-label="View bio"
@@ -336,7 +336,7 @@ Emgloss relies on inner shadows to simulate depth within containers, rather than
                     : 'opacity-0 translate-y-1'
                 } ${
                   theme === 'dark'
-                    ? 'bg-stone-800/80 text-stone-200 shadow-lg border border-stone-700/30'
+                    ? 'bg-neutral-800/80 text-neutral-200 shadow-lg border border-neutral-700/30'
                     : 'bg-white/80 text-stone-700 shadow-lg border border-stone-200/30'
                 }`}
               >
@@ -344,7 +344,7 @@ Emgloss relies on inner shadows to simulate depth within containers, rather than
                 {/* Arrow */}
                 <div
                   className={`absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[4px] border-r-[4px] border-t-[4px] border-l-transparent border-r-transparent ${
-                      theme === 'dark' ? 'border-t-stone-800/80' : 'border-t-white/80'
+                      theme === 'dark' ? 'border-t-neutral-800/80' : 'border-t-white/80'
                   }`}
                 />
               </div>
@@ -358,7 +358,7 @@ Emgloss relies on inner shadows to simulate depth within containers, rather than
                 onMouseLeave={() => setIsHoveringName(false)}
                 className={`text-5xl sm:text-6xl md:text-7xl font-sf-display-medium tracking-tight transition-all duration-300 hover:scale-105 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg px-2 py-1 ${
                   theme === 'dark' 
-                    ? 'text-stone-100 hover:text-stone-200 focus:ring-stone-500 focus:ring-offset-stone-900' 
+                    ? 'text-neutral-100 hover:text-neutral-200 focus:ring-neutral-500 focus:ring-offset-black' 
                     : 'text-stone-900 hover:text-stone-700 focus:ring-stone-400 focus:ring-offset-stone-50'
                 }`}
                 aria-label="View bio"
@@ -385,7 +385,7 @@ Emgloss relies on inner shadows to simulate depth within containers, rather than
               href="mailto:admin@blackcubesolutions.com" 
               className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 ${
                 theme === 'dark'
-                  ? 'bg-stone-100/90 text-stone-900 embossed-subtle-light hover:bg-white'
+                  ? 'bg-neutral-100/90 text-black embossed-subtle-light hover:bg-white'
                   : 'bg-stone-900/90 text-white embossed-subtle-dark hover:bg-stone-800'
               }`}
             >
@@ -398,7 +398,7 @@ Emgloss relies on inner shadows to simulate depth within containers, rather than
               rel="noopener noreferrer"
               className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 ${
                 theme === 'dark'
-                  ? 'text-stone-400 hover:text-stone-300 bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
+                  ? 'text-neutral-400 hover:text-neutral-300 bg-black/40 embossed-subtle-dark hover:bg-black/60'
                   : 'text-stone-500 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
               }`}
             >

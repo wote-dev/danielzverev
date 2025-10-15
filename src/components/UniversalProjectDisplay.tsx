@@ -67,7 +67,7 @@ const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ proje
         onClick={toggleMenu}
         className={`group relative px-4 py-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 hover:scale-105 ${
           theme === 'dark'
-            ? 'bg-stone-900/40 text-stone-400 embossed-subtle-dark hover:bg-stone-900/60 hover:text-stone-300 focus:ring-stone-500'
+            ? 'bg-black/40 text-neutral-400 embossed-subtle-dark hover:bg-black/60 hover:text-neutral-300 focus:ring-neutral-500'
             : 'bg-stone-50/40 text-stone-500 embossed-subtle-light hover:bg-stone-50/60 hover:text-stone-600 focus:ring-stone-400'
         }`}
         aria-label="View projects"
@@ -98,7 +98,7 @@ const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ proje
           {projects.length > 0 && (
             <span className={`px-1.5 py-0.5 text-xs rounded-full font-medium transition-all duration-300 ${
               theme === 'dark'
-                ? 'bg-stone-700/50 text-stone-300'
+                ? 'bg-neutral-700/50 text-neutral-300'
                 : 'bg-stone-200/50 text-stone-600'
             }`}>
               {projects.length}
@@ -119,26 +119,26 @@ const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ proje
         <div
           className={`min-w-[280px] max-w-sm rounded-2xl shadow-2xl overflow-hidden border ${
             theme === 'dark'
-              ? 'bg-stone-900/95 backdrop-blur-sm border-stone-700/50'
+              ? 'bg-black/95 backdrop-blur-sm border-neutral-700/50'
               : 'bg-white/95 backdrop-blur-sm border-stone-200/50'
           }`}
         >
           {/* Menu Header */}
           <div
             className={`px-4 py-3 border-b ${
-              theme === 'dark' ? 'border-stone-700/50' : 'border-stone-200/50'
+              theme === 'dark' ? 'border-neutral-700/50' : 'border-stone-200/50'
             }`}
           >
             <h3
               className={`text-sm font-medium ${
-                theme === 'dark' ? 'text-stone-200' : 'text-stone-700'
+                theme === 'dark' ? 'text-neutral-200' : 'text-stone-700'
               }`}
             >
               My Projects/Work
             </h3>
             <p
               className={`text-xs ${
-                theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+                theme === 'dark' ? 'text-neutral-400' : 'text-stone-500'
               }`}
             >
               Click to explore
@@ -149,11 +149,11 @@ const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ proje
           <div className="py-2">
             {projects.map((project, index) => {
               const baseClasses = `w-full px-4 py-3 flex items-center space-x-3 transition-all duration-200 ${
-                theme === 'dark' ? 'hover:bg-stone-900/60' : 'hover:bg-stone-50/60'
+                theme === 'dark' ? 'hover:bg-neutral-900/60' : 'hover:bg-stone-50/60'
               } ${
                 index !== projects.length - 1
                   ? theme === 'dark'
-                    ? 'border-b border-stone-700/30'
+                    ? 'border-b border-neutral-700/30'
                     : 'border-b border-stone-200/30'
                   : ''
               }`;
@@ -174,14 +174,14 @@ const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ proje
                   <div className="flex-1 text-left">
                     <h4
                       className={`text-sm font-medium ${
-                        theme === 'dark' ? 'text-stone-100' : 'text-stone-800'
+                        theme === 'dark' ? 'text-neutral-100' : 'text-stone-800'
                       }`}
                     >
                       {project.name}
                     </h4>
                     <p
                       className={`text-xs ${
-                        theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+                        theme === 'dark' ? 'text-neutral-400' : 'text-stone-500'
                       }`}
                     >
                       {project.description}
@@ -191,7 +191,7 @@ const UniversalProjectDisplay: React.FC<UniversalProjectDisplayProps> = ({ proje
                   {/* External Link Icon */}
                   <svg
                     className={`w-4 h-4 flex-shrink-0 ${
-                      theme === 'dark' ? 'text-stone-400' : 'text-stone-400'
+                      theme === 'dark' ? 'text-neutral-400' : 'text-stone-400'
                     }`}
                     fill="none"
                     stroke="currentColor"

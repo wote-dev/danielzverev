@@ -19,7 +19,7 @@ export function Skeleton({
   
   const baseClasses = `${
     theme === 'dark' 
-      ? 'bg-stone-700/50' 
+      ? 'bg-neutral-700/50' 
       : 'bg-stone-200/50'
   } ${animate ? 'animate-pulse' : ''}`;
   

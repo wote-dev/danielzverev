@@ -34,7 +34,7 @@ export function SocialLink({
     return (
       <div className={`p-2.5 rounded-full transition-all duration-300 ${
         theme === 'dark'
-          ? 'bg-stone-900/40 embossed-subtle-dark'
+          ? 'bg-black/40 embossed-subtle-dark'
           : 'bg-stone-50/40 embossed-subtle-light'
       }`}>
         <SkeletonIcon />
@@ -50,12 +50,12 @@ export function SocialLink({
       className={`
         p-2.5 rounded-full transition-all duration-300 transform
         ${theme === 'dark'
-          ? 'text-stone-500 hover:text-stone-300 bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
+          ? 'text-neutral-500 hover:text-neutral-300 bg-black/40 embossed-subtle-dark hover:bg-black/60'
           : 'text-stone-400 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
         }
         hover:scale-110
         focus:outline-none focus:ring-2 focus:ring-offset-2
-        ${theme === 'dark' ? 'focus:ring-stone-500' : 'focus:ring-stone-400'}
+        ${theme === 'dark' ? 'focus:ring-neutral-500' : 'focus:ring-stone-400'}
       `}
       aria-label={label}
     >

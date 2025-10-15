@@ -31,7 +31,7 @@ export const SimplrInline: React.FC<SimplrInlineProps> = ({ onClose }) => {
       <div 
         className={`relative w-full rounded-2xl p-4 transition-all duration-300 ${
           theme === 'dark'
-            ? 'bg-stone-900/80 border border-stone-700/50 backdrop-blur-sm'
+            ? 'bg-black/80 border border-neutral-700/50 backdrop-blur-sm'
             : 'bg-white/80 border border-stone-200/50 backdrop-blur-md'
         }`}
       >
@@ -40,7 +40,7 @@ export const SimplrInline: React.FC<SimplrInlineProps> = ({ onClose }) => {
           onClick={handleClose}
           className={`absolute top-3 right-3 p-1 rounded-full transition-all duration-200 hover:scale-110 ${
             theme === 'dark'
-              ? 'text-stone-400 hover:text-stone-300 bg-stone-900/40 border border-stone-800/50 hover:bg-stone-800/60'
+              ? 'text-neutral-400 hover:text-neutral-300 bg-black/40 border border-neutral-800/50 hover:bg-neutral-800/60'
               : 'text-stone-500 hover:text-stone-600 bg-stone-50/40 border border-stone-200/50 hover:bg-stone-100/60'
           }`}
           aria-label="Close"
@@ -67,7 +67,7 @@ export const SimplrInline: React.FC<SimplrInlineProps> = ({ onClose }) => {
           <div className="flex-1 space-y-2">
             <div className="flex items-center gap-2">
               <h3 className={`font-semibold text-sm transition-colors duration-300 ${
-                theme === 'dark' ? 'text-stone-100' : 'text-stone-900'
+                theme === 'dark' ? 'text-neutral-100' : 'text-stone-900'
               }`}>
                 Try Simplr
               </h3>
@@ -81,7 +81,7 @@ export const SimplrInline: React.FC<SimplrInlineProps> = ({ onClose }) => {
             </div>
             
             <p className={`text-xs leading-relaxed transition-colors duration-300 ${
-              theme === 'dark' ? 'text-stone-400' : 'text-stone-600'
+              theme === 'dark' ? 'text-neutral-400' : 'text-stone-600'
             }`}>
               A minimal to-do app that helps you focus on what matters most. Clean, simple, effective.
             </p>
@@ -94,7 +94,7 @@ export const SimplrInline: React.FC<SimplrInlineProps> = ({ onClose }) => {
                 rel="noopener noreferrer"
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-xs transition-all duration-300 hover:scale-105 transform shadow-sm ${
                    theme === 'dark'
-                     ? 'bg-stone-100/90 text-stone-900 hover:bg-white hover:shadow-md'
+                     ? 'bg-neutral-100/90 text-black hover:bg-white hover:shadow-md'
                      : 'bg-stone-900/90 text-white hover:bg-stone-800 hover:shadow-lg'
                  }`}
               >
@@ -108,7 +108,7 @@ export const SimplrInline: React.FC<SimplrInlineProps> = ({ onClose }) => {
                 onClick={handleClose}
                 className={`px-3 py-1.5 rounded-lg font-medium text-xs transition-all duration-300 hover:scale-105 transform border ${
                    theme === 'dark'
-                     ? 'text-stone-400 hover:text-stone-300 bg-stone-900/40 border-stone-700/50 hover:bg-stone-800/60 hover:border-stone-600'
+                     ? 'text-neutral-400 hover:text-neutral-300 bg-black/40 border-neutral-700/50 hover:bg-neutral-800/60 hover:border-neutral-600'
                      : 'text-stone-600 hover:text-stone-700 bg-stone-50/40 border-stone-200/50 hover:bg-stone-50/80 hover:border-stone-300'
                  }`}
               >

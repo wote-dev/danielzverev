@@ -36,7 +36,7 @@ export const SimplrPrompt: React.FC<SimplrPromptProps> = ({ onClose }) => {
       <div 
         className={`relative w-full max-w-2xl sm:max-w-sm mx-auto rounded-2xl p-4 transition-all duration-300 ${
           theme === 'dark'
-            ? 'bg-stone-900/95 border border-stone-700/50 shadow-2xl backdrop-blur-sm'
+            ? 'bg-black/95 border border-neutral-700/50 shadow-2xl backdrop-blur-sm'
             : 'bg-white/98 border border-stone-100 shadow-xl backdrop-blur-md ring-1 ring-stone-900/5'
         }`}
       >
@@ -45,7 +45,7 @@ export const SimplrPrompt: React.FC<SimplrPromptProps> = ({ onClose }) => {
           onClick={handleClose}
           className={`absolute top-3 right-3 p-1 rounded-full transition-all duration-200 hover:scale-110 ${
             theme === 'dark'
-              ? 'text-stone-400 hover:text-stone-300 hover:bg-stone-800'
+              ? 'text-neutral-400 hover:text-neutral-300 hover:bg-neutral-800'
               : 'text-stone-500 hover:text-stone-600 hover:bg-stone-100'
           }`}
           aria-label="Close"
@@ -72,7 +72,7 @@ export const SimplrPrompt: React.FC<SimplrPromptProps> = ({ onClose }) => {
           <div className="flex-1 space-y-2">
             <div className="flex items-center gap-2">
               <h3 className={`font-semibold text-sm transition-colors duration-300 ${
-                theme === 'dark' ? 'text-stone-100' : 'text-stone-900'
+                theme === 'dark' ? 'text-neutral-100' : 'text-stone-900'
               }`}>
                 Try Simplr
               </h3>
@@ -86,7 +86,7 @@ export const SimplrPrompt: React.FC<SimplrPromptProps> = ({ onClose }) => {
             </div>
             
             <p className={`text-xs leading-relaxed transition-colors duration-300 ${
-              theme === 'dark' ? 'text-stone-400' : 'text-stone-600'
+              theme === 'dark' ? 'text-neutral-400' : 'text-stone-600'
             }`}>
               A minimal to-do app that helps you focus on what matters most. Clean, simple, effective.
             </p>
@@ -99,7 +99,7 @@ export const SimplrPrompt: React.FC<SimplrPromptProps> = ({ onClose }) => {
                 rel="noopener noreferrer"
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-xs transition-all duration-300 hover:scale-105 transform shadow-sm ${
                    theme === 'dark'
-                     ? 'bg-stone-100 text-stone-900 hover:bg-white hover:shadow-md'
+                     ? 'bg-neutral-100 text-black hover:bg-white hover:shadow-md'
                      : 'bg-stone-900 text-white hover:bg-stone-800 hover:shadow-lg'
                  }`}
               >
@@ -113,7 +113,7 @@ export const SimplrPrompt: React.FC<SimplrPromptProps> = ({ onClose }) => {
                 onClick={handleClose}
                 className={`px-3 py-1.5 rounded-lg font-medium text-xs border transition-all duration-300 hover:scale-105 transform ${
                    theme === 'dark'
-                     ? 'border-stone-600 text-stone-400 hover:border-stone-500 hover:text-stone-300 hover:bg-stone-800/50'
+                     ? 'border-neutral-600 text-neutral-400 hover:border-neutral-500 hover:text-neutral-300 hover:bg-neutral-800/50'
                      : 'border-stone-200 text-stone-600 hover:border-stone-300 hover:text-stone-700 hover:bg-stone-50/80 hover:shadow-sm'
                  }`}
               >

@@ -80,7 +80,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             : 'opacity-0'
         } ${
           theme === 'dark'
-            ? 'bg-stone-900/85 backdrop-blur-md'
+            ? 'bg-black/85 backdrop-blur-md'
             : 'bg-stone-50/85 backdrop-blur-md'
         }`}
       />
@@ -96,7 +96,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
         <div 
           className={`relative w-full rounded-2xl sm:rounded-3xl p-4 sm:p-6 transition-all duration-400 max-h-[90vh] sm:max-h-[85vh] overflow-hidden ${
             theme === 'dark'
-              ? 'bg-stone-900/95 embossed-subtle-dark backdrop-blur-lg border border-stone-700/30'
+              ? 'bg-black/95 embossed-subtle-dark backdrop-blur-lg border border-neutral-700/30'
               : 'bg-stone-50/95 embossed-subtle-light backdrop-blur-lg border border-stone-200/30'
           }`}
         >
@@ -108,7 +108,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             }}
             className={`absolute top-4 right-4 sm:top-6 sm:right-6 p-2 sm:p-2.5 rounded-full transition-all duration-300 hover:scale-110 focus:scale-110 group z-50 pointer-events-auto ${
               theme === 'dark'
-                ? 'text-stone-400 hover:text-stone-200 embossed-subtle-dark hover:bg-stone-800/40'
+                ? 'text-neutral-400 hover:text-neutral-200 embossed-subtle-dark hover:bg-neutral-800/40'
                 : 'text-stone-500 hover:text-stone-700 embossed-subtle-light hover:bg-white/40'
             }`}
             aria-label="Close"
@@ -127,7 +127,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             <div className="flex justify-center mb-2 sm:mb-3">
               <div className={`relative w-14 h-14 sm:w-18 sm:h-18 rounded-full overflow-hidden transition-all duration-300 hover:scale-105 ${
                 theme === 'dark'
-                  ? 'ring-2 ring-stone-600/40 shadow-lg sm:shadow-xl embossed-subtle-dark'
+                  ? 'ring-2 ring-neutral-600/40 shadow-lg sm:shadow-xl embossed-subtle-dark'
                   : 'ring-2 ring-stone-300/40 shadow-md sm:shadow-lg embossed-subtle-light'
               }`}>
                 <img 
@@ -139,7 +139,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 {/* Subtle overlay for depth */}
                 <div className={`absolute inset-0 rounded-full ${
                   theme === 'dark'
-                    ? 'bg-gradient-to-br from-transparent via-transparent to-stone-900/20'
+                    ? 'bg-gradient-to-br from-transparent via-transparent to-black/20'
                     : 'bg-gradient-to-br from-transparent via-transparent to-stone-900/10'
                 }`} />
               </div>
@@ -148,7 +148,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             {/* Name with enhanced typography */}
             <h2 className={`text-xl sm:text-2xl md:text-3xl font-light tracking-wide mb-1.5 sm:mb-2 transition-all duration-300 ${
               theme === 'dark' 
-                ? 'text-stone-100 embossed-text-dark' 
+                ? 'text-neutral-100 embossed-text-dark' 
                 : 'text-stone-900 embossed-text-light'
             }`}>
               Daniel Zverev
@@ -157,7 +157,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             {/* Location badge */}
             <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all duration-300 ${
               theme === 'dark'
-                ? 'bg-stone-800/40 text-stone-400 embossed-subtle-dark'
+                ? 'bg-neutral-800/40 text-neutral-400 embossed-subtle-dark'
                 : 'bg-white/40 text-stone-600 embossed-subtle-light'
             }`}>
               <svg className="w-3 h-3 fill-red-500" viewBox="0 0 16 16">
@@ -173,7 +173,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
           }`}>
             {/* Introduction */}
             <div className={`text-sm leading-relaxed ${
-              theme === 'dark' ? 'text-stone-300' : 'text-stone-600'
+              theme === 'dark' ? 'text-neutral-300' : 'text-stone-600'
             }`}>
               <p className="mb-3">
                 Hey, I'm Daniel! I'm a self taught full-stack developer passionate about building beautifully designed projects for screens big and small.
@@ -194,7 +194,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             {/* Journey Timeline - Condensed */}
             <div>
               <h3 className={`text-sm font-semibold mb-3 tracking-wide uppercase ${
-                theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+                theme === 'dark' ? 'text-neutral-400' : 'text-stone-500'
               }`}>
                 Journey
               </h3>
@@ -206,18 +206,18 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 ].map((item, index) => (
                   <div key={index} className={`flex gap-4 text-sm`}>
                     <div className={`font-medium min-w-[60px] ${
-                      theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+                      theme === 'dark' ? 'text-neutral-400' : 'text-stone-500'
                     }`}>
                       {item.year}
                     </div>
                     <div className="flex-1">
                       <div className={`font-medium mb-0.5 ${
-                        theme === 'dark' ? 'text-stone-200' : 'text-stone-800'
+                        theme === 'dark' ? 'text-neutral-200' : 'text-stone-800'
                       }`}>
                         {item.title}
                       </div>
                       <div className={`text-xs ${
-                        theme === 'dark' ? 'text-stone-400' : 'text-stone-600'
+                        theme === 'dark' ? 'text-neutral-400' : 'text-stone-600'
                       }`}>
                         {item.description}
                       </div>
@@ -230,7 +230,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             {/* Skills - Inline Tags */}
             <div>
               <h3 className={`text-sm font-semibold mb-3 tracking-wide uppercase ${
-                theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+                theme === 'dark' ? 'text-neutral-400' : 'text-stone-500'
               }`}>
                 Skills
               </h3>
@@ -238,7 +238,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 {['React', 'TypeScript', 'Next.js', 'Tailwind', 'Swift', 'SwiftUI', 'Node.js', 'Supabase', 'Git', 'Figma', 'AWS', 'Cloudflare', 'Vercel', 'Google Cloud',].map((skill, index) => (
                   <span key={index} className={`text-xs sm:text-sm px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full font-medium transition-all duration-300 hover:scale-105 whitespace-nowrap ${
                     theme === 'dark'
-                      ? 'bg-stone-800/60 text-stone-300 embossed-subtle-dark hover:bg-stone-800/80'
+                      ? 'bg-neutral-800/60 text-neutral-300 embossed-subtle-dark hover:bg-neutral-800/80'
                       : 'bg-white/60 text-stone-700 embossed-subtle-light hover:bg-white/80'
                   }`}>
                     {skill}
@@ -250,7 +250,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             {/* Interests - Minimal */}
             <div>
               <h3 className={`text-sm font-semibold mb-3 tracking-wide uppercase ${
-                theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+                theme === 'dark' ? 'text-neutral-400' : 'text-stone-500'
               }`}>
                 Interests
               </h3>
@@ -264,7 +264,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 ].map((interest, index) => (
                   <span key={index} className={`text-xs sm:text-sm px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full font-medium transition-all duration-300 hover:scale-105 whitespace-nowrap ${
                     theme === 'dark'
-                      ? 'bg-stone-800/50 text-stone-300 embossed-subtle-dark hover:bg-stone-800/70'
+                      ? 'bg-neutral-800/50 text-neutral-300 embossed-subtle-dark hover:bg-neutral-800/70'
                       : 'bg-white/50 text-stone-700 embossed-subtle-light hover:bg-white/70'
                   }`}>
                     {interest.emoji} {interest.label}
@@ -276,16 +276,16 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             {/* Currently - Clean Card */}
             <div className={`p-4 rounded-xl ${
               theme === 'dark'
-                ? 'bg-stone-800/30 embossed-subtle-dark'
+                ? 'bg-neutral-800/30 embossed-subtle-dark'
                 : 'bg-white/30 embossed-subtle-light'
             }`}>
               <div className={`text-xs font-semibold mb-2 tracking-wide uppercase ${
-                theme === 'dark' ? 'text-stone-400' : 'text-stone-500'
+                theme === 'dark' ? 'text-neutral-400' : 'text-stone-500'
               }`}>
                 Currently
               </div>
               <div className={`text-sm leading-relaxed ${
-                theme === 'dark' ? 'text-stone-300' : 'text-stone-700'
+                theme === 'dark' ? 'text-neutral-300' : 'text-stone-700'
               }`}>
                 Building AI-powered tools for tennis coaches, and working on whatever comes to mind.
               </div>
@@ -297,7 +297,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
             animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           } ${
             theme === 'dark'
-              ? 'border-stone-700/50'
+              ? 'border-neutral-700/50'
               : 'border-stone-200/50'
           }`}>
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
@@ -305,7 +305,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 href="mailto:admin@blackcubesolutions.com"
                 className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 text-center ${
                   theme === 'dark'
-                    ? 'bg-stone-100/90 text-stone-900 embossed-subtle-light hover:bg-white'
+                    ? 'bg-neutral-100/90 text-black embossed-subtle-light hover:bg-white'
                     : 'bg-stone-900/90 text-white embossed-subtle-dark hover:bg-stone-800'
                 }`}
               >
@@ -317,7 +317,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                 rel="noopener noreferrer"
                 className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 text-center ${
                   theme === 'dark'
-                    ? 'text-stone-400 hover:text-stone-300 bg-stone-900/40 embossed-subtle-dark hover:bg-stone-900/60'
+                    ? 'text-neutral-400 hover:text-neutral-300 bg-black/40 embossed-subtle-dark hover:bg-black/60'
                     : 'text-stone-500 hover:text-stone-600 bg-stone-50/40 embossed-subtle-light hover:bg-stone-50/60'
                 }`}
               >

@@ -39,7 +39,7 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
       className={`fixed inset-0 z-50 flex items-center justify-center transition-all duration-300 ease-out ${
         isComplete ? 'opacity-0 pointer-events-none' : 'opacity-100'
       } ${
-        theme === 'dark' ? 'bg-stone-900' : 'bg-stone-50'
+        theme === 'dark' ? 'bg-black' : 'bg-stone-50'
       }`}
     >
       {/* 3-Dot Loader */}
@@ -51,7 +51,7 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
              key={i}
              className={`w-3 h-3 rounded-full ${
                theme === 'dark' 
-                 ? 'bg-stone-400' 
+                 ? 'bg-neutral-400' 
                  : 'bg-stone-600'
              }`}
              style={{
