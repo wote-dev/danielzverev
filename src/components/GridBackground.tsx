@@ -28,12 +28,12 @@ export const GridBackground: React.FC<GridBackgroundProps> = ({ className = '' }
           className="absolute inset-0 w-full h-full dark:block hidden"
           style={{
             backgroundImage: `
-              linear-gradient(to right, rgba(107, 114, 128, 0.15) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(107, 114, 128, 0.15) 1px, transparent 1px)
+              linear-gradient(to right, rgba(156, 163, 175, 0.3) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(156, 163, 175, 0.3) 1px, transparent 1px)
             `,
             backgroundSize: '50px 50px',
-            maskImage: 'radial-gradient(circle at center, rgba(0, 0, 0, 0.3) 0%, transparent 70%)',
-            WebkitMaskImage: 'radial-gradient(circle at center, rgba(0, 0, 0, 0.3) 0%, transparent 70%)',
+            maskImage: 'radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, transparent 70%)',
+            WebkitMaskImage: 'radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, transparent 70%)',
           }}
         />
         

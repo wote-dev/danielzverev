@@ -19,7 +19,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const root = document.documentElement;
     const body = document.body;
     
-    const darkColor = '#1c1917';
+    const darkColor = '#000000';
     const lightColor = '#fafaf9';
     const color = theme === 'dark' ? darkColor : lightColor;
 
