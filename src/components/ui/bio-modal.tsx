@@ -94,7 +94,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
         }`}
       >
         <div 
-          className={`relative w-full rounded-2xl sm:rounded-3xl p-4 sm:p-6 transition-all duration-400 max-h-[90vh] sm:max-h-[85vh] overflow-hidden ${
+          className={`relative w-full rounded-2xl sm:rounded-3xl p-4 sm:p-6 pb-6 sm:pb-7 transition-all duration-400 max-h-[92vh] sm:max-h-[88vh] overflow-y-auto modal-scroll ${
             theme === 'dark'
               ? 'bg-black/95 embossed-subtle-dark backdrop-blur-lg border border-neutral-700/30'
               : 'bg-stone-50/95 embossed-subtle-light backdrop-blur-lg border border-stone-200/30'
@@ -120,7 +120,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
           </button>
 
           {/* Header Section */}
-          <div className={`text-center mb-3 sm:mb-5 transition-all duration-500 ease-out ${
+          <div className={`text-center mb-6 sm:mb-7 transition-all duration-500 ease-out ${
             animationStage >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             {/* Enhanced Avatar */}
@@ -168,25 +168,25 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* Bio Content - Sleeker Layout */}
-          <div className={`transition-all duration-500 ease-out delay-200 max-h-[50vh] sm:max-h-[45vh] overflow-y-auto modal-scroll pr-1 sm:pr-2 space-y-4 sm:space-y-5 ${
+          <div className={`transition-all duration-500 ease-out delay-200 mt-2 sm:mt-3 pr-1 sm:pr-2 space-y-6 sm:space-y-7 ${
             animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             {/* Introduction */}
-            <div className={`text-sm leading-relaxed ${
-              theme === 'dark' ? 'text-neutral-300' : 'text-stone-600'
+            <div className={`text-[15px] sm:text-base leading-7 tracking-[0.01em] ${
+              theme === 'dark' ? 'text-neutral-300' : 'text-stone-700'
             }`}>
-              <p className="mb-3">
+              <p className="mb-4">
                 Hey, I'm Daniel! I'm a self taught full-stack developer passionate about building beautifully designed projects for screens big and small.
               </p>
-              <p className="mb-3">
+              <p className="mb-4">
                 Currently based in Melbourne, Australia, and available for freelance projects and full-time opportunities.
               </p>
               
-              <p>
+              <p className="mb-4">
                 I'm fully embracing the use of AI in development to become more efficient and productive, but also allow me to dabble more in UIUX concepts and interactions.
               </p>
               
-              <p>
+              <p className="mb-1">
                 Feel free to use the buttons below to get in touch or view my LinkedIn.
               </p>
             </div>
@@ -198,14 +198,14 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
               }`}>
                 Journey
               </h3>
-              <div className="space-y-2.5">
+              <div className="space-y-3">
                 {[
-                  { year: '2025', title: 'First iOS App Released', description: 'Launched Simplr on the App Store & continuing to freelance and improve my skills' },
-                  { year: '2024', title: 'Started Freelancing', description: 'Building custom web applications for clients' },
-                  { year: '2023', title: 'Learning to Code', description: 'Started with the basics of web development' },
+                  { year: '2025', title: 'First iOS App Released', description: 'Launched Simplr on the App Store and continuing to freelance and improve my skills.' },
+                  { year: '2024', title: 'Started Freelancing', description: 'Building custom web applications for clients.' },
+                  { year: '2023', title: 'Learning to Code', description: 'Started with the basics of web development.' },
                 ].map((item, index) => (
-                  <div key={index} className={`flex gap-4 text-sm`}>
-                    <div className={`font-medium min-w-[60px] ${
+                  <div key={index} className={`flex gap-4 items-start text-[13px] leading-6`}>
+                    <div className={`font-medium min-w-[56px] pt-0.5 ${
                       theme === 'dark' ? 'text-neutral-400' : 'text-stone-500'
                     }`}>
                       {item.year}
@@ -216,7 +216,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
                       }`}>
                         {item.title}
                       </div>
-                      <div className={`text-xs ${
+                      <div className={`${
                         theme === 'dark' ? 'text-neutral-400' : 'text-stone-600'
                       }`}>
                         {item.description}
@@ -284,7 +284,7 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
               }`}>
                 Currently
               </div>
-              <div className={`text-sm leading-relaxed ${
+              <div className={`text-[15px] leading-7 ${
                 theme === 'dark' ? 'text-neutral-300' : 'text-stone-700'
               }`}>
                 Building AI-powered tools for tennis coaches, and working on whatever comes to mind.
@@ -293,13 +293,13 @@ export const BioModal: React.FC<BioModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* Action Section - Outside scroll area */}
-          <div className={`mt-3 sm:mt-4 pt-3 sm:pt-4 border-t flex-shrink-0 transition-all duration-500 ease-out delay-400 ${
+          <div className={`sticky bottom-0 mt-3 sm:mt-4 pt-3 sm:pt-4 border-t flex-shrink-0 bg-transparent transition-all duration-500 ease-out delay-400 ${
             animationStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           } ${
             theme === 'dark'
-              ? 'border-neutral-700/50'
-              : 'border-stone-200/50'
-          }`}>
+              ? 'border-neutral-700/50 backdrop-blur-[1px]'
+              : 'border-stone-200/50 backdrop-blur-[1px]'
+          }`} style={{ paddingBottom: 'max(0.25rem, env(safe-area-inset-bottom))' }}>
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
               <a
                 href="mailto:admin@blackcubesolutions.com"

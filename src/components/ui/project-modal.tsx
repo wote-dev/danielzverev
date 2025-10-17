@@ -108,7 +108,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
   };
 
   const getStatusColor = (status: string) => {
-    const { theme } = useTheme();
     const baseClasses = theme === 'dark' ? 'embossed-subtle-dark' : 'embossed-subtle-light';
     
     switch (status) {
@@ -173,7 +172,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
         }`}
       >
         <div 
-          className={`relative w-full rounded-3xl p-8 transition-all duration-400 max-h-[90vh] overflow-y-auto modal-scroll ${
+          className={`relative w-full rounded-3xl p-6 sm:p-8 transition-all duration-400 max-h-[90vh] overflow-y-auto modal-scroll ${
             theme === 'dark'
               ? 'bg-black/95 embossed-subtle-dark backdrop-blur-lg border border-neutral-700/30'
               : 'bg-stone-50/95 embossed-subtle-light backdrop-blur-lg border border-stone-200/30'
@@ -204,7 +203,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
           }`}>
             {/* Project Icon */}
             <div className="flex justify-center mb-6">
-              <div className="relative w-24 h-24 overflow-hidden transition-all duration-300 hover:scale-105">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 overflow-hidden transition-all duration-300 hover:scale-105">
                 <img
                   src={project.icon}
                   alt={project.name}
@@ -220,15 +219,15 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
             </div>
 
             {/* Project Name & Status (status hidden for ZeddFlight) */}
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <h2 className={`text-4xl font-sf-display-medium tracking-tight transition-all duration-300 ${
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-4">
+              <h2 className={`text-3xl sm:text-4xl leading-tight text-center font-sf-display-medium tracking-tight transition-all duration-300 ${
                 theme === 'dark' 
                   ? 'text-neutral-100' 
                   : 'text-stone-900'
               }`}>
                 {project.name}
               </h2>
-              {project.name !== 'ZeddFlight' && project.name !== 'dev/dash' && project.name !== 'Cece Natalie' && (
+              {project.name !== 'ZeddFlight' && project.name !== 'dev/dash' && project.name !== 'Cece Natalie' && project.name !== 'UI Exploration' && (
                 <span className={`px-3 py-1.5 rounded-full text-xs font-medium border ${getStatusColor(project.status)}`}>
                   {project.status}
                 </span>
@@ -290,7 +289,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                   <img
                     src={project.media[selectedMediaIndex].src}
                     alt={project.media[selectedMediaIndex].alt}
-                    className="w-full h-full object-cover object-top"
+                    className={`w-full h-full object-cover ${
+                      project.media[selectedMediaIndex].src.includes('music.jpeg') ? 'object-center' : 'object-top'
+                    }`}
                   />
                 )}
               </div>
@@ -330,7 +331,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                         <img
                           src={media.src}
                           alt={media.alt}
-                          className="w-full h-full object-cover object-top"
+                          className={`w-full h-full object-cover ${
+                            media.src.includes('music.jpeg') ? 'object-center' : 'object-top'
+                          }`}
                         />
                       )}
                     </button>

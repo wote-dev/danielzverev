@@ -91,7 +91,7 @@ const HomePage: React.FC<HomePageProps> = ({ isVisible, suppressEntrance = false
       ]
     },
     {
-      name: "Emgloss Design Exploration",
+      name: "UI Exploration",
       description: "Exploration of the Emgloss design.",
       longDescription: `While 'Liquid Glass' is nice and all, the way it bends light and makes the UI feel 'alive', is it really worth all that extra processing power (additional battery consumption, more RAM usage, complex real time computations), for some cool reflections? Not so sure that's the trade off I'd like to make.
 
@@ -107,7 +107,7 @@ Emgloss relies on inner shadows to simulate depth within containers, rather than
         { name: "Figma", icon: "/figma.png" }
       ],
       media: [
-        { type: "image" as const, src: "/emgloss1.png", alt: "Emgloss design language exploration" },
+        { type: "image" as const, src: "/music.jpeg", alt: "Emgloss design language exploration" },
         { type: "image" as const, src: "/emgloss4.png", alt: "Emgloss interface concept" },
         { type: "image" as const, src: "/emgloss6.png", alt: "Emgloss component details" }
       ]
