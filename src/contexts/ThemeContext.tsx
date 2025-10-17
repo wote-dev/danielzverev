@@ -19,7 +19,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const root = document.documentElement;
     const body = document.body;
     
-    const darkColor = '#000000';
+    const darkColor = '#121212';
     const lightColor = '#fafaf9';
     const color = theme === 'dark' ? darkColor : lightColor;
 
@@ -80,7 +80,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     // More aggressive: briefly flip to the opposite color, then set to the target color next frame
     const flipSafariThemeColor = (finalCol: string) => {
-      const opposite = theme === 'dark' ? '#ffffff' : '#000000';
+      const opposite = theme === 'dark' ? '#ffffff' : '#121212';
       forceSafariThemeColorUpdate(opposite);
       requestAnimationFrame(() => {
         forceSafariThemeColorUpdate(finalCol);
