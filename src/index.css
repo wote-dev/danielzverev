@@ -18,12 +18,12 @@
 }
 
 .dark {
-  --color-background: #000000;
+  --color-background: #121212;
   --color-foreground: #fafaf9;
-  --color-muted: #000000;
+  --color-muted: #121212;
   --color-muted-foreground: #a3a3a3;
   --color-border: #262626;
-  --color-input: #000000;
+  --color-input: #121212;
 }
 
 * {
